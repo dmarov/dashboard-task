@@ -2,4 +2,45 @@
 
 :host {
     background: $color-secondary;
+    padding: 15px;
+
+    .side-menu {
+        &__title {
+            padding-left: 10px;
+        }
+
+        &__links {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: -5px;
+            margin-bottom: 0;
+        }
+
+        &__entry {
+            margin-top: 5px;
+            transition: color 0.3s linear;
+            transition: background 0.1s linear;
+
+            &--active {
+                color: $color-secondary;
+                background: $color-bright;
+            }
+
+            &:not(&--active) {
+                color: $color-text;
+            }
+        }
+
+        &__link {
+            padding: 10px;
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            &, &:link, &:visited {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+    }
 }
