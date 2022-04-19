@@ -8,5 +8,8 @@ import {
     declarations: [
         BreadcrumbsComponent,
     ],
+    exports: [
+        BreadcrumbsComponent,
+    ],
 })
 export class BreadcrumbsModule { }

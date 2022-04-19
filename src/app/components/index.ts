@@ -5,3 +5,4 @@ export * from './page-albums/page-albums.component';
 export * from './page-photos/page-photos.component';
 export * from './page-not-found/page-not-found.component';
 export * from './breadcrumbs/breadcrumbs.component';
+export * from './layout-page/layout-page.component';
