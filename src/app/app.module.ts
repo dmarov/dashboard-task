@@ -8,23 +8,16 @@ import { EffectsModule } from '@ngrx/effects';
 import * as UiReducers from './store/reducers/ui';
 import { RouterEffects } from "./store/effects";
 
-import {
-    PageAlbumsComponent,
-    PageNotFoundComponent, PagePhotosComponent,
-    PagePostsComponent, SideMenuComponent,
-} from './components';
+import { PageNotFoundComponent, SideMenuComponent } from './components';
 
-import { StoreBaseModule } from './modules';
+import { StoreBaseModule } from './modules/store-base.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 
 @NgModule({
     declarations: [
         AppComponent,
-        PageAlbumsComponent,
         PageNotFoundComponent,
-        PagePhotosComponent,
-        PagePostsComponent,
         SideMenuComponent,
     ],
     imports: [
