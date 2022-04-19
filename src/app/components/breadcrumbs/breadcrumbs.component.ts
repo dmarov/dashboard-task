@@ -1,12 +1,16 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-breadcrumbs',
     templateUrl: './breadcrumbs.component.html',
     styleUrls: ['./breadcrumbs.component.scss'],
 })
-export class BreadcrumbsComponent {
+export class BreadcrumbsComponent implements OnInit {
 
     @HostBinding('class.breadcrumbs')
     blockClass = true;
+
+    ngOnInit(): void {
+        console.log(window.location.pathname);
+    }
 }

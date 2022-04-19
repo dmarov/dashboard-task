@@ -1,9 +1,10 @@
 @import 'normalize.css';
 
-@import 'special/colors.scss';
-@import 'special/mixins.scss';
+@import 'special/colors';
+@import 'special/mixins';
 
-@import 'app-layout.scss';
+@import 'app-layout';
+@import 'page';
 
 html {
     height: 100%;
