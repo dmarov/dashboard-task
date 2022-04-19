@@ -1,6 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 
-import { Link } from '@/models';
+import { links } from '@/core';
 
 @Component({
     selector: 'app-side-menu',
@@ -12,10 +12,5 @@ export class SideMenuComponent {
     @HostBinding('class.side-menu')
     blockClass = true;
 
-    links: Link[] = [
-        new Link('/dashboard', 'Dashboard'),
-        new Link('/posts', 'Posts'),
-        new Link('/albums', 'Albums'),
-        new Link('/photos', 'Photos'),
-    ];
+    links = links;
 }

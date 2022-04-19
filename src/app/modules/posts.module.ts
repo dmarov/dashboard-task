@@ -4,6 +4,7 @@ import {
     PagePostsComponent,
 } from '@/components';
 import { RouterModule, Routes } from '@angular/router';
+import { BreadcrumbsModule } from '@/modules/breadcrumbs.module';
 
 const routes: Routes = [
     { path: '', component: PagePostsComponent },
@@ -13,6 +14,9 @@ const routes: Routes = [
     declarations: [
         PagePostsComponent,
     ],
-    imports: [RouterModule.forChild(routes)],
+    imports: [
+        RouterModule.forChild(routes),
+        BreadcrumbsModule,
+    ],
 })
 export class PostsModule { }
