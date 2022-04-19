@@ -9,7 +9,7 @@ import * as UiReducers from './store/reducers/ui';
 import { RouterEffects } from "./store/effects";
 
 import {
-    PageAlbumsComponent, PageDashboardComponent,
+    PageAlbumsComponent,
     PageNotFoundComponent, PagePhotosComponent,
     PagePostsComponent, SideMenuComponent,
 } from './components';
@@ -22,7 +22,6 @@ import { environment } from '../environments/environment';
     declarations: [
         AppComponent,
         PageAlbumsComponent,
-        PageDashboardComponent,
         PageNotFoundComponent,
         PagePhotosComponent,
         PagePostsComponent,
