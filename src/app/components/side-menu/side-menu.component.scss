@@ -23,7 +23,7 @@
 
             &--active {
                 color: $color-secondary;
-                background: $color-bright;
+                background: $color-active;
             }
 
             &:not(&--active) {

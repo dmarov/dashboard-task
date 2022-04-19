@@ -1,5 +1,22 @@
 .main-banner {
-    padding: 40px 100px;
-    background: $color-extra;
+    padding: 20px;
+    background: $color-contrast;
     color: $color-primary;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 200px;
+
+    &__pre-title {
+        padding-left: 20px;
+        margin: 0;
+        font-size: 25px;
+    }
+
+    &__title {
+        padding-left: 20px;
+        margin: 13px 0 0 0;
+        font-size: 40px;
+    }
 }
