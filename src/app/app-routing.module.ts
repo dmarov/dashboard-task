@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {
     PageAlbumsComponent, PageDashboardComponent,
     PageNotFoundComponent, PagePhotosComponent,
-    PagePostsComponent, SideMenuComponent,
+    PagePostsComponent,
 } from './components';
 
 const routes: Routes = [

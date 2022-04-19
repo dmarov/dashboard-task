@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
     selector: 'app-side-menu',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
     styleUrls: ['./side-menu.component.scss'],
 })
 export class SideMenuComponent {
+
+    @HostBinding('class.side-menu')
+    blockClass = true;
 
 }
