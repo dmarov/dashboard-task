@@ -8,5 +8,6 @@ import { Component, HostBinding } from '@angular/core';
 export class PageDashboardComponent {
 
     @HostBinding('class.page')
+    @HostBinding('class.page-dashboard')
     pageClass = true;
 }
