@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
     selector: 'app-page-not-found',
@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class PageNotFoundComponent {
 
+    @HostBinding('class.page')
+    pageClass = true;
 }

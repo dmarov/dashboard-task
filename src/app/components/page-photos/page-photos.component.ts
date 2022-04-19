@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
     selector: 'app-page-photos',
@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class PagePhotosComponent {
 
+    @HostBinding('class.page')
+    pageClass = true;
 }
