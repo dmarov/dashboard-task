@@ -11,6 +11,6 @@ export class BreadcrumbsComponent implements OnInit {
     blockClass = true;
 
     ngOnInit(): void {
-        console.log(window.location.pathname);
+        const path = window.location.pathname;
     }
 }
