@@ -1,6 +1,23 @@
 <div class="page__content">
     <app-layout-page>
         <ng-container title>Posts</ng-container>
-        Posts page will be here
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Title</th>
+                    <th>Content</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let post of posts$ | async">
+                    <td>{{ post.id }}</td>
+                    <td>User {{ post.userId }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.body }}</td>
+                </tr>
+            </tbody>
+        </table>
     </app-layout-page>
 </div>

@@ -1,6 +1,9 @@
-import {PostsActions} from '@/store/actions';
+import { PostsActions } from '@/store/actions';
 import { Component, HostBinding, OnInit } from '@angular/core';
-import {Store} from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { ApiPost } from "@/models";
+import { PostsSelectors } from "@/store/selectors";
 
 @Component({
     selector: 'app-page-posts',
@@ -12,11 +15,17 @@ export class PagePostsComponent implements OnInit {
     @HostBinding('class.page')
     pageClass = true;
 
+    posts$: Observable<ApiPost[]>;
+
     constructor(
         private readonly store$: Store,
     ) { }
 
     ngOnInit(): void {
         this.store$.dispatch(PostsActions.loadPosts());
+
+        this.posts$ = this.store$.pipe(
+            select(PostsSelectors.selectCurrentPostsPage)
+        );
     }
 }

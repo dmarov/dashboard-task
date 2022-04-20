@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { CommonModule } from '@angular/common';
 import {
     PagePostsComponent,
 } from '@/components';
@@ -21,6 +21,7 @@ const routes: Routes = [
         PagePostsComponent,
     ],
     imports: [
+        CommonModule,
         RouterModule.forChild(routes),
         LayoutPageModule,
         StoreModule.forFeature(PostsReducers.featureKey, PostsReducers.reducer),
