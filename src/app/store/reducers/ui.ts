@@ -7,7 +7,7 @@ export class State {
     detailedMenuVisible: boolean;
 }
 
-export const initialState = {
+export const initialState: State = {
     detailedMenuVisible: false,
 };
 
