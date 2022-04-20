@@ -5,6 +5,7 @@ import {
 } from '@/components';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutPageModule } from '@/modules/layout-page.module';
+import { PostsService } from '@/services';
 
 const routes: Routes = [
     { path: '', component: PagePostsComponent },
@@ -18,5 +19,8 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         LayoutPageModule,
     ],
+    providers: [
+        PostsService,
+    ]
 })
 export class PostsModule { }

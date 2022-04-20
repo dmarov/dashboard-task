@@ -8,7 +8,7 @@ import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/route
 })
 export class AppComponent {
 
-    moduleLoading: boolean;
+    moduleLoading = false;
 
     constructor(
         private router: Router,
