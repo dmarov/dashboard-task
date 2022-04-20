@@ -1,0 +1,27 @@
+@import 'special/colors';
+
+:host {
+    max-width: 100%;
+
+    .posts-table {
+        tbody {
+            max-width: 100%;
+        }
+
+        &, & th, & td {
+            padding: 5px;
+            border: 1px solid $color-secondary;
+            border-collapse: collapse;
+        }
+
+        & th, & td {
+            max-width: 100px;
+            white-space: nowrap;
+        }
+
+        &__cell-content {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

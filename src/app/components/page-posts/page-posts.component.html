@@ -4,7 +4,13 @@
         <div class="page-posts__content">
             <div *ngIf="!(isLoading$ | async)"
                 class="page-posts__data">
-                <table>
+                <table class="posts-table">
+                    <colgroup>
+                        <col class="posts-table__col-id">
+                        <col class="posts-table__col-user">
+                        <col class="posts-table__col-title">
+                        <col class="posts-table__col-content">
+                    </colgroup>
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -15,10 +21,10 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let post of posts$ | async">
-                            <td>{{ post.id }}</td>
-                            <td>User {{ post.userId }}</td>
-                            <td>{{ post.title }}</td>
-                            <td>{{ post.body }}</td>
+                            <td class="posts-table__cell-id">{{ post.id }}</td>
+                            <td class="posts-table__cell-id">User {{ post.userId }}</td>
+                            <td class="posts-table__cell-title">{{ post.title }}</td>
+                            <td class="posts-table__cell-content">{{ post.body }}</td>
                         </tr>
                     </tbody>
                 </table>
