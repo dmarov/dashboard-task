@@ -13,9 +13,12 @@ import { PostsSelectors } from "@/store/selectors";
 export class PagePostsComponent implements OnInit {
 
     @HostBinding('class.page')
+    @HostBinding('class.page-posts')
     pageClass = true;
 
     posts$: Observable<ApiPost[]>;
+
+    isLoading$: Observable<boolean>;
 
     constructor(
         private readonly store$: Store,
@@ -26,6 +29,10 @@ export class PagePostsComponent implements OnInit {
 
         this.posts$ = this.store$.pipe(
             select(PostsSelectors.selectCurrentPostsPage)
+        );
+
+        this.isLoading$ = this.store$.pipe(
+            select(PostsSelectors.selectIsLoading)
         );
     }
 }

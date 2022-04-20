@@ -1,0 +1,15 @@
+:host {
+
+    .page-posts {
+        &__content {
+            position: relative;
+        }
+
+        &__loader-overlay {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

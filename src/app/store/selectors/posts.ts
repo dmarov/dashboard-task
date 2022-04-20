@@ -9,3 +9,7 @@ export const selectCurrentPostsPage = createSelector(
     selectState, (state: State) =>
         state.posts.slice(state.itemsPerPage * state.currentPage, state.itemsPerPage)
 );
+
+export const selectIsLoading = createSelector(
+    selectState, (state: State) => state.isLoading,
+);

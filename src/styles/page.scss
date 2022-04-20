@@ -1,5 +1,11 @@
 .page {
+    display: flex;
+    flex-direction: column;
+
     &__content {
+        flex-grow: 1;
         padding: 10px 80px;
+        display: flex;
+        flex-direction: column;
     }
 }
