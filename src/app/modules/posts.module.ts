@@ -11,6 +11,7 @@ import { StoreModule } from '@ngrx/store';
 import * as PostsReducers from '@/store/reducers/posts';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from "@/store/effects";
+import { LoaderModule } from "@/modules/loader.module";
 
 const routes: Routes = [
     { path: '', component: PagePostsComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
         PagePostsComponent,
     ],
     imports: [
+        LoaderModule,
         CommonModule,
         RouterModule.forChild(routes),
         LayoutPageModule,
