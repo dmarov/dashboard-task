@@ -24,7 +24,7 @@ export const reducer = createReducer(
         (state) => ({ ...state, isLoading: true })
     ),
     on(PostsActions.loadPostsSuccess,
-        (state, { posts }) => ({ ...state, posts, isLoading: true })
+        (state, { posts }) => ({ ...state, posts, isLoading: false })
     ),
     on(PostsActions.loadPostsError,
         (state) => ({ ...state, isLoading: false })

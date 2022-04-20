@@ -13,6 +13,7 @@ import { PageNotFoundComponent, SideMenuComponent } from './components';
 import { StoreBaseModule } from './modules/store-base.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { LoaderModule } from '@/modules/loader.module';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { environment } from '../environments/environment';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
+        LoaderModule,
         AppRoutingModule,
         StoreBaseModule,
         StoreModule.forFeature(UiReducers.featureKey, UiReducers.reducer),
