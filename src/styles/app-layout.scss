@@ -25,6 +25,7 @@
         flex-grow: 1;
         display: flex;
         flex-direction: column;
+        position: relative;
 
         & > * {
             flex-grow: 1;
@@ -33,5 +34,14 @@
 
     &__router-outlet {
         display: none;
+    }
+
+    &__loader-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $color-primary;
     }
 }

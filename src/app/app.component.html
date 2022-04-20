@@ -6,5 +6,9 @@
         <router-outlet
             class="app-layout__router-outlet">
         </router-outlet>
+        <div *ngIf="moduleLoading"
+            class="app-layout__loader-overlay">
+            <div class="loader"></div>
+        </div>
     </div>
 </main>
