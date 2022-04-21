@@ -28,10 +28,14 @@
                                     {{ post.id }}
                                 </td>
                                 <td class="posts-table__cell posts-table__cell--user">
-                                    User {{ post.userId }}
+                                    <a [routerLink]="['/users/' + post.userId]">
+                                        User {{ post.userId }}
+                                    </a>
                                 </td>
                                 <td class="posts-table__cell posts-table__cell--title">
-                                    {{ post.title }}
+                                    <a [routerLink]="['/posts/' + post.id]">
+                                        {{ post.title }}
+                                    </a>
                                 </td>
                                 <td class="posts-table__cell posts-table__cell--content">
                                     {{ post.body }}

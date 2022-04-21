@@ -8,5 +8,6 @@ import { Component, HostBinding } from '@angular/core';
 export class PageNotFoundComponent {
 
     @HostBinding('class.page')
+    @HostBinding('class.page-not-found')
     pageClass = true;
 }
