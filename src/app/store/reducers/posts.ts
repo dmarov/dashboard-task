@@ -19,7 +19,7 @@ export const initialState: State = {
     activePage: 0,
     posts: [],
     searchTerm: "",
-    searchField: PostsSearchFieldType.Id,
+    searchField: PostsSearchFieldType.User,
 };
 
 export const reducer = createReducer(
