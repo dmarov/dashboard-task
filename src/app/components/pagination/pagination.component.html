@@ -1,0 +1,27 @@
+<div class="pagination__item" (click)="goPrev()">
+    Previuos
+</div>
+
+<div class="pagination__item" (click)="go(0)">
+    1
+</div>
+
+<div class="pagination__item" *ngIf="activePage - radius > 1 + 2">
+    ...
+</div>
+
+<div class="pagination__item" *ngFor="let index of range" (click)="go(index)">
+    {{ index }}
+</div>
+
+<div class="pagination__item" *ngIf="activePage + radius < totalPages - 2">
+    ...
+</div>
+
+<div class="pagination__item" (click)="go(totalPages - 1)">
+    {{ totalPages }}
+</div>
+
+<div class="pagination__item" (click)="goNext()">
+    Next
+</div>

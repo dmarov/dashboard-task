@@ -5,6 +5,7 @@ import {
 } from '@/components';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutPageModule } from '@/modules/layout-page.module';
+import { PaginationModule } from '@/modules/pagination.module';
 
 const routes: Routes = [
     { path: '', component: PagePhotosComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
     imports: [
         RouterModule.forChild(routes),
         LayoutPageModule,
+        PaginationModule,
     ],
 })
 export class PhotosModule { }
