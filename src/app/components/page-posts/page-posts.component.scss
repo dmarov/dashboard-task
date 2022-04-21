@@ -2,6 +2,15 @@
 
 :host {
     .page-posts {
+        &__data {
+            display: flex;
+        }
+
+        &__table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
         &__content {
             position: relative;
             min-height: 150px;

@@ -4,24 +4,38 @@
     max-width: 100%;
 
     .posts-table {
-        tbody {
-            max-width: 100%;
+        overflow-x: auto;
+        min-width: 100%;
+
+        &__body {
         }
 
-        &, & th, & td {
-            padding: 5px;
+        &, &__cell {
             border: 1px solid $color-secondary;
             border-collapse: collapse;
         }
 
-        & th, & td {
-            max-width: 100px;
+        &__cell {
+            padding: 5px 10px;
             white-space: nowrap;
         }
 
-        &__cell-content {
+        &__cell--id {
+        }
+
+        &__cell--user {
+        }
+
+        &__cell--title {
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        &__cell--content {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 40px;
         }
     }
 }
