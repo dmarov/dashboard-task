@@ -1,7 +1,12 @@
 @import '../../../styles/special/colors';
 
 :host {
-    .pagination {
+    display: flex;
 
+    .pagination {
+        &__item {
+            padding: 10px;
+            cursor: pointer;
+        }
     }
 }

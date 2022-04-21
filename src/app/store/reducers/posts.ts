@@ -29,4 +29,7 @@ export const reducer = createReducer(
     on(PostsActions.loadPostsError,
         (state) => ({ ...state, isLoading: false })
     ),
+    on(PostsActions.setActivePage,
+        (state, action) => ({ ...state, activePage: action.page })
+    ),
 );

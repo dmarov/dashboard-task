@@ -14,3 +14,8 @@ export const loadPostsError = createAction(
     '[Posts] loadPostsError',
     props<{ error: Error}>(),
 );
+
+export const setActivePage = createAction(
+    '[Posts] setActivePage',
+    props<{ page: number }>(),
+);

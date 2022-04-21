@@ -6,8 +6,10 @@ export const selectState = createFeatureSelector<State>(
 );
 
 export const selectCurrentPagePosts = createSelector(
-    selectState, (state: State) =>
-        state.posts.slice(state.itemsPerPage * state.activePage, state.itemsPerPage)
+    selectState, (state: State) => state.posts.slice(
+        state.itemsPerPage * state.activePage,
+        state.itemsPerPage * (state.activePage + 1)
+    )
 );
 
 export const selectIsLoading = createSelector(
