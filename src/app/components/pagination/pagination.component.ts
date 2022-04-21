@@ -23,33 +23,33 @@ export class PaginationComponent {
     onGo = new EventEmitter<number>();
 
     get range() {
-        let from = Math.max(1, this.activePage - this.radius);
-        let to = Math.min(this.totalPages, this.activePage + this.radius);
+        let fromPage = Math.max(1, this.activePage - this.radius);
+        let toPage = Math.min(this.totalPages, this.activePage + this.radius);
 
-        if (from == 1) {
-            ++from;
+        if (fromPage === 1) {
+            ++fromPage;
         }
 
-        if (to == this.totalPages) {
-            --to;
+        if (toPage == this.totalPages) {
+            --toPage;
         }
 
-        if (from > to) {
+        if (fromPage > toPage) {
             return [];
         }
 
-        if (from == 3) {
-            --from;
+        if (fromPage === 3) {
+            --fromPage;
         }
 
-        if (to == this.totalPages - 2) {
-            ++to;
+        if (toPage == this.totalPages - 2) {
+            ++toPage;
         }
 
-        const length = to - from + 1;
+        const length = toPage - fromPage+ 1;
 
         const res = Array.from({length: length}, (_v, k) => {
-            return k + from;
+            return k + fromPage;
         });
 
         return res;

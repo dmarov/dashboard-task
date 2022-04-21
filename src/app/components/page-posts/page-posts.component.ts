@@ -20,6 +20,9 @@ export class PagePostsComponent implements OnInit {
 
     isLoading$: Observable<boolean>;
 
+    totalPages$: Observable<number>;
+    activePage$: Observable<number>;
+
     constructor(
         private readonly store$: Store,
     ) { }
@@ -28,11 +31,23 @@ export class PagePostsComponent implements OnInit {
         this.store$.dispatch(PostsActions.loadPosts());
 
         this.posts$ = this.store$.pipe(
-            select(PostsSelectors.selectCurrentPostsPage)
+            select(PostsSelectors.selectCurrentPagePosts)
         );
 
         this.isLoading$ = this.store$.pipe(
             select(PostsSelectors.selectIsLoading)
         );
+
+        this.totalPages$ = this.store$.pipe(
+            select(PostsSelectors.selectTotalPages)
+        );
+
+        this.activePage$ = this.store$.pipe(
+            select(PostsSelectors.selectActivePage)
+        );
+    }
+
+    go(page: number) {
+
     }
 }

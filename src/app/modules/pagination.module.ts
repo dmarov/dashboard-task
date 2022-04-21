@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common'
 
 import {
     PaginationComponent,
@@ -8,5 +9,11 @@ import {
     declarations: [
         PaginationComponent,
     ],
+    imports: [
+        CommonModule,
+    ],
+    exports: [
+        PaginationComponent,
+    ]
 })
 export class PaginationModule { }

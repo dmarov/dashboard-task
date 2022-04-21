@@ -7,14 +7,14 @@ export const featureKey = 'posts';
 export class State {
     isLoading: boolean;
     itemsPerPage: number;
-    currentPage: number;
+    activePage: number;
     posts: ApiPost[];
 }
 
 export const initialState: State = {
     isLoading: false,
     itemsPerPage: 5,
-    currentPage: 0,
+    activePage: 0,
     posts: [],
 };
 

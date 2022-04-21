@@ -12,6 +12,7 @@ import * as PostsReducers from '@/store/reducers/posts';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from "@/store/effects";
 import { LoaderModule } from "@/modules/loader.module";
+import { PaginationModule } from '@/modules/pagination.module';
 
 const routes: Routes = [
     { path: '', component: PagePostsComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
         StoreModule.forFeature(PostsReducers.featureKey, PostsReducers.reducer),
         EffectsModule.forFeature([ PostsEffects ]),
         HttpClientModule,
+        PaginationModule,
     ],
     providers: [
         PostsService,
