@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import {
+    PagePostComponent,
     PagePostsComponent,
 } from '@/components';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,11 +17,13 @@ import { PaginationModule } from '@/modules/pagination.module';
 
 const routes: Routes = [
     { path: '', component: PagePostsComponent },
+    { path: ':id', component: PagePostComponent },
 ];
 
 @NgModule({
     declarations: [
         PagePostsComponent,
+        PagePostComponent,
     ],
     imports: [
         LoaderModule,

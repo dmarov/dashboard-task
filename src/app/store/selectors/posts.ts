@@ -23,3 +23,8 @@ export const selectTotalPages = createSelector(
 export const selectActivePage = createSelector(
     selectState, (state: State) => state.activePage
 );
+
+export const selectPostById = createSelector(
+    selectState, (state: State, params: {id : number}) =>
+        state.posts.find(p => p.id === params.id)
+);
