@@ -31,15 +31,10 @@ export class PagePostsComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-
-        const url = new URL(window.location.href);
-        const page = url.searchParams.get('page');
-
-        if (page !== undefined) {
-            this.store$.dispatch(
-                PostsActions.setActivePage({ page: parseInt(page) })
-            );
-        }
+        // const url = new URL(window.location.href);
+        // const pageStr = url.searchParams.get('page');
+        // console.log(pageStr);
+        // const page = pageStr !== null ? parseInt(pageStr) : 0;
 
         this.store$.dispatch(PostsActions.loadPosts());
 
@@ -62,13 +57,11 @@ export class PagePostsComponent implements OnInit {
 
     go(page: number) {
         this.store$.dispatch(PostsActions.setActivePage({ page }));
-        const url = new URL(window.location.href);
-        this.router.navigate(
-            [],
-            {
-              relativeTo: this.activatedRoute,
-              queryParams: { ...url.searchParams, page },
-              queryParamsHandling: 'merge', // remove to replace all query params by provided
-            });
+        // const url = new URL(window.location.href);
+        // this.router.navigate([], {
+        //     relativeTo: this.activatedRoute,
+        //     queryParams: { ...url.searchParams, page },
+        //     queryParamsHandling: 'merge',
+        // });
     }
 }

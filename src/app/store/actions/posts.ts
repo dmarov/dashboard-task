@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ApiPost } from '@/models';
+import { ApiPost, PostsSearchFieldType } from '@/models';
 
 export const loadPosts = createAction(
     '[Posts] loadPosts',
@@ -18,4 +18,14 @@ export const loadPostsError = createAction(
 export const setActivePage = createAction(
     '[Posts] setActivePage',
     props<{ page: number }>(),
+);
+
+export const setSearchTerm = createAction(
+    '[Posts] setSearchTerm',
+    props<{ term: string }>(),
+);
+
+export const setSearchFieldType = createAction(
+    '[Posts] setSearchFieldType',
+    props<{ searchType: PostsSearchFieldType }>(),
 );

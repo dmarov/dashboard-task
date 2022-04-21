@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { PostsActions } from "../actions";
-import { ApiPost } from "@/models"
+import { ApiPost, PostsSearchFieldType } from "@/models"
 
 export const featureKey = 'posts';
 
@@ -9,6 +9,8 @@ export class State {
     itemsPerPage: number;
     activePage: number;
     posts: ApiPost[];
+    searchTerm: string;
+    searchField: PostsSearchFieldType;
 }
 
 export const initialState: State = {
@@ -16,6 +18,8 @@ export const initialState: State = {
     itemsPerPage: 5,
     activePage: 0,
     posts: [],
+    searchTerm: "",
+    searchField: PostsSearchFieldType.Id,
 };
 
 export const reducer = createReducer(
@@ -31,5 +35,11 @@ export const reducer = createReducer(
     ),
     on(PostsActions.setActivePage,
         (state, action) => ({ ...state, activePage: action.page })
+    ),
+    on(PostsActions.setSearchTerm,
+        (state, action) => ({ ...state, searchTerm: action.term })
+    ),
+    on(PostsActions.setSearchFieldType,
+        (state, action) => ({ ...state, searchField: action.searchType })
     ),
 );
