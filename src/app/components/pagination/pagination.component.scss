@@ -2,11 +2,25 @@
 
 :host {
     display: flex;
+    user-select: none;
 
     .pagination {
+        &__list {
+            margin: -3px;
+            list-style-type: none;
+            display: flex;
+        }
+
         &__item {
+            margin: 3px;
+            background: $color-secondary;
             padding: 10px;
             cursor: pointer;
+
+            &--active {
+                background: $color-active;
+                color: $color-primary;
+            }
         }
     }
 }
