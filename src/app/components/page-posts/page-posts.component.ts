@@ -48,6 +48,6 @@ export class PagePostsComponent implements OnInit {
     }
 
     go(page: number) {
-
+        console.log(page);
     }
 }

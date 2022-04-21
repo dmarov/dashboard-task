@@ -49,7 +49,7 @@ export class PaginationComponent {
         const length = toPage - fromPage+ 1;
 
         const res = Array.from({length: length}, (_v, k) => {
-            return k + fromPage;
+            return k + fromPage - 1;
         });
 
         return res;
