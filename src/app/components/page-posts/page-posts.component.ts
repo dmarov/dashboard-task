@@ -4,6 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ApiPost } from "@/models";
 import { PostsSelectors } from "@/store/selectors";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-page-posts',
@@ -25,9 +26,21 @@ export class PagePostsComponent implements OnInit {
 
     constructor(
         private readonly store$: Store,
+        private readonly router: Router,
+        private readonly activatedRoute: ActivatedRoute,
     ) { }
 
     ngOnInit(): void {
+
+        const url = new URL(window.location.href);
+        const page = url.searchParams.get('page');
+
+        if (page !== undefined) {
+            this.store$.dispatch(
+                PostsActions.setActivePage({ page: parseInt(page) })
+            );
+        }
+
         this.store$.dispatch(PostsActions.loadPosts());
 
         this.posts$ = this.store$.pipe(
@@ -49,5 +62,13 @@ export class PagePostsComponent implements OnInit {
 
     go(page: number) {
         this.store$.dispatch(PostsActions.setActivePage({ page }));
+        const url = new URL(window.location.href);
+        this.router.navigate(
+            [],
+            {
+              relativeTo: this.activatedRoute,
+              queryParams: { ...url.searchParams, page },
+              queryParamsHandling: 'merge', // remove to replace all query params by provided
+            });
     }
 }

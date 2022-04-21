@@ -64,6 +64,6 @@ export class PaginationComponent {
     }
 
     goNext() {
-        this.go(Math.min(this.totalPages, this.activePage + 1));
+        this.go(Math.min(this.totalPages - 1, this.activePage + 1));
     }
 }
