@@ -42,14 +42,14 @@ export class PaginationComponent {
             --fromPage;
         }
 
-        if (toPage == this.totalPages - 2) {
+        if (toPage === this.totalPages - 2) {
             ++toPage;
         }
 
-        const length = toPage - fromPage+ 1;
+        const length = toPage - fromPage + 1;
 
         const res = Array.from({length: length}, (_v, k) => {
-            return k + fromPage - 1;
+            return k + fromPage;
         });
 
         return res;
