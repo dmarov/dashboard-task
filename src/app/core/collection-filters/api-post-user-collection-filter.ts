@@ -3,9 +3,11 @@ import { ApiPostCollectionFilter } from ".";
 
 export class ApiPostUserCollectionFilter implements ApiPostCollectionFilter {
 
-    constructor(
-        private readonly id: number,
-    ) { }
+    id: number;
+
+    constructor(term: string) {
+        this.id = parseInt(term);
+    }
 
     matches(entry: ApiPost): boolean {
         return entry.userId === this.id

@@ -19,7 +19,7 @@ export const selectFilteredPosts = createSelector(
 
         if (state.searchTerm.length > 0) {
             if (state.searchField === PostsSearchFieldType.User) {
-                filter = new ApiPostUserCollectionFilter(parseInt(state.searchTerm));
+                filter = new ApiPostUserCollectionFilter(state.searchTerm);
             } else if (state.searchField === PostsSearchFieldType.Title) {
                 filter = new ApiPostTitleCollectionFilter(state.searchTerm);
             } else if (state.searchField === PostsSearchFieldType.Content) {
