@@ -6,29 +6,32 @@ export const selectState = createFeatureSelector<State>(
     featureKey
 );
 
-export const selectCurrentPagePosts = createSelector(
+export const selectFilteredPosts = createSelector(
     selectState, (state: State) => {
-
-        const allPosts = state.posts.slice(
-            state.itemsPerPage * state.activePage,
-            state.itemsPerPage * (state.activePage + 1)
-        );
-
         if (state.searchTerm.length > 0) {
             if (state.searchField === PostsSearchFieldType.User) {
                 const userId = parseInt(state.searchTerm);
 
                 if (userId !== NaN) {
-                    return allPosts.filter(p => p.userId === userId)
+                    return state.posts.filter(p => p.userId === userId);
                 }
             } else if (state.searchField === PostsSearchFieldType.Title) {
-                return allPosts.filter(p => p.title.includes(state.searchTerm));
+                return state.posts.filter(p => p.title.includes(state.searchTerm));
             } else if (state.searchField === PostsSearchFieldType.Content) {
-                return allPosts.filter(p => p.body.includes(state.searchTerm));
+                return state.posts.filter(p => p.body.includes(state.searchTerm));
             }
         }
 
-        return allPosts;
+        return state.posts;
+    }
+);
+
+export const selectCurrentPagePosts = createSelector(
+    selectState, selectFilteredPosts, (state: State, posts) => {
+        return posts.slice(
+            state.itemsPerPage * state.activePage,
+            state.itemsPerPage * (state.activePage + 1)
+        );
     }
 );
 
