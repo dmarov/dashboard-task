@@ -2,7 +2,7 @@ import { PostsActions } from '@/store/actions';
 import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { ApiPost } from "@/models";
+import { ApiPost, PostsSearchFieldType } from "@/models";
 import { PostsSelectors } from "@/store/selectors";
 import { ActivatedRoute, Router } from '@angular/router';
 import { QueryParser } from '@/utils';
@@ -25,6 +25,11 @@ export class PagePostsComponent implements OnInit, OnDestroy {
     totalPages$: Observable<number>;
     activePage$: Observable<number>;
     subscription = new Subscription();
+
+    searchTerm = ''
+    searchField = PostsSearchFieldType.User;
+
+    searchFieldTypes = PostsSearchFieldType;
 
     constructor(
         private readonly store$: Store,

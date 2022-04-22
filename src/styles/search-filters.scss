@@ -1,0 +1,22 @@
+@import 'special/colors';
+
+.search-filters {
+    &__list {
+        margin: -5px;
+        display: flex;
+    }
+
+    &__entry {
+        margin: 5px;
+    }
+
+    &__input {
+        border-radius: 0;
+        border: 1px solid $color-secondary;
+
+    }
+
+    select.search-filters__input {
+        background: $color-primary;
+    }
+}
