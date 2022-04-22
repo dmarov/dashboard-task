@@ -1,10 +1,10 @@
 import { PostsActions } from '@/store/actions';
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ApiPost, PostsSearchFieldType } from "@/models";
-import { PostsSelectors } from "@/store/selectors";
+import { ApiPost } from "@/models";
 import { ActivatedRoute } from '@angular/router';
+import { PostsService } from '@/services';
 
 @Component({
     selector: 'app-page-post',
@@ -22,14 +22,12 @@ export class PagePostComponent implements OnInit {
     constructor(
         private readonly store$: Store,
         private route: ActivatedRoute,
+        private postsService: PostsService,
     ) { }
 
     ngOnInit(): void {
         this.store$.dispatch(PostsActions.loadPosts());
         const id = parseInt(this.route.snapshot.paramMap.get('id'));
-
-        this.post$ = this.store$.pipe(
-            select(PostsSelectors.selectPostById, { id })
-        );
+        this.post$ = this.postsService.getPost(id);
     }
 }
