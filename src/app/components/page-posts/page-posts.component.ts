@@ -65,6 +65,18 @@ export class PagePostsComponent implements OnInit, OnDestroy {
                             page: QueryParser.parsePage(params)
                         })
                     );
+
+                    this.store$.dispatch(
+                        PostsActions.setSearchTerm({
+                            term: QueryParser.parseSearch(params)
+                        })
+                    );
+
+                    this.store$.dispatch(
+                        PostsActions.setSearchField({
+                            field: QueryParser.parseSearchField(params)
+                        })
+                    );
                 })
         );
 
@@ -86,16 +98,19 @@ export class PagePostsComponent implements OnInit, OnDestroy {
     }
 
     setSearchTerm(term: string) {
-        this.store$.dispatch(
-            PostsActions.setSearchTerm({ term })
-        );
+        this.router.navigate([], {
+            relativeTo: this.activatedRoute,
+            queryParams: { search: term },
+            queryParamsHandling: 'merge',
+        });
     }
 
-    setSearchField(fieldStr: string) {
-        const field: PostsSearchFieldType = parseInt(fieldStr);
-        this.store$.dispatch(
-            PostsActions.setSearchField({ field })
-        );
+    setSearchField(field: string) {
+        this.router.navigate([], {
+            relativeTo: this.activatedRoute,
+            queryParams: { searchField: field },
+            queryParamsHandling: 'merge',
+        });
     }
 
     ngOnDestroy() {

@@ -40,7 +40,8 @@ export const selectIsLoading = createSelector(
 );
 
 export const selectTotalPages = createSelector(
-    selectState, (state: State) => Math.ceil(state.posts.length / state.itemsPerPage),
+    selectState, selectFilteredPosts, (state: State, posts) =>
+        Math.ceil(posts.length / state.itemsPerPage),
 );
 
 export const selectActivePage = createSelector(

@@ -6,4 +6,14 @@ export class QueryParser {
         const page = parseInt(pageStr) - 1;
         return page;
     }
+
+    static parseSearch(params: ParamMap): string {
+        return params.get('search') ?? '';
+    }
+
+    static parseSearchField(params: ParamMap): number {
+        const fieldStr = params.get('searchField') ?? '1';
+        return parseInt(fieldStr);
+    }
+
 }
