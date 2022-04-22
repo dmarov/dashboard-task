@@ -22,7 +22,16 @@ export class PaginationComponent {
     @Output()
     onGo = new EventEmitter<number>();
 
+    get hasLeftDots() {
+        return this.activePage - this.radius > 1 + 2
+    }
+
+    get hasRightDots() {
+        return this.activePage + this.radius < this.totalPages - 2
+    }
+
     get range() {
+
         let fromPage = Math.max(1, this.activePage - this.radius);
         let toPage = Math.min(this.totalPages, this.activePage + this.radius);
 
@@ -66,4 +75,6 @@ export class PaginationComponent {
     goNext() {
         this.go(Math.min(this.totalPages - 1, this.activePage + 1));
     }
+
+
 }

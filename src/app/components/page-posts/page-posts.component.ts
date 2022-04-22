@@ -57,11 +57,9 @@ export class PagePostsComponent implements OnInit {
     }
 
     go(page: number) {
-        page++;
-
         this.router.navigate([], {
             relativeTo: this.activatedRoute,
-            queryParams: { page },
+            queryParams: { page: page + 1 },
             queryParamsHandling: 'merge',
         });
     }
