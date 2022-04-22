@@ -23,54 +23,37 @@ export class PaginationComponent {
     onGo = new EventEmitter<number>();
 
     get hasLeftDots() {
-        return this.activePage - this.radius > 1 + 2
+        return this.displayedRange[0] >= 1;
     }
 
     get hasRightDots() {
-        return this.activePage + this.radius < this.totalPages - 2
+        return this.displayedRange[this.displayedRange.length - 1] <= this.totalPages - 2;
     }
 
     get range() {
+        let range = this.displayedRange;
 
-        // let toPage = Math.min(this.totalPages - 1, this.activePage + this.radius);
-        // const length = toPage - fromPage + 1;
+        if (this.hasLeftDots) {
+            range.splice(0, 2);
+        }
+
+        if (this.hasRightDots) {
+            range.splice(-2);
+        }
+
+        return range;
+    }
+
+    private get displayedRange() {
 
         const diameter = 2 * this.radius + 1;
-        const pageFromLeftLimit = Math.max(0, this.activePage - this.radius);
-        const pageFromRightLimit = Math.min(this.activePage, this.totalPages - diameter);
-        const fromPage = Math.min(pageFromLeftLimit, pageFromRightLimit);
+        const leftBorderCantBeLess = Math.max(0, this.activePage - this.radius);
+        const leftBorderCantBeMore = Math.min(this.activePage, this.totalPages - diameter);
+        const fromPage = Math.min(leftBorderCantBeLess, leftBorderCantBeMore);
 
-        const res = Array.from({length: diameter}, (_v, k) => {
+        return Array.from({length: diameter}, (_v, k) => {
             return k + fromPage;
         });
-
-        // if (fromPage === 0) {
-        //     ++fromPage;
-        // }
-
-        // if (toPage == this.totalPages - 1) {
-        //     --toPage;
-        // }
-
-        // if (fromPage > toPage) {
-        //     return [];
-        // }
-
-        // if (fromPage === 2) {
-        //     --fromPage;
-        // }
-
-        // if (toPage === this.totalPages - 3) {
-        //     ++toPage;
-        // }
-
-        // const length = toPage - fromPage + 1;
-
-        // const res = Array.from({length: length}, (_v, k) => {
-        //     return k + fromPage - 1;
-        // });
-
-        return res;
     }
 
     go(page: number) {

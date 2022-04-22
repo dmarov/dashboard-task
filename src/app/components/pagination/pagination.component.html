@@ -3,16 +3,17 @@
         Previuos
     </li>
 
-    <!-- <li class="pagination__item" -->
-    <!--     [ngClass]="{'pagination__item--active': activePage === 0}" -->
-    <!--     (click)="go(0)"> -->
-    <!--     1 -->
-    <!-- </li> -->
+    <ng-container *ngIf="hasLeftDots">
+        <li class="pagination__item"
+            [ngClass]="{'pagination__item--active': activePage === 0}"
+            (click)="go(0)">
+            1
+        </li>
 
-    <!-- <li class="pagination__item" -->
-    <!--     *ngIf="hasLeftDots"> -->
-    <!--     ... -->
-    <!-- </li> -->
+        <li class="pagination__item">
+            ...
+        </li>
+    </ng-container>
 
     <li class="pagination__item"
         [ngClass]="{'pagination__item--active': activePage === index}"
@@ -20,15 +21,17 @@
         {{ index + 1 }}
     </li>
 
-    <!-- <li class="pagination__item" *ngIf="hasRightDots"> -->
-    <!--     ... -->
-    <!-- </li> -->
+    <ng-container *ngIf="hasRightDots">
+        <li class="pagination__item">
+            ...
+        </li>
 
-    <!-- <li class="pagination__item" -->
-    <!--     [ngClass]="{'pagination__item--active': activePage === totalPages - 1}" -->
-    <!--     (click)="go(totalPages - 1)"> -->
-    <!--     {{ totalPages }} -->
-    <!-- </li> -->
+        <li class="pagination__item"
+            [ngClass]="{'pagination__item--active': activePage === totalPages - 1}"
+            (click)="go(totalPages - 1)">
+            {{ totalPages }}
+        </li>
+    </ng-container>
 
     <li class="pagination__item pagination__item--nav" (click)="goNext()">
         Next
