@@ -1,6 +1,13 @@
 import { PostsSearchFieldType } from '@/models';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { State, featureKey } from '../reducers/posts';
+import {
+    ApiPostCollectionFilter,
+    ApiPostContentCollectionFilter,
+    ApiPostDefaultCollectionFilter,
+    ApiPostTitleCollectionFilter,
+    ApiPostUserCollectionFilter
+} from '@/core/collection-filters';
 
 export const selectState = createFeatureSelector<State>(
     featureKey
@@ -8,21 +15,19 @@ export const selectState = createFeatureSelector<State>(
 
 export const selectFilteredPosts = createSelector(
     selectState, (state: State) => {
+        let filter: ApiPostCollectionFilter = new ApiPostDefaultCollectionFilter();
+
         if (state.searchTerm.length > 0) {
             if (state.searchField === PostsSearchFieldType.User) {
-                const userId = parseInt(state.searchTerm);
-
-                if (userId !== NaN) {
-                    return state.posts.filter(p => p.userId === userId);
-                }
+                filter = new ApiPostUserCollectionFilter(parseInt(state.searchTerm));
             } else if (state.searchField === PostsSearchFieldType.Title) {
-                return state.posts.filter(p => p.title.includes(state.searchTerm));
+                filter = new ApiPostTitleCollectionFilter(state.searchTerm);
             } else if (state.searchField === PostsSearchFieldType.Content) {
-                return state.posts.filter(p => p.body.includes(state.searchTerm));
+                filter = new ApiPostContentCollectionFilter(state.searchTerm);
             }
         }
 
-        return state.posts;
+        return state.posts.filter(p => filter.matches(p));
     }
 );
 
