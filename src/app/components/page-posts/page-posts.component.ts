@@ -26,9 +26,6 @@ export class PagePostsComponent implements OnInit, OnDestroy {
     activePage$: Observable<number>;
     subscription = new Subscription();
 
-    searchTerm = ''
-    searchField = PostsSearchFieldType.User;
-
     searchTerm$: Observable<string>;
     searchField$: Observable<PostsSearchFieldType>;
 
@@ -77,18 +74,6 @@ export class PagePostsComponent implements OnInit, OnDestroy {
 
         this.searchField$ = this.store$.pipe(
             select(PostsSelectors.selectSearchField)
-        );
-
-        this.subscription.add(
-            this.searchTerm$.subscribe(term => {
-                this.searchTerm = term;
-            })
-        );
-
-        this.subscription.add(
-            this.searchField$.subscribe(field => {
-                this.searchField = field;
-            })
         );
     }
 
