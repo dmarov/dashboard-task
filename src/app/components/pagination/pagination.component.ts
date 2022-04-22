@@ -35,10 +35,12 @@ export class PaginationComponent {
         // let toPage = Math.min(this.totalPages - 1, this.activePage + this.radius);
         // const length = toPage - fromPage + 1;
 
-        const length = 2 * this.radius + 1;
-        const fromPage = Math.min(Math.max(0, this.activePage - this.radius), this.totalPages - (2 * this.radius + 1));
+        const diameter = 2 * this.radius + 1;
+        const pageFromLeftLimit = Math.max(0, this.activePage - this.radius);
+        const pageFromRightLimit = Math.min(this.activePage, this.totalPages - diameter);
+        const fromPage = Math.min(pageFromLeftLimit, pageFromRightLimit);
 
-        const res = Array.from({length: length}, (_v, k) => {
+        const res = Array.from({length: diameter}, (_v, k) => {
             return k + fromPage;
         });
 
