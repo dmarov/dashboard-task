@@ -29,6 +29,9 @@ export class PagePostsComponent implements OnInit, OnDestroy {
     searchTerm = ''
     searchField = PostsSearchFieldType.User;
 
+    searchTerm$: Observable<string>;
+    searchField$: Observable<PostsSearchFieldType>;
+
     searchFieldTypes = PostsSearchFieldType;
 
     constructor(
@@ -67,6 +70,26 @@ export class PagePostsComponent implements OnInit, OnDestroy {
                     );
                 })
         );
+
+        this.searchTerm$ = this.store$.pipe(
+            select(PostsSelectors.selectSearchTerm)
+        );
+
+        this.searchField$ = this.store$.pipe(
+            select(PostsSelectors.selectSearchField)
+        );
+
+        this.subscription.add(
+            this.searchTerm$.subscribe(term => {
+                this.searchTerm = term;
+            })
+        );
+
+        this.subscription.add(
+            this.searchField$.subscribe(field => {
+                this.searchField = field;
+            })
+        );
     }
 
     go(page: number) {
@@ -75,6 +98,19 @@ export class PagePostsComponent implements OnInit, OnDestroy {
             queryParams: { page: page + 1 },
             queryParamsHandling: 'merge',
         });
+    }
+
+    setSearchTerm(term: string) {
+        this.store$.dispatch(
+            PostsActions.setSearchTerm({ term })
+        );
+    }
+
+    setSearchField(fieldStr: string) {
+        const field: PostsSearchFieldType = parseInt(fieldStr);
+        this.store$.dispatch(
+            PostsActions.setSearchField({ field })
+        );
     }
 
     ngOnDestroy() {

@@ -2,9 +2,9 @@ import { PostsActions } from '@/store/actions';
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ApiPost } from "@/models";
+import { ApiPost, PostsSearchFieldType } from "@/models";
 import { PostsSelectors } from "@/store/selectors";
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-page-post',

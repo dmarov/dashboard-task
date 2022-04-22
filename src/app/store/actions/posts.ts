@@ -25,7 +25,7 @@ export const setSearchTerm = createAction(
     props<{ term: string }>(),
 );
 
-export const setSearchFieldType = createAction(
-    '[Posts] setSearchFieldType',
-    props<{ searchType: PostsSearchFieldType }>(),
+export const setSearchField = createAction(
+    '[Posts] setSearchField',
+    props<{ field: PostsSearchFieldType }>(),
 );

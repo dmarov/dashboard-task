@@ -48,3 +48,11 @@ export const selectPostById = createSelector(
     selectState, (state: State, params: {id : number}) =>
         state.posts.find(p => p.id === params.id)
 );
+
+export const selectSearchTerm = createSelector(
+    selectState, (state: State) => state.searchTerm
+);
+
+export const selectSearchField = createSelector(
+    selectState, (state: State) => state.searchField
+);

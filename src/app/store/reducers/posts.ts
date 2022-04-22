@@ -39,7 +39,7 @@ export const reducer = createReducer(
     on(PostsActions.setSearchTerm,
         (state, action) => ({ ...state, searchTerm: action.term })
     ),
-    on(PostsActions.setSearchFieldType,
-        (state, action) => ({ ...state, searchField: action.searchType })
+    on(PostsActions.setSearchField,
+        (state, action) => ({ ...state, searchField: action.field })
     ),
 );
