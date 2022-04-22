@@ -6,7 +6,7 @@ import { ApiPost, PostsSearchFieldType } from "@/models";
 import { PostsSelectors } from "@/store/selectors";
 import { ActivatedRoute, Router } from '@angular/router';
 import { QueryParser } from '@/utils';
-import {withLatestFrom} from 'rxjs/operators';
+import { withLatestFrom } from 'rxjs/operators';
 
 @Component({
     selector: 'app-page-posts',
@@ -102,25 +102,46 @@ export class PagePostsComponent implements OnInit, OnDestroy {
         const page = QueryParser.parsePage(params);
         const term = QueryParser.parseSearch(params);
         const field = QueryParser.parseSearchField(params);
-        const pageMismatch = page !== prevPage;
-        const termMismatch = term !== prevTerm;
-        const fieldMismatch = field !== prevField;
 
-        if (pageMismatch || termMismatch || fieldMismatch) {
+        this.updatePage(page, prevPage);
+        this.updateTerm(term, prevTerm);
+        this.updateField(field, prevField);
+    }
+
+    updatePage(page: number, prevPage: number) {
+        const pageMismatch = page !== prevPage;
+
+        if (pageMismatch) {
             this.store$.dispatch(
                 PostsActions.setActivePage({ page })
             );
         }
+    }
+
+    updateTerm(term: string, prevTerm: string) {
+        const termMismatch = term !== prevTerm;
 
         if (termMismatch) {
             this.store$.dispatch(
                 PostsActions.setSearchTerm({ term })
             );
+
+            this.store$.dispatch(
+                PostsActions.setActivePage({ page: 0 })
+            );
         }
+    }
+
+    updateField(field: PostsSearchFieldType, prevField: PostsSearchFieldType) {
+        const fieldMismatch = field !== prevField;
 
         if (fieldMismatch) {
             this.store$.dispatch(
                 PostsActions.setSearchField({ field })
+            );
+
+            this.store$.dispatch(
+                PostsActions.setActivePage({ page: 0 })
             );
         }
     }
