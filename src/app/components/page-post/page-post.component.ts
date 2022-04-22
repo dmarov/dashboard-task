@@ -1,6 +1,4 @@
-import { PostsActions } from '@/store/actions';
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ApiPost } from "@/models";
 import { ActivatedRoute } from '@angular/router';
@@ -20,13 +18,11 @@ export class PagePostComponent implements OnInit {
     post$: Observable<ApiPost>;
 
     constructor(
-        private readonly store$: Store,
         private route: ActivatedRoute,
         private postsService: PostsService,
     ) { }
 
     ngOnInit(): void {
-        this.store$.dispatch(PostsActions.loadPosts());
         const id = parseInt(this.route.snapshot.paramMap.get('id'));
         this.post$ = this.postsService.getPost(id);
     }
