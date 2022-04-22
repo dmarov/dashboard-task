@@ -45,7 +45,6 @@ export class PaginationComponent {
     }
 
     private get displayedRange() {
-
         const diameter = 2 * this.radius + 1;
         const leftBorderCantBeLess = Math.max(0, this.activePage - this.radius);
         const leftBorderCantBeMore = Math.min(this.activePage, this.totalPages - diameter);
@@ -67,6 +66,4 @@ export class PaginationComponent {
     goNext() {
         this.go(Math.min(this.totalPages - 1, this.activePage + 1));
     }
-
-
 }

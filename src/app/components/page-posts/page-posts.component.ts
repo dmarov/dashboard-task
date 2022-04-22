@@ -1,17 +1,18 @@
 import { PostsActions } from '@/store/actions';
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ApiPost } from "@/models";
 import { PostsSelectors } from "@/store/selectors";
 import { ActivatedRoute, Router } from '@angular/router';
+import { QueryParser } from '@/utils';
 
 @Component({
     selector: 'app-page-posts',
     templateUrl: './page-posts.component.html',
     styleUrls: ['./page-posts.component.scss'],
 })
-export class PagePostsComponent implements OnInit {
+export class PagePostsComponent implements OnInit, OnDestroy {
 
     @HostBinding('class.page')
     @HostBinding('class.page-posts')
@@ -23,6 +24,7 @@ export class PagePostsComponent implements OnInit {
 
     totalPages$: Observable<number>;
     activePage$: Observable<number>;
+    subscription = new Subscription();
 
     constructor(
         private readonly store$: Store,
@@ -49,11 +51,17 @@ export class PagePostsComponent implements OnInit {
             select(PostsSelectors.selectActivePage)
         );
 
-        this.activatedRoute.queryParamMap.subscribe(params => {
-            const pageStr = params.get('page') ?? '1';
-            const page = parseInt(pageStr) - 1;
-            this.store$.dispatch(PostsActions.setActivePage({ page }));
-        });
+        this.subscription.add(
+            this.activatedRoute
+                .queryParamMap
+                .subscribe(params => {
+                    this.store$.dispatch(
+                        PostsActions.setActivePage({
+                            page: QueryParser.parsePage(params)
+                        })
+                    );
+                })
+        );
     }
 
     go(page: number) {
@@ -62,5 +70,9 @@ export class PagePostsComponent implements OnInit {
             queryParams: { page: page + 1 },
             queryParamsHandling: 'merge',
         });
+    }
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 }
