@@ -6,6 +6,7 @@ import { ApiPost, PostsSearchFieldType } from "@/models";
 import { PostsSelectors } from "@/store/selectors";
 import { ActivatedRoute, Router } from '@angular/router';
 import { QueryParser } from '@/utils';
+import {withLatestFrom} from 'rxjs/operators';
 
 @Component({
     selector: 'app-page-posts',
@@ -56,36 +57,20 @@ export class PagePostsComponent implements OnInit, OnDestroy {
             select(PostsSelectors.selectActivePage)
         );
 
-        this.subscription.add(
-            this.activatedRoute
-                .queryParamMap
-                .subscribe(params => {
-                    this.store$.dispatch(
-                        PostsActions.setActivePage({
-                            page: QueryParser.parsePage(params)
-                        })
-                    );
-
-                    this.store$.dispatch(
-                        PostsActions.setSearchTerm({
-                            term: QueryParser.parseSearch(params)
-                        })
-                    );
-
-                    this.store$.dispatch(
-                        PostsActions.setSearchField({
-                            field: QueryParser.parseSearchField(params)
-                        })
-                    );
-                })
-        );
-
         this.searchTerm$ = this.store$.pipe(
             select(PostsSelectors.selectSearchTerm)
         );
 
         this.searchField$ = this.store$.pipe(
             select(PostsSelectors.selectSearchField)
+        );
+
+        this.subscription.add(
+            this.activatedRoute
+                .queryParamMap.pipe(
+                    withLatestFrom(this.activePage$, this.searchTerm$, this.searchField$)
+                )
+                .subscribe(this.updateState)
         );
     }
 
@@ -111,6 +96,33 @@ export class PagePostsComponent implements OnInit, OnDestroy {
             queryParams: { searchField: field },
             queryParamsHandling: 'merge',
         });
+    }
+
+    updateState = ([params, prevPage, prevTerm, prevField]) => {
+        const page = QueryParser.parsePage(params);
+        const term = QueryParser.parseSearch(params);
+        const field = QueryParser.parseSearchField(params);
+        const pageMismatch = page !== prevPage;
+        const termMismatch = term !== prevTerm;
+        const fieldMismatch = field !== prevField;
+
+        if (pageMismatch || termMismatch || fieldMismatch) {
+            this.store$.dispatch(
+                PostsActions.setActivePage({ page })
+            );
+        }
+
+        if (termMismatch) {
+            this.store$.dispatch(
+                PostsActions.setSearchTerm({ term })
+            );
+        }
+
+        if (fieldMismatch) {
+            this.store$.dispatch(
+                PostsActions.setSearchField({ field })
+            );
+        }
     }
 
     ngOnDestroy() {

@@ -12,7 +12,7 @@ export class QueryParser {
     }
 
     static parseSearchField(params: ParamMap): number {
-        const fieldStr = params.get('searchField') ?? '1';
+        const fieldStr = params.get('searchField') ?? '0';
         return parseInt(fieldStr);
     }
 
