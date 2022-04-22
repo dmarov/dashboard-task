@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ApiPost } from "@/models";
 import { PostsSelectors } from "@/store/selectors";
-import {ActivatedRoute, Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-page-posts',
@@ -31,11 +31,6 @@ export class PagePostsComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        // const url = new URL(window.location.href);
-        // const pageStr = url.searchParams.get('page');
-        // console.log(pageStr);
-        // const page = pageStr !== null ? parseInt(pageStr) : 0;
-
         this.store$.dispatch(PostsActions.loadPosts());
 
         this.posts$ = this.store$.pipe(
@@ -53,15 +48,21 @@ export class PagePostsComponent implements OnInit {
         this.activePage$ = this.store$.pipe(
             select(PostsSelectors.selectActivePage)
         );
+
+        this.activatedRoute.queryParamMap.subscribe(params => {
+            const pageStr = params.get('page') ?? '1';
+            const page = parseInt(pageStr) - 1;
+            this.store$.dispatch(PostsActions.setActivePage({ page }));
+        });
     }
 
     go(page: number) {
-        this.store$.dispatch(PostsActions.setActivePage({ page }));
-        // const url = new URL(window.location.href);
-        // this.router.navigate([], {
-        //     relativeTo: this.activatedRoute,
-        //     queryParams: { ...url.searchParams, page },
-        //     queryParamsHandling: 'merge',
-        // });
+        page++;
+
+        this.router.navigate([], {
+            relativeTo: this.activatedRoute,
+            queryParams: { page },
+            queryParamsHandling: 'merge',
+        });
     }
 }
