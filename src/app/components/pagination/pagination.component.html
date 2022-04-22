@@ -1,18 +1,18 @@
 <ul class="pagination__list">
-    <li class="pagination__item" (click)="goPrev()">
+    <li class="pagination__item pagination__item--nav" (click)="goPrev()">
         Previuos
     </li>
 
-    <li class="pagination__item"
-        [ngClass]="{'pagination__item--active': activePage === 0}"
-        (click)="go(0)">
-        1
-    </li>
+    <!-- <li class="pagination__item" -->
+    <!--     [ngClass]="{'pagination__item--active': activePage === 0}" -->
+    <!--     (click)="go(0)"> -->
+    <!--     1 -->
+    <!-- </li> -->
 
-    <li class="pagination__item"
-        *ngIf="hasLeftDots">
-        ...
-    </li>
+    <!-- <li class="pagination__item" -->
+    <!--     *ngIf="hasLeftDots"> -->
+    <!--     ... -->
+    <!-- </li> -->
 
     <li class="pagination__item"
         [ngClass]="{'pagination__item--active': activePage === index}"
@@ -20,17 +20,17 @@
         {{ index + 1 }}
     </li>
 
-    <li class="pagination__item" *ngIf="hasRightDots">
-        ...
-    </li>
+    <!-- <li class="pagination__item" *ngIf="hasRightDots"> -->
+    <!--     ... -->
+    <!-- </li> -->
 
-    <li class="pagination__item"
-        [ngClass]="{'pagination__item--active': activePage === totalPages - 1}"
-        (click)="go(totalPages - 1)">
-        {{ totalPages }}
-    </li>
+    <!-- <li class="pagination__item" -->
+    <!--     [ngClass]="{'pagination__item--active': activePage === totalPages - 1}" -->
+    <!--     (click)="go(totalPages - 1)"> -->
+    <!--     {{ totalPages }} -->
+    <!-- </li> -->
 
-    <li class="pagination__item" (click)="goNext()">
+    <li class="pagination__item pagination__item--nav" (click)="goNext()">
         Next
     </li>
 </ul>

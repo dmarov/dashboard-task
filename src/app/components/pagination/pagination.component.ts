@@ -32,34 +32,41 @@ export class PaginationComponent {
 
     get range() {
 
-        let fromPage = Math.max(1, this.activePage - this.radius);
-        let toPage = Math.min(this.totalPages, this.activePage + this.radius);
+        // let toPage = Math.min(this.totalPages - 1, this.activePage + this.radius);
+        // const length = toPage - fromPage + 1;
 
-        if (fromPage === 1) {
-            ++fromPage;
-        }
-
-        if (toPage == this.totalPages) {
-            --toPage;
-        }
-
-        if (fromPage > toPage) {
-            return [];
-        }
-
-        if (fromPage === 3) {
-            --fromPage;
-        }
-
-        if (toPage === this.totalPages - 2) {
-            ++toPage;
-        }
-
-        const length = toPage - fromPage + 1;
+        const length = 2 * this.radius + 1;
+        const fromPage = Math.min(Math.max(0, this.activePage - this.radius), this.totalPages - (2 * this.radius + 1));
 
         const res = Array.from({length: length}, (_v, k) => {
-            return k + fromPage - 1;
+            return k + fromPage;
         });
+
+        // if (fromPage === 0) {
+        //     ++fromPage;
+        // }
+
+        // if (toPage == this.totalPages - 1) {
+        //     --toPage;
+        // }
+
+        // if (fromPage > toPage) {
+        //     return [];
+        // }
+
+        // if (fromPage === 2) {
+        //     --fromPage;
+        // }
+
+        // if (toPage === this.totalPages - 3) {
+        //     ++toPage;
+        // }
+
+        // const length = toPage - fromPage + 1;
+
+        // const res = Array.from({length: length}, (_v, k) => {
+        //     return k + fromPage - 1;
+        // });
 
         return res;
     }
