@@ -6,7 +6,7 @@ import { ApiPost, PostsSearchFieldType, PostsSortFieldType, SortType } from "@/m
 import { PostsSelectors } from "@/store/selectors";
 import { ActivatedRoute, Router } from '@angular/router';
 import { QueryParser } from '@/utils';
-import { withLatestFrom } from 'rxjs/operators';
+import { first, withLatestFrom } from 'rxjs/operators';
 
 @Component({
     selector: 'app-page-posts',
@@ -164,10 +164,23 @@ export class PagePostsComponent implements OnInit, OnDestroy {
         );
     }
 
-    setSortField(field: PostsSortFieldType) {
-        this.store$.dispatch(
-            PostsActions.setSortField({ field })
-        );
+    async clickField(field: PostsSortFieldType) {
+
+        const currenvValue = await this.sortField$.pipe(first()).toPromise();
+
+        if (field !== currenvValue) {
+            this.store$.dispatch(
+                PostsActions.setSortType({ sortType: SortType.Asc })
+            );
+
+            this.store$.dispatch(
+                PostsActions.setSortField({ field })
+            );
+        } else {
+            this.store$.dispatch(
+                PostsActions.toggleSortType()
+            );
+        }
     }
 
     ngOnDestroy() {

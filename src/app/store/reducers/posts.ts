@@ -52,4 +52,7 @@ export const reducer = createReducer(
     on(PostsActions.setSortType,
         (state, action) => ({ ...state, sortType: action.sortType })
     ),
+    on(PostsActions.toggleSortType,
+        (state, action) => ({ ...state, sortType: state.sortType === SortType.Asc ? SortType.Desc : SortType.Asc })
+    ),
 );

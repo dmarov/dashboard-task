@@ -4,6 +4,6 @@ import { ApiPostCollectionSorter } from ".";
 export class ApiPostUserCollectionSorter implements ApiPostCollectionSorter {
 
     compare(a: ApiPost, b: ApiPost): number {
-        return b.userId - a.userId;
+        return a.userId - b.userId;
     }
 }

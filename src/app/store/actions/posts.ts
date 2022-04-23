@@ -39,3 +39,7 @@ export const setSortField = createAction(
     '[Posts] setSortField',
     props<{ field: PostsSortFieldType }>(),
 );
+
+export const toggleSortType = createAction(
+    '[Posts] toggleSortType',
+);
