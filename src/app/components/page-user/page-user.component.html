@@ -9,5 +9,24 @@
             </h4>
         </div>
     </ng-container>
-    User will be here
+
+    <div class="page-user__posts">
+
+        <ul *ngIf="posts$ | async as posts">
+            <li *ngFor="let post of posts">
+                {{ post.title }}
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="page-user__albums">
+
+        <ul *ngIf="albums$ | async as albums">
+            <li *ngFor="let album of albums">
+                {{ album.title }}
+            </li>
+        </ul>
+
+    </div>
 </app-layout-page-bold-header>

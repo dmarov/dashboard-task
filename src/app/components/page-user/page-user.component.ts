@@ -1,6 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiUser } from "@/models";
+import { ApiAlbum, ApiPost, ApiUser } from "@/models";
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from '@/services';
 import { map } from 'rxjs/operators';
@@ -18,6 +18,8 @@ export class PageUserComponent implements OnInit {
 
     user$: Observable<ApiUser>;
     description$: Observable<string>;
+    albums$: Observable<ApiAlbum[]>;
+    posts$: Observable<ApiPost[]>;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -33,5 +35,8 @@ export class PageUserComponent implements OnInit {
                 return `@${user.username} - ${user.email} - ${user.website} - ${user.company.name} - ${user.address.city}`;
             })
         );
+
+        this.albums$ = this.usersService.getUserAlbums(id);
+        this.posts$ = this.usersService.getUserPosts(id);
     }
 }
