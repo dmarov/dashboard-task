@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { PostsActions } from "../actions";
-import { ApiPost, PostsSearchFieldType } from "@/models"
+import { ApiPost, PostsSearchFieldType, PostsSortFieldType, SortType } from "@/models"
 
 export const featureKey = 'posts';
 
@@ -11,6 +11,8 @@ export class State {
     posts: ApiPost[];
     searchTerm: string;
     searchField: PostsSearchFieldType;
+    sortType: SortType;
+    sortField: PostsSortFieldType;
 }
 
 export const initialState: State = {
@@ -20,6 +22,8 @@ export const initialState: State = {
     posts: [],
     searchTerm: "",
     searchField: PostsSearchFieldType.User,
+    sortType: SortType.Asc,
+    sortField: PostsSortFieldType.Id,
 };
 
 export const reducer = createReducer(
@@ -41,5 +45,11 @@ export const reducer = createReducer(
     ),
     on(PostsActions.setSearchField,
         (state, action) => ({ ...state, searchField: action.field })
+    ),
+    on(PostsActions.setSortField,
+        (state, action) => ({ ...state, sortField: action.field })
+    ),
+    on(PostsActions.setSortType,
+        (state, action) => ({ ...state, sortType: action.sortType })
     ),
 );

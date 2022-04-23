@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ApiPost, PostsSearchFieldType } from '@/models';
+import { ApiPost, PostsSearchFieldType, PostsSortFieldType, SortType } from '@/models';
 
 export const loadPosts = createAction(
     '[Posts] loadPosts',
@@ -28,4 +28,14 @@ export const setSearchTerm = createAction(
 export const setSearchField = createAction(
     '[Posts] setSearchField',
     props<{ field: PostsSearchFieldType }>(),
+);
+
+export const setSortType = createAction(
+    '[Posts] setSortType',
+    props<{ sortType: SortType }>(),
+);
+
+export const setSortField = createAction(
+    '[Posts] setSortField',
+    props<{ field: PostsSortFieldType }>(),
 );
