@@ -1,5 +1,4 @@
 export enum AlbumsSearchFieldType {
-    Id = 0,
-    User = 1,
-    Title = 2,
+    User = 0,
+    Title = 1,
 }

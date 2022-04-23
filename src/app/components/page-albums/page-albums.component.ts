@@ -1,12 +1,12 @@
-import {AlbumsSearchFieldType, ApiAlbum} from '@/models';
-import {AlbumsActions} from '@/store/actions';
-import {AlbumsSelectors} from '@/store/selectors';
-import {QueryParser} from '@/utils';
+import { AlbumsSearchFieldType, ApiAlbum } from '@/models';
+import { AlbumsActions } from '@/store/actions';
+import { AlbumsSelectors } from '@/store/selectors';
+import { QueryParser } from '@/utils';
 import { Component, HostBinding } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {select, Store} from '@ngrx/store';
-import {Observable, Subscription} from 'rxjs';
-import {withLatestFrom} from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
+import { withLatestFrom } from 'rxjs/operators';
 
 @Component({
     selector: 'app-page-albums',
