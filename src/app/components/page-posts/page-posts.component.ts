@@ -2,7 +2,7 @@ import { PostsActions } from '@/store/actions';
 import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { ApiPost, PostsSearchFieldType } from "@/models";
+import { ApiPost, PostsSearchFieldType, SortType } from "@/models";
 import { PostsSelectors } from "@/store/selectors";
 import { ActivatedRoute, Router } from '@angular/router';
 import { QueryParser } from '@/utils';
@@ -31,6 +31,8 @@ export class PagePostsComponent implements OnInit, OnDestroy {
     searchField$: Observable<PostsSearchFieldType>;
 
     searchFieldTypes = PostsSearchFieldType;
+
+    idSortType = SortType.Desc;
 
     constructor(
         private readonly store$: Store,

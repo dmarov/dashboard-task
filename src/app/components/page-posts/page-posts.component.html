@@ -34,7 +34,11 @@
                         <thead>
                             <tr>
                                 <th class="posts-table__cell posts-table__cell--head">
-                                    ID <i class="glyphicon-tag"></i>
+                                    ID
+                                    <app-sort-toggler
+                                        ngDefaultControl
+                                        [(ngModel)]="idSortType">
+                                    </app-sort-toggler>
                                 </th>
                                 <th class="posts-table__cell posts-table__cell--head">
                                     User

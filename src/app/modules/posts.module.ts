@@ -15,6 +15,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from "@/store/effects";
 import { LoaderModule } from "@/modules/loader.module";
 import { PaginationModule } from '@/modules/pagination.module';
+import { CommonComponentsModule } from '@/modules/common-components.module';
 
 const routes: Routes = [
     { path: '', component: PagePostsComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
         HttpClientModule,
         PaginationModule,
         FormsModule,
+        CommonComponentsModule,
     ],
     providers: [
         PostsService,
