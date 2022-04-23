@@ -2,7 +2,7 @@ import { PostsActions } from '@/store/actions';
 import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { ApiPost, PostsSearchFieldType, SortType } from "@/models";
+import { ApiPost, PostsSearchFieldType, PostsSortFieldType, SortType } from "@/models";
 import { PostsSelectors } from "@/store/selectors";
 import { ActivatedRoute, Router } from '@angular/router';
 import { QueryParser } from '@/utils';
@@ -32,7 +32,9 @@ export class PagePostsComponent implements OnInit, OnDestroy {
 
     searchFieldTypes = PostsSearchFieldType;
 
-    idSortType = SortType.Desc;
+    sortField$: Observable<PostsSortFieldType>;
+    sortType$: Observable<SortType>;
+    sortFields = PostsSortFieldType;
 
     constructor(
         private readonly store$: Store,
@@ -65,6 +67,14 @@ export class PagePostsComponent implements OnInit, OnDestroy {
 
         this.searchField$ = this.store$.pipe(
             select(PostsSelectors.selectSearchField)
+        );
+
+        this.sortField$ = this.store$.pipe(
+            select(PostsSelectors.selectSortField)
+        );
+
+        this.sortType$ = this.store$.pipe(
+            select(PostsSelectors.selectSortType)
         );
 
         this.subscription.add(
@@ -146,6 +156,12 @@ export class PagePostsComponent implements OnInit, OnDestroy {
                 PostsActions.setActivePage({ page: 0 })
             );
         }
+    }
+
+    setSortType(sortType: SortType) {
+        this.store$.dispatch(
+            PostsActions.setSortType({ sortType })
+        );
     }
 
     ngOnDestroy() {
