@@ -1,6 +1,39 @@
 <div class="page__content">
     <app-layout-page>
         <ng-container title>Albums</ng-container>
-        Albums page will be here
+
+        <div class="page__search-wrapper">
+            <div class="search-filters">
+                <div class="search-filters__list">
+                    <input class="search-filters__entry search-filters__input"
+                        placeholder="Search"
+                        [ngModel]="searchTerm$ | async"
+                        (ngModelChange)="setSearchTerm($event)">
+                    <select class="search-filters__entry search-filters__input"
+                        [ngModel]="searchField$ | async"
+                        (ngModelChange)="setSearchField($event)">
+                        <option [value]="searchFieldTypes.User">
+                            User
+                        </option>
+                        <option [value]="searchFieldTypes.Title">
+                            Title
+                        </option>
+                        <option [value]="searchFieldTypes.Content">
+                            Content
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-posts__content">
+            <div *ngIf="!(isLoading$ | async)"
+                class="page-posts__data">
+            </div>
+            <div class="page-posts__loader-overlay"
+                *ngIf="(isLoading$ | async)">
+                <app-loader></app-loader>
+            </div>
+        </div>
     </app-layout-page>
 </div>

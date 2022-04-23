@@ -11,13 +11,13 @@ export class AlbumsService {
         private readonly $http: HttpClient,
     ) { }
 
-    getPosts(): Observable<ApiAlbum[]> {
+    getAlbums(): Observable<ApiAlbum[]> {
         return this.$http.get<ApiAlbum[]>(
             `${Constants.apiBase}/albums`
         );
     }
 
-    getPost(id: number): Observable<ApiAlbum> {
+    getAlbum(id: number): Observable<ApiAlbum> {
         return this.$http.get<ApiAlbum>(
             `${Constants.apiBase}/albums/${id}`
         );

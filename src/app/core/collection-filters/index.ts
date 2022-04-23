@@ -4,3 +4,7 @@ export * from './api-post-user-collection-filter';
 export * from './api-post-title-collection-filter';
 export * from './api-post-content-collection-filter';
 export * from './api-post-default-collection-filter';
+export * from './api-album-collection-filter';
+export * from './api-album-default-collection-filter';
+export * from './api-album-title-collection-filter';
+export * from './api-album-user-collection-filter';
