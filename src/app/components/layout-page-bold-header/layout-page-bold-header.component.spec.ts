@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { PagePostsComponent } from './page-posts.component';
+import { LayoutPageBoldHeaderComponent } from './layout-page-bold-header.component';
 
-describe('PagePostsComponent', () => {
-  let component: PagePostsComponent;
-  let fixture: ComponentFixture<PagePostsComponent>;
+describe('LayoutPageBoldHeaderComponent', () => {
+  let component: LayoutPageBoldHeaderComponent;
+  let fixture: ComponentFixture<LayoutPageBoldHeaderComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PagePostsComponent ]
+      declarations: [ LayoutPageBoldHeaderComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PagePostsComponent);
+    fixture = TestBed.createComponent(LayoutPageBoldHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

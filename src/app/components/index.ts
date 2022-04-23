@@ -7,6 +7,7 @@ export * from './page-photos/page-photos.component';
 export * from './page-not-found/page-not-found.component';
 export * from './breadcrumbs/breadcrumbs.component';
 export * from './layout-page-generic/layout-page-generic.component';
+export * from './layout-page-bold-header/layout-page-bold-header.component';
 export * from './loader/loader.component';
 export * from './pagination/pagination.component';
 export * from './sort-toggler/sort-toggler.component';

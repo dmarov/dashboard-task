@@ -4,6 +4,7 @@ import {
     PageDashboardComponent,
 } from '@/components';
 import { RouterModule, Routes } from '@angular/router';
+import { LayoutPageModule } from '@/modules/layout-page.module';
 
 const routes: Routes = [
     { path: '', component: PageDashboardComponent },
@@ -13,6 +14,9 @@ const routes: Routes = [
     declarations: [
         PageDashboardComponent,
     ],
-    imports: [RouterModule.forChild(routes)],
+    imports: [
+        RouterModule.forChild(routes),
+        LayoutPageModule,
+    ],
 })
 export class DashboardModule { }
