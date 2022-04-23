@@ -80,7 +80,13 @@ export class PagePostsComponent implements OnInit, OnDestroy {
         this.subscription.add(
             this.activatedRoute
                 .queryParamMap.pipe(
-                    withLatestFrom(this.activePage$, this.searchTerm$, this.searchField$)
+                    withLatestFrom(
+                        this.activePage$,
+                        this.searchTerm$,
+                        this.searchField$,
+                        this.sortType$,
+                        this.sortField$,
+                    )
                 )
                 .subscribe(this.updateState)
         );
@@ -110,14 +116,18 @@ export class PagePostsComponent implements OnInit, OnDestroy {
         });
     }
 
-    updateState = ([params, prevPage, prevTerm, prevField]) => {
+    updateState = ([params, prevPage, prevTerm, prevField, prevSortType, prevSortField]) => {
         const page = QueryParser.parsePage(params);
         const term = QueryParser.parseSearch(params);
         const field = QueryParser.parseSearchField(params);
+        const sortType = QueryParser.parseSortType(params);
+        const sortField = QueryParser.parseSortField(params);
 
         this.updatePage(page, prevPage);
         this.updateTerm(term, prevTerm);
         this.updateField(field, prevField);
+        this.updateSortType(sortType, prevSortType);
+        this.updateSortField(sortField, prevSortField);
     }
 
     updatePage(page: number, prevPage: number) {
@@ -154,6 +164,26 @@ export class PagePostsComponent implements OnInit, OnDestroy {
 
             this.store$.dispatch(
                 PostsActions.setActivePage({ page: 0 })
+            );
+        }
+    }
+
+    updateSortType(sortType: SortType, prevSortType: SortType) {
+        const fieldMismatch = sortType !== prevSortType;
+
+        if (fieldMismatch) {
+            this.store$.dispatch(
+                PostsActions.setSortType({ sortType })
+            );
+        }
+    }
+
+    updateSortField(field: PostsSortFieldType, prevField: PostsSortFieldType) {
+        const fieldMismatch = field !== prevField;
+
+        if (fieldMismatch) {
+            this.store$.dispatch(
+                PostsActions.setSortField({ field })
             );
         }
     }

@@ -1,3 +1,4 @@
+import {SortType} from "@/models";
 import { ParamMap } from "@angular/router";
 
 export class QueryParser {
@@ -16,4 +17,11 @@ export class QueryParser {
         return parseInt(fieldStr);
     }
 
+    static parseSortType(params: ParamMap): SortType {
+        return parseInt(params.get('sortType') ?? '0');
+    }
+
+    static parseSortField(params: ParamMap): number {
+        return parseInt(params.get('sortField') ?? '0');
+    }
 }
