@@ -14,6 +14,7 @@ import { AlbumsService } from '@/services';
 import * as AlbumsReducers from '@/store/reducers/albums';
 import { LayoutPageModule } from '@/modules/layout-page.module';
 import { LoaderModule } from '@/modules/loader.module';
+import { PaginationModule } from '@/modules/pagination.module';
 
 const routes: Routes = [
     { path: '', component: PageAlbumsComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
         StoreModule.forFeature(AlbumsReducers.featureKey, AlbumsReducers.reducer),
         EffectsModule.forFeature([ AlbumsEffects ]),
         LoaderModule,
+        PaginationModule,
     ],
     providers: [
         AlbumsService,

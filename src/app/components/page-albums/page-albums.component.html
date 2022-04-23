@@ -23,11 +23,21 @@
             </div>
         </div>
 
-        <div class="page-posts__content">
+        <div class="page-albums__content">
             <div *ngIf="!(isLoading$ | async)"
-                class="page-posts__data">
+                class="page-albums__data">
+                Albums
+
+                <div class="page-albums__pagination-wrapper">
+                    <app-pagination
+                        [totalPages]="totalPages$ | async"
+                        [activePage]="activePage$ | async"
+                        [radius]="3"
+                        (onGo)="go($event)">
+                    </app-pagination>
+                </div>
             </div>
-            <div class="page-posts__loader-overlay"
+            <div class="page-albums__loader-overlay"
                 *ngIf="(isLoading$ | async)">
                 <app-loader></app-loader>
             </div>

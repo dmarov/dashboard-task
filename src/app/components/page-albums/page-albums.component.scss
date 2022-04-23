@@ -1,0 +1,29 @@
+@import '../../../styles/search-filters';
+
+:host {
+    .page-albums {
+        &__data {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__content {
+            position: relative;
+            min-height: 150px;
+        }
+
+        &__loader-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__pagination-wrapper {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
