@@ -1,5 +1,5 @@
 <div class="page__content">
-    <app-layout-page>
+    <app-layout-page-generic>
         <ng-container title>{{ (photo$ | async)?.title }}</ng-container>
         <div class="page-photo__content">
             <a [routerLink]="['/albums/' + (photo$ | async)?.albumId ]">
@@ -11,5 +11,5 @@
                     [src]="(photo$ | async)?.url">
             </div>
         </div>
-    </app-layout-page>
+    </app-layout-page-generic>
 </div>

@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 
-import { LayoutPageComponent } from '@/components';
+import { LayoutPageGenericComponent } from '@/components';
 import { BreadcrumbsModule } from '@/modules/breadcrumbs.module';
 
 @NgModule({
     declarations: [
-        LayoutPageComponent,
+        LayoutPageGenericComponent,
     ],
     imports: [
         BreadcrumbsModule,
     ],
     exports: [
-        LayoutPageComponent,
+        LayoutPageGenericComponent,
     ],
 })
 export class LayoutPageModule { }
