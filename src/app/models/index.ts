@@ -7,3 +7,7 @@ export * from './sort-type';
 export * from './albums-search-field-type';
 export * from './api-photo';
 export * from './photos-search-field-type';
+export * from './api-company';
+export * from './api-address';
+export * from './api-geo';
+export * from './api-user';
