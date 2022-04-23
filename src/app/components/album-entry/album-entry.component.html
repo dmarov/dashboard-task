@@ -1,3 +1,26 @@
-<div class="alm-entry__content">
-    {{ album.title }}
+<div class="album-entry__content">
+    <div class="album-entry__header">
+        {{ album.title }}
+    </div>
+    <div class="album-entry__main">
+        <div class="album-entry__images album-entry-images">
+            <ul class="album-entry-images__items">
+                <li class="album-entry-images__entry">
+                    <img class="album-entry-images__image">
+                </li>
+                <li class="album-entry-images__entry">
+                    <img class="album-entry-images__image">
+                </li>
+                <li class="album-entry-images__entry">
+                    <img class="album-entry-images__image">
+                </li>
+                <li class="album-entry-images__entry">
+                    <img class="album-entry-images__image">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="album-entry__footer">
+        By User {{ album.userId }}
+    </div>
 </div>
