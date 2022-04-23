@@ -14,7 +14,6 @@ import { StoreBaseModule } from './modules/store-base.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { LoaderModule } from '@/modules/loader.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -31,7 +30,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         StoreModule.forFeature(UiReducers.featureKey, UiReducers.reducer),
         EffectsModule.forFeature([ RouterEffects ]),
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-        NgbModule,
     ],
     bootstrap: [AppComponent]
 })

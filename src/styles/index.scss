@@ -1,4 +1,6 @@
 @import 'normalize.css';
+@import 'bootstrap/scss/bootstrap';
+
 @import 'special/colors';
 @import 'app-layout';
 @import 'page';
@@ -18,5 +20,3 @@ html {
     overflow-x: hidden;
 }
 
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
