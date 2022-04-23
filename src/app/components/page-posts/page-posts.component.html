@@ -33,7 +33,8 @@
                     <table class="posts-table">
                         <thead>
                             <tr>
-                                <th class="posts-table__cell posts-table__cell--head">
+                                <th class="posts-table__cell posts-table__cell--head"
+                                    (click)="setSortField(sortFields.Id)">
                                     ID
                                     <app-sort-toggler
                                         *ngIf="(sortField$ | async) === sortFields.Id"
@@ -42,7 +43,8 @@
                                         (ngModelChange)="setSortType($event)">
                                     </app-sort-toggler>
                                 </th>
-                                <th class="posts-table__cell posts-table__cell--head">
+                                <th class="posts-table__cell posts-table__cell--head"
+                                    (click)="setSortField(sortFields.User)">
                                     User
                                     <app-sort-toggler
                                         *ngIf="(sortField$ | async) === sortFields.User"
@@ -51,7 +53,8 @@
                                         (ngModelChange)="setSortType($event)">
                                     </app-sort-toggler>
                                 </th>
-                                <th class="posts-table__cell posts-table__cell--head">
+                                <th class="posts-table__cell posts-table__cell--head"
+                                    (click)="setSortField(sortFields.Title)">
                                     Title
                                     <app-sort-toggler
                                         *ngIf="(sortField$ | async) === sortFields.Title"
@@ -60,7 +63,8 @@
                                         (ngModelChange)="setSortType($event)">
                                     </app-sort-toggler>
                                 </th>
-                                <th class="posts-table__cell posts-table__cell--head">
+                                <th class="posts-table__cell posts-table__cell--head"
+                                    (click)="setSortField(sortFields.Content)">
                                     Content
                                     <app-sort-toggler
                                         *ngIf="(sortField$ | async) === sortFields.Content"

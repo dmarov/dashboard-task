@@ -18,6 +18,8 @@
 
             &--head {
                 text-align: left;
+                cursor: pointer;
+                user-select: none;
             }
         }
 

@@ -164,6 +164,12 @@ export class PagePostsComponent implements OnInit, OnDestroy {
         );
     }
 
+    setSortField(field: PostsSortFieldType) {
+        this.store$.dispatch(
+            PostsActions.setSortField({ field })
+        );
+    }
+
     ngOnDestroy() {
         this.subscription.unsubscribe();
     }
