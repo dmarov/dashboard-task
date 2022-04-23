@@ -1,5 +1,5 @@
 .albums-list {
-    --rowItems: 4;
+    --row-items: 4;
     --offset: 5px;
 
     &__items {
@@ -16,7 +16,7 @@
         min-width: 0;
         flex-grow: 0;
         flex-shrink: 1;
-        flex-basis: calc(100% / var(--rowItems));
+        flex-basis: calc(100% / var(--row-items));
         padding: var(--offset);
 
         &--empty {
