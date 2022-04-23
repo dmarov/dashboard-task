@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { ApiUser } from "@/models";
 import { ActivatedRoute } from '@angular/router';
 import { UsersService } from '@/services';
+import { map } from 'rxjs/operators';
 
 @Component({
     selector: 'app-page-user',
@@ -16,6 +17,7 @@ export class PageUserComponent implements OnInit {
     pageClass = true;
 
     user$: Observable<ApiUser>;
+    description$: Observable<string>;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -25,5 +27,11 @@ export class PageUserComponent implements OnInit {
     ngOnInit(): void {
         const id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
         this.user$ = this.usersService.getUser(id);
+
+        this.description$ = this.user$.pipe(
+            map(user => {
+                return `@${user.username} - ${user.email} - ${user.website} - ${user.company.name} - ${user.address.city}`;
+            })
+        );
     }
 }

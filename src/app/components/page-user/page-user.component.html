@@ -1,6 +1,13 @@
 <app-layout-page-bold-header>
     <ng-container title>
-        User
+        <div class="user-banner">
+            <h1 class="user-banner__name">
+                {{ (user$ | async)?.name }}
+            </h1>
+            <h4 class="user-banner__description">
+                {{ description$ | async }}
+            </h4>
+        </div>
     </ng-container>
     User will be here
 </app-layout-page-bold-header>
