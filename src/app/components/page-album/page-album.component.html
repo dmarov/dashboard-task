@@ -2,7 +2,10 @@
     <app-layout-page>
         <ng-container title>{{ (album$ | async)?.title }}</ng-container>
         <div class="page-album__content">
-            User {{ (album$ | async)?.userId }}
+            By
+            <a [routerLink]="['/users/' + (album$ | async).userId ]">
+                User {{ (album$ | async)?.userId }}
+            </a>
         </div>
     </app-layout-page>
 </div>
