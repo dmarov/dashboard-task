@@ -3,8 +3,9 @@
         <img [src]="photo.url"
             class="photo-entry__image">
     </div>
-    <div class="photo-entry__header">
-        <a [routerLink]="['/photos/' + photo.id]">
+    <div class="photo-entry__title">
+        <a class="photo-entry__link"
+            [routerLink]="['/photos/' + photo.id]">
             {{ photo.title }}
         </a>
     </div>
