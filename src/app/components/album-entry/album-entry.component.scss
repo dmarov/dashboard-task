@@ -1,6 +1,24 @@
 @import '../../../styles/album-entry-images';
 
 :host {
-    display: block;
+    display: flex;
+    flex-direction: column;
     background: var(--bs-gray-200);
+    width: 100%;
+
+
+    .album-entry {
+        &__header,
+        &__footer {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        &__header,
+        &__footer,
+        &__main {
+            padding: 10px;
+        }
+    }
 }
