@@ -1,10 +1,10 @@
 <div class="photo-entry__content">
-    <div class="album-entry__image-wrapper">
+    <div class="photo-entry__image-wrapper">
         <img [src]="photo.url"
             class="photo-entry__image">
     </div>
     <div class="photo-entry__header">
-        <a [routerLink]="['/albums/' + photo.albumId]">
+        <a [routerLink]="['/photos/' + photo.id]">
             {{ photo.title }}
         </a>
     </div>

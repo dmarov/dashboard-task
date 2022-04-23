@@ -1,5 +1,5 @@
-.albums-list {
-    --row-items: 4;
+.photos-list {
+    --row-items: 6;
     --offset: 5px;
 
     &__items {
@@ -20,7 +20,7 @@
         padding: var(--offset);
     }
 
-    &__album {
+    &__photo {
         display: block;
         height: 100%;
     }
