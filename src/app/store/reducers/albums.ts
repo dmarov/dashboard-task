@@ -15,7 +15,7 @@ export class State {
 
 export const initialState: State = {
     isLoading: false,
-    itemsPerPage: 5,
+    itemsPerPage: 12,
     activePage: 0,
     albums: [],
     searchTerm: "",

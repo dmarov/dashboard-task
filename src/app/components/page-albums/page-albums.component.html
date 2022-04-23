@@ -26,8 +26,15 @@
         <div class="page-albums__content">
             <div *ngIf="!(isLoading$ | async)"
                 class="page-albums__data">
-                Albums
-
+                <div class="page-albums__items albums">
+                    <ul class="albums__list">
+                        <li *ngFor="let album of (albums$ | async)" class="albums__entry">
+                            <app-album-entry
+                                [album]="album">
+                            </app-album-entry>
+                        </li>
+                    </ul>
+                </div>
                 <div class="page-albums__pagination-wrapper">
                     <app-pagination
                         [totalPages]="totalPages$ | async"

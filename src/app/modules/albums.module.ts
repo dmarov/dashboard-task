@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import {
+    AlbumEntryComponent,
     PageAlbumsComponent,
 } from '@/components';
 import { AlbumsService } from '@/services';
@@ -23,6 +24,7 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         PageAlbumsComponent,
+        AlbumEntryComponent,
     ],
     imports: [
         CommonModule,
