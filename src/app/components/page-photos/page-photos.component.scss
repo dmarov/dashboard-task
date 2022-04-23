@@ -1,0 +1,30 @@
+@import '../../../styles/search-filters';
+@import '../../../styles/photos-list';
+
+:host {
+    .page-photos {
+        &__data {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__content {
+            position: relative;
+            min-height: 150px;
+        }
+
+        &__loader-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__pagination-wrapper {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

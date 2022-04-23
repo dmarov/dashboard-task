@@ -72,8 +72,7 @@ export class PagePhotosComponent {
                         this.searchTerm$,
                         this.searchField$,
                     )
-                )
-                .subscribe(this.updateState)
+                ).subscribe(this.updateState)
         );
     }
 

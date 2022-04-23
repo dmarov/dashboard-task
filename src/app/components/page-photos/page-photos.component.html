@@ -1,6 +1,53 @@
 <div class="page__content">
     <app-layout-page>
         <ng-container title>Photos</ng-container>
-        Photos page will be here
+        <div class="page__search-wrapper">
+            <div class="search-filters">
+                <div class="search-filters__list">
+                    <input class="search-filters__entry search-filters__input"
+                        placeholder="Search"
+                        [ngModel]="searchTerm$ | async"
+                        (ngModelChange)="setSearchTerm($event)">
+                    <select class="search-filters__entry search-filters__input"
+                        [ngModel]="searchField$ | async"
+                        (ngModelChange)="setSearchField($event)">
+                        <option [value]="searchFieldTypes.Album">
+                            Author
+                        </option>
+                        <option [value]="searchFieldTypes.Title">
+                            Title
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-photos__content">
+            <div *ngIf="!(isLoading$ | async)"
+                class="page-photos__data">
+                <div class="page-photos__items photos-list">
+                    <ul class="photos-list__items">
+                        <li *ngFor="let photo of (photos$ | async)" class="photos-list__entry">
+                            <app-photo-entry
+                                class="photos-list__photo"
+                                [photo]="photo">
+                            </app-photo-entry>
+                        </li>
+                    </ul>
+                </div>
+                <div class="page-photos__pagination-wrapper">
+                    <app-pagination
+                        [totalPages]="totalPages$ | async"
+                        [activePage]="activePage$ | async"
+                        [radius]="3"
+                        (onGo)="go($event)">
+                    </app-pagination>
+                </div>
+            </div>
+            <div class="page-photos__loader-overlay"
+                *ngIf="(isLoading$ | async)">
+                <app-loader></app-loader>
+            </div>
+        </div>
     </app-layout-page>
 </div>
