@@ -13,3 +13,4 @@ export * from './sort-toggler/sort-toggler.component';
 export * from './album-entry/album-entry.component';
 export * from './page-album/page-album.component';
 export * from './photo-entry/photo-entry.component';
+export * from './page-photo/page-photo.component';

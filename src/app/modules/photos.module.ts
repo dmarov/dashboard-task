@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import {
+    PagePhotoComponent,
     PagePhotosComponent,
 } from '@/components';
 import { LayoutPageModule } from '@/modules/layout-page.module';
@@ -19,11 +20,13 @@ import { LoaderModule } from '@/modules/loader.module';
 
 const routes: Routes = [
     { path: '', component: PagePhotosComponent },
+    { path: ':id', component: PagePhotoComponent },
 ];
 
 @NgModule({
     declarations: [
         PagePhotosComponent,
+        PagePhotoComponent,
     ],
     imports: [
         CommonModule,

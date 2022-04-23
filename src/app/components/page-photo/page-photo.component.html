@@ -1,0 +1,16 @@
+<div class="page__content">
+    <app-layout-page>
+        <ng-container title>{{ (photo$ | async)?.title }}</ng-container>
+        <div class="page-photo__content">
+            By
+            <a [routerLink]="['/albums/' + (photo$ | async)?.albumId ]">
+                View Album
+            </a>
+
+            <div class="page-photo__image-wrapper">
+                <img [src]="(photo$ | async)?.url">
+
+            </div>
+        </div>
+    </app-layout-page>
+</div>
