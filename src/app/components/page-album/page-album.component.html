@@ -3,7 +3,7 @@
         <ng-container title>{{ (album$ | async)?.title }}</ng-container>
         <div class="page-album__content">
             By
-            <a [routerLink]="['/users/' + (album$ | async).userId ]">
+            <a [routerLink]="['/users/' + (album$ | async)?.userId ]">
                 User {{ (album$ | async)?.userId }}
             </a>
 
@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <div *ngIf="photos$ | async as photos"
+            <div *ngIf="filteredPhotos$ | async as photos"
                 class="page-album__photos photos-list">
                 <ul class="photos-list__items">
                     <li *ngFor="let photo of photos" class="photos-list__entry">

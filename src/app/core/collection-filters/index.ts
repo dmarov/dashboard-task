@@ -8,3 +8,5 @@ export * from './api-album-collection-filter';
 export * from './api-album-default-collection-filter';
 export * from './api-album-title-collection-filter';
 export * from './api-album-user-collection-filter';
+export * from './api-photos-collection-filter';
+export * from './api-photos-title-collection-filter';
