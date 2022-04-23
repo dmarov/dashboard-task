@@ -11,3 +11,4 @@ export * from './api-album-user-collection-filter';
 export * from './api-photos-collection-filter';
 export * from './api-photos-title-collection-filter';
 export * from './api-photos-album-collection-filter';
+export * from './api-photos-default-collection-filter';

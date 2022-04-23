@@ -1,13 +1,13 @@
 import { createAction, props } from '@ngrx/store';
-import { ApiAlbum, PhotosSearchFieldType } from '@/models';
+import { ApiPhoto, PhotosSearchFieldType } from '@/models';
 
-export const loadAlbums = createAction(
+export const loadPhotos = createAction(
     '[Photos] loadPhotos',
 );
 
 export const loadPhotosSuccess = createAction(
     '[Photos] loadPhotosSuccess',
-    props<{ albums: ApiAlbum[]}>(),
+    props<{ photos: ApiPhoto[]}>(),
 );
 
 export const loadPhotosError = createAction(
