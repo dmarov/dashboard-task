@@ -7,26 +7,23 @@
     <div class="album-entry__main">
         <div class="album-entry__images album-entry-images">
             <ul class="album-entry-images__items">
-                <li class="album-entry-images__entry">
-                    <div class="album-entry-images__image-wrapper">
-                        <img class="album-entry-images__image">
-                    </div>
-                </li>
-                <li class="album-entry-images__entry">
-                    <div class="album-entry-images__image-wrapper">
-                        <img class="album-entry-images__image">
-                    </div>
-                </li>
-                <li class="album-entry-images__entry">
-                    <div class="album-entry-images__image-wrapper">
-                        <img class="album-entry-images__image">
-                    </div>
-                </li>
-                <li class="album-entry-images__entry">
-                    <div class="album-entry-images__image-wrapper">
-                        <img class="album-entry-images__image">
-                    </div>
-                </li>
+                <ng-container *ngIf="!(photos$ | async)">
+                    <li *ngFor="let _ of [1, 2, 3, 4]"
+                        class="album-entry-images__entry">
+                        <div class="album-entry-images__image-wrapper">
+                            <img class="album-entry-images__image">
+                        </div>
+                    </li>
+                </ng-container>
+                <ng-container *ngIf="photos$ | async">
+                    <li *ngFor="let photo of (truncatedPhotos$ | async)"
+                        class="album-entry-images__entry">
+                        <div class="album-entry-images__image-wrapper">
+                            <img [src]="photo.thumbnailUrl"
+                                class="album-entry-images__image">
+                        </div>
+                    </li>
+                </ng-container>
             </ul>
         </div>
     </div>

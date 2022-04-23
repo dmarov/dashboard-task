@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Constants } from "@/core";
-import { ApiAlbum } from "@/models";
+import { ApiAlbum, ApiPhoto } from "@/models";
 import { Observable } from "rxjs";
 
 @Injectable()
@@ -20,6 +20,12 @@ export class AlbumsService {
     getAlbum(id: number): Observable<ApiAlbum> {
         return this.$http.get<ApiAlbum>(
             `${Constants.apiBase}/albums/${id}`
+        );
+    }
+
+    getAlbumPhotos(id: number): Observable<ApiPhoto[]> {
+        return this.$http.get<ApiPhoto[]>(
+            `${Constants.apiBase}/albums/${id}/photos`
         );
     }
 }
