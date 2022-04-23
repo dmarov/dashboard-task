@@ -6,6 +6,29 @@
             <a [routerLink]="['/users/' + (album$ | async).userId ]">
                 User {{ (album$ | async)?.userId }}
             </a>
+
+            <div class="page__search-wrapper">
+                <div class="search-filters">
+                    <div class="search-filters__list">
+                        <input class="search-filters__entry search-filters__input"
+                            placeholder="Search"
+                            [ngModel]="searchTerm$ | async"
+                            (ngModelChange)="setSearchTerm($event)">
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="photos$ | async as photos"
+                class="page-album__photos photos-list">
+                <ul class="photos-list__items">
+                    <li *ngFor="let photo of photos" class="photos-list__entry">
+                        <app-photo-entry
+                            class="photos-list__photo"
+                            [photo]="photo">
+                        </app-photo-entry>
+                    </li>
+                </ul>
+            </div>
         </div>
     </app-layout-page>
 </div>
