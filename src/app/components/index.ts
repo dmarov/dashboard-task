@@ -11,3 +11,4 @@ export * from './loader/loader.component';
 export * from './pagination/pagination.component';
 export * from './sort-toggler/sort-toggler.component';
 export * from './album-entry/album-entry.component';
+export * from './page-album/page-album.component';

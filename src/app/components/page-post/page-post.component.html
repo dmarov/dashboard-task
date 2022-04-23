@@ -1,7 +1,7 @@
 <div class="page__content">
     <app-layout-page>
         <ng-container title>{{ (post$ | async)?.title }}</ng-container>
-        <div class="page-posts__content">
+        <div class="page-post__content">
             {{ (post$ | async)?.body }}
         </div>
     </app-layout-page>

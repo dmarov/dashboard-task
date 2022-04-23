@@ -1,0 +1,8 @@
+<div class="page__content">
+    <app-layout-page>
+        <ng-container title>{{ (album$ | async)?.title }}</ng-container>
+        <div class="page-album__content">
+            User {{ (album$ | async)?.userId }}
+        </div>
+    </app-layout-page>
+</div>

@@ -1,6 +1,8 @@
 <div class="album-entry__content">
     <div class="album-entry__header">
-        {{ album.title }}
+        <a [routerLink]="['/albums/' + album.id]">
+            {{ album.title }}
+        </a>
     </div>
     <div class="album-entry__main">
         <div class="album-entry__images album-entry-images">
@@ -21,6 +23,9 @@
         </div>
     </div>
     <div class="album-entry__footer">
-        By User {{ album.userId }}
+        By
+        <a [routerLink]="['/user/' + album.userId]">
+            User {{ album.userId }}
+        </a>
     </div>
 </div>

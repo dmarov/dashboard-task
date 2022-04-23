@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {
     AlbumEntryComponent,
     PageAlbumsComponent,
+    PageAlbumComponent,
 } from '@/components';
 import { AlbumsService } from '@/services';
 import * as AlbumsReducers from '@/store/reducers/albums';
@@ -19,12 +20,14 @@ import { PaginationModule } from '@/modules/pagination.module';
 
 const routes: Routes = [
     { path: '', component: PageAlbumsComponent },
+    { path: ':id', component: PageAlbumComponent },
 ];
 
 @NgModule({
     declarations: [
         PageAlbumsComponent,
         AlbumEntryComponent,
+        PageAlbumComponent,
     ],
     imports: [
         CommonModule,

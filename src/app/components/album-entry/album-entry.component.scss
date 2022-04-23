@@ -3,9 +3,9 @@
 :host {
     display: flex;
     flex-direction: column;
-    background: var(--bs-gray-200);
+    background: var(--bs-gray-100);
+    border: 1px solid var(--bs-gray-200);
     width: 100%;
-
 
     .album-entry {
         &__header,
@@ -13,6 +13,7 @@
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
+            background: var(--bs-gray-100);
         }
 
         &__header,
