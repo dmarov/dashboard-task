@@ -116,6 +116,22 @@ export class PagePostsComponent implements OnInit, OnDestroy {
         });
     }
 
+    setSortType(sortType: SortType) {
+        this.router.navigate([], {
+            relativeTo: this.activatedRoute,
+            queryParams: { sortType },
+            queryParamsHandling: 'merge',
+        });
+    }
+
+    setSortField(sortField: PostsSortFieldType) {
+        this.router.navigate([], {
+            relativeTo: this.activatedRoute,
+            queryParams: { sortField },
+            queryParamsHandling: 'merge',
+        });
+    }
+
     updateState = ([params, prevPage, prevTerm, prevField, prevSortType, prevSortField]) => {
         const page = QueryParser.parsePage(params);
         const term = QueryParser.parseSearch(params);
@@ -188,28 +204,17 @@ export class PagePostsComponent implements OnInit, OnDestroy {
         }
     }
 
-    setSortType(sortType: SortType) {
-        this.store$.dispatch(
-            PostsActions.setSortType({ sortType })
-        );
-    }
-
     async clickField(field: PostsSortFieldType) {
 
-        const currenvValue = await this.sortField$.pipe(first()).toPromise();
+        const currenvFieldValue = await this.sortField$.pipe(first()).toPromise();
+        const currenvTypeValue = await this.sortType$.pipe(first()).toPromise();
 
-        if (field !== currenvValue) {
-            this.store$.dispatch(
-                PostsActions.setSortType({ sortType: SortType.Asc })
-            );
-
-            this.store$.dispatch(
-                PostsActions.setSortField({ field })
-            );
+        if (field !== currenvFieldValue) {
+            this.setSortType(SortType.Asc);
+            this.setSortField(field);
         } else {
-            this.store$.dispatch(
-                PostsActions.toggleSortType()
-            );
+            const newValue = currenvTypeValue === SortType.Desc ? SortType.Asc : SortType.Desc;
+            this.setSortType(newValue);
         }
     }
 
