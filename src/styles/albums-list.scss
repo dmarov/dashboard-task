@@ -1,6 +1,7 @@
 .albums-list {
 
     --rowItems: 4;
+    --offset: 5px;
 
     &__items {
         padding-left: 0;
@@ -8,9 +9,11 @@
         display: flex;
         flex-wrap: wrap;
         list-style-type: none;
+        margin: calc(-1 * var(--offset));
     }
 
     &__entry {
         flex-basis: calc(100% / var(--rowItems));
+        padding: var(--offset);
     }
 }
