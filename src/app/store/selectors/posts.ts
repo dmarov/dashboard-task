@@ -96,7 +96,7 @@ export const selectSortedPosts = createSelector(
             result.reverse();
         }
 
-        return posts;
+        return result;
     }
 );
 

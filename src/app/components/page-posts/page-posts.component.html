@@ -44,12 +44,30 @@
                                 </th>
                                 <th class="posts-table__cell posts-table__cell--head">
                                     User
+                                    <app-sort-toggler
+                                        *ngIf="(sortField$ | async) === sortFields.User"
+                                        ngDefaultControl
+                                        [ngModel]="sortType$ | async"
+                                        (ngModelChange)="setSortType($event)">
+                                    </app-sort-toggler>
                                 </th>
                                 <th class="posts-table__cell posts-table__cell--head">
                                     Title
+                                    <app-sort-toggler
+                                        *ngIf="(sortField$ | async) === sortFields.Title"
+                                        ngDefaultControl
+                                        [ngModel]="sortType$ | async"
+                                        (ngModelChange)="setSortType($event)">
+                                    </app-sort-toggler>
                                 </th>
                                 <th class="posts-table__cell posts-table__cell--head">
                                     Content
+                                    <app-sort-toggler
+                                        *ngIf="(sortField$ | async) === sortFields.Content"
+                                        ngDefaultControl
+                                        [ngModel]="sortType$ | async"
+                                        (ngModelChange)="setSortType($event)">
+                                    </app-sort-toggler>
                                 </th>
                             </tr>
                         </thead>
