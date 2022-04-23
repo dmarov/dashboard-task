@@ -1,19 +1,22 @@
 .page {
     display: flex;
     flex-direction: column;
+    --side-space: 80px;
 
     &__content {
         flex-grow: 1;
-        padding: 10px 80px;
+        padding: 10px var(--side-space);
         display: flex;
         flex-direction: column;
-
-        &--no-grow {
-            flex-grow: 0;
-        }
     }
 
-    &__search-wrapper {
-        padding: 10px 0;
+    &__header {
+        min-height: 190px;
+        color: var(--bs-gray-200);
+        background: var(--bs-indigo);
+        padding: 10px var(--side-space);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 }
