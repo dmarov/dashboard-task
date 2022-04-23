@@ -1,0 +1,15 @@
+.albums-list {
+
+    --rowItems: 4;
+
+    &__items {
+        padding-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+    }
+
+    &__entry {
+        flex-basis: calc(100% / var(--rowItems));
+    }
+}

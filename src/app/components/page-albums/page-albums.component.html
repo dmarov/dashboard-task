@@ -26,12 +26,15 @@
         <div class="page-albums__content">
             <div *ngIf="!(isLoading$ | async)"
                 class="page-albums__data">
-                <div class="page-albums__items albums">
-                    <ul class="albums__list">
-                        <li *ngFor="let album of (albums$ | async)" class="albums__entry">
+                <div class="page-albums__items albums-list">
+                    <ul class="albums-list__items">
+                        <li *ngFor="let album of (albums$ | async)" class="albums-list__entry">
                             <app-album-entry
                                 [album]="album">
                             </app-album-entry>
+                        </li>
+                        <li *ngFor="let _ of [1, 2, 3, 4, 5]"
+                            class="albums-list__entry albums-list__entry--empty">
                         </li>
                     </ul>
                 </div>
