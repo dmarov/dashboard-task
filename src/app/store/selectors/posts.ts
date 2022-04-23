@@ -21,17 +21,49 @@ export const selectState = createFeatureSelector<State>(
     featureKey
 );
 
+export const selectActivePage = createSelector(
+    selectState, (state: State) => state.activePage
+);
+
+export const selectSearchTerm = createSelector(
+    selectState, (state: State) => state.searchTerm
+);
+
+export const selectSearchField = createSelector(
+    selectState, (state: State) => state.searchField
+);
+
+export const selectIsLoading = createSelector(
+    selectState, (state: State) => state.isLoading,
+);
+
+export const selectItemsPerPage = createSelector(
+    selectState, (state: State) => state.itemsPerPage,
+);
+
+export const selectPosts = createSelector(
+    selectState, (state: State) => state.posts,
+);
+
+export const selectSortField = createSelector(
+    selectState, (state: State) => state.sortField,
+);
+
+export const selectSortType = createSelector(
+    selectState, (state: State) => state.sortType,
+);
+
 export const selectActiveFilter = createSelector(
-    selectState, (state: State): ApiPostCollectionFilter => {
+    selectSearchTerm, selectSearchField, (term, field): ApiPostCollectionFilter => {
         let filter: ApiPostCollectionFilter = new ApiPostDefaultCollectionFilter();
 
-        if (state.searchTerm.length > 0) {
-            if (state.searchField === PostsSearchFieldType.User) {
-                filter = new ApiPostUserCollectionFilter(state.searchTerm);
-            } else if (state.searchField === PostsSearchFieldType.Title) {
-                filter = new ApiPostTitleCollectionFilter(state.searchTerm);
-            } else if (state.searchField === PostsSearchFieldType.Content) {
-                filter = new ApiPostContentCollectionFilter(state.searchTerm);
+        if (term.length > 0) {
+            if (field === PostsSearchFieldType.User) {
+                filter = new ApiPostUserCollectionFilter(term);
+            } else if (field === PostsSearchFieldType.Title) {
+                filter = new ApiPostTitleCollectionFilter(term);
+            } else if (field === PostsSearchFieldType.Content) {
+                filter = new ApiPostContentCollectionFilter(term);
             }
         }
 
@@ -40,14 +72,14 @@ export const selectActiveFilter = createSelector(
 );
 
 export const selectActiveSorter = createSelector(
-    selectState, (state: State): ApiPostCollectionSorter => {
+    selectSortField, (field): ApiPostCollectionSorter => {
         let sorter: ApiPostCollectionSorter = new ApiPostIdCollectionSorter();
 
-        if (state.sortField === PostsSortFieldType.User) {
+        if (field === PostsSortFieldType.User) {
             sorter = new ApiPostUserCollectionSorter();
-        } else if (state.sortField === PostsSortFieldType.Title) {
+        } else if (field === PostsSortFieldType.Title) {
             sorter = new ApiPostTitleCollectionSorter();
-        } else if (state.sortField === PostsSortFieldType.Content) {
+        } else if (field === PostsSortFieldType.Content) {
             sorter = new ApiPostContentCollectionSorter();
         }
 
@@ -56,12 +88,12 @@ export const selectActiveSorter = createSelector(
 );
 
 export const selectSortedPosts = createSelector(
-    selectState, selectActiveSorter, (state: State, sorter) => {
-        const posts = Array.from(state.posts);
-        posts.sort((a, b) => sorter.compare(a, b));
+    selectPosts, selectActiveSorter, selectSortType, (posts, sorter, sortType) => {
+        const result = Array.from(posts);
+        result.sort((a, b) => sorter.compare(a, b));
 
-        if (state.sortType === SortType.Desc) {
-            posts.reverse();
+        if (sortType === SortType.Desc) {
+            result.reverse();
         }
 
         return posts;
@@ -75,31 +107,15 @@ export const selectFilteredAndSortedPosts = createSelector(
 );
 
 export const selectCurrentPagePosts = createSelector(
-    selectState, selectFilteredAndSortedPosts, (state: State, posts) => {
+    selectActivePage, selectItemsPerPage, selectFilteredAndSortedPosts, (activePage, itemsPerPage, posts) => {
         return posts.slice(
-            state.itemsPerPage * state.activePage,
-            state.itemsPerPage * (state.activePage + 1)
+            itemsPerPage * activePage,
+            itemsPerPage * (activePage + 1)
         );
     }
 );
 
-export const selectIsLoading = createSelector(
-    selectState, (state: State) => state.isLoading,
-);
-
 export const selectTotalPages = createSelector(
-    selectState, selectFilteredAndSortedPosts, (state: State, posts) =>
-        Math.ceil(posts.length / state.itemsPerPage),
-);
-
-export const selectActivePage = createSelector(
-    selectState, (state: State) => state.activePage
-);
-
-export const selectSearchTerm = createSelector(
-    selectState, (state: State) => state.searchTerm
-);
-
-export const selectSearchField = createSelector(
-    selectState, (state: State) => state.searchField
+    selectItemsPerPage, selectFilteredAndSortedPosts, (itemsPerPage, posts) =>
+        Math.ceil(posts.length / itemsPerPage),
 );
