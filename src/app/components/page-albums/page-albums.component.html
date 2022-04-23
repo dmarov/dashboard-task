@@ -30,6 +30,7 @@
                     <ul class="albums-list__items">
                         <li *ngFor="let album of (albums$ | async)" class="albums-list__entry">
                             <app-album-entry
+                                class="albums-list__album"
                                 [album]="album">
                             </app-album-entry>
                         </li>
