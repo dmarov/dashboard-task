@@ -1,10 +1,8 @@
-@import './special/colors.scss';
-
 .app-layout {
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    background: $color-primary;
+    background: var(--bs-white);
 
     &__main {
         flex-grow: 1;
@@ -45,6 +43,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: $color-primary;
+        background: var(--bs-white);
     }
 }

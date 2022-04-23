@@ -1,7 +1,5 @@
-@import '../../../styles/special/colors';
-
 :host {
-    background: $color-secondary;
+    background: var(--bs-gray-200);
     padding: 15px;
 
     .side-menu {
@@ -22,12 +20,12 @@
             transition: background 0.1s linear;
 
             &--active {
-                color: $color-secondary;
-                background: $color-active;
+                color: var(--bs-gray-200);
+                background: var(--bs-blue);
             }
 
             &:not(&--active) {
-                color: $color-text;
+                color: var(--bs-dark);
             }
         }
 

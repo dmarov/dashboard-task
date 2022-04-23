@@ -1,6 +1,6 @@
 .main-banner {
-    background: $color-contrast;
-    color: $color-primary;
+    background: var(--bs-indigo);
+    color: var(--bs-white);
     display: flex;
     flex-direction: column;
     align-items: flex-start;

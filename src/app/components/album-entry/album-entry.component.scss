@@ -1,7 +1,6 @@
-@import '../../../styles/special/colors';
 @import '../../../styles/album-entry-images';
 
 :host {
     display: block;
-    background: $color-secondary;
+    background: var(--bs-gray-200);
 }

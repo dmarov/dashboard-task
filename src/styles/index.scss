@@ -2,7 +2,6 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons';
 
-@import 'special/colors';
 @import 'app-layout';
 @import 'page';
 
@@ -10,7 +9,7 @@ html {
     height: 100%;
     overflow-x: hidden;
     line-height: 1.45;
-    color: $color-text;
+    color: var(--bs-dark);
 }
 
 .body {
