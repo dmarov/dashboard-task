@@ -13,8 +13,8 @@ export const selectState = createFeatureSelector<State>(
     featureKey
 );
 
-export const selectFilteredPosts = createSelector(
-    selectState, (state: State) => {
+export const selectActiveFilter = createSelector(
+    selectState, (state: State): ApiPostCollectionFilter => {
         let filter: ApiPostCollectionFilter = new ApiPostDefaultCollectionFilter();
 
         if (state.searchTerm.length > 0) {
@@ -27,6 +27,12 @@ export const selectFilteredPosts = createSelector(
             }
         }
 
+        return filter;
+    }
+);
+
+export const selectFilteredPosts = createSelector(
+    selectState, selectActiveFilter, (state: State, filter) => {
         return state.posts.filter(p => filter.matches(p));
     }
 );
