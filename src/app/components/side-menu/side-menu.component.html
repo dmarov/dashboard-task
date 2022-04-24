@@ -3,7 +3,9 @@
     <li *ngFor="let link of links"
         class="side-menu__entry"
         routerLinkActive="side-menu__entry--active">
-        <a class="side-menu__link" [routerLink]="[link.href]">
+        <a (click)="close()"
+            class="side-menu__link"
+            [routerLink]="[link.href]">
             {{ link.title }}
         </a>
     </li>
