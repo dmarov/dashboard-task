@@ -5,6 +5,18 @@
     .breadcrumbs {
         &__queue {
             height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &__link {
+            &:not(:last-child) {
+                margin-right: 10px;
+            }
+
+            &:not(:first-child) {
+                margin-left: 10px;
+            }
         }
     }
 }

@@ -1,3 +1,9 @@
 <div class="breadcrumbs__queue">
+    <a class="breadcrumbs__link" [routerLink]="['/dashboard']">Dashboard</a> /
 
+    <a *ngFor="let path of paths"
+        class="breadcrumbs__link"
+        [routerLink]="[path]">
+        Page
+    </a> /
 </div>
