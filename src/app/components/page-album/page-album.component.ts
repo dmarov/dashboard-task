@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostBinding, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, Subscription } from 'rxjs';
 import { ApiAlbum, ApiPhoto } from "@/models";
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,6 +11,7 @@ import { ApiPhotosTitleCollectionFilter } from '@/core/collection-filters';
     selector: 'app-page-album',
     templateUrl: './page-album.component.html',
     styleUrls: ['./page-album.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class PageAlbumComponent implements OnInit, OnDestroy {
 

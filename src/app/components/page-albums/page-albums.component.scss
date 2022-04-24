@@ -1,30 +1,45 @@
 @import '../../../styles/search-filters';
 @import '../../../styles/albums-list';
+@import '../../../styles/special/mixins';
 
-:host {
-    .page-albums {
-        &__data {
-            display: flex;
-            flex-direction: column;
+.page-albums {
+    &__data {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__content {
+        position: relative;
+        min-height: 150px;
+    }
+
+    &__loader-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__pagination-wrapper {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .albums-list {
+        --row-items: 1;
+
+        @include respond-to('small') {
+            --row-items: 2;
         }
 
-        &__content {
-            position: relative;
-            min-height: 150px;
+        @include respond-to('medium') {
+            --row-items: 3;
         }
 
-        &__loader-overlay {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        &__pagination-wrapper {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
+        @include respond-to('large') {
+            --row-items: 4;
         }
     }
 }

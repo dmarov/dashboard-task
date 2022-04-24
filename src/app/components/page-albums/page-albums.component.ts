@@ -2,7 +2,7 @@ import { AlbumsSearchFieldType, ApiAlbum } from '@/models';
 import { AlbumsActions } from '@/store/actions';
 import { AlbumsSelectors } from '@/store/selectors';
 import { QueryParser } from '@/utils';
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
@@ -12,10 +12,12 @@ import { withLatestFrom } from 'rxjs/operators';
     selector: 'app-page-albums',
     templateUrl: './page-albums.component.html',
     styleUrls: ['./page-albums.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class PageAlbumsComponent {
 
     @HostBinding('class.page')
+    @HostBinding('class.page-albums')
     pageClass = true;
 
     albums$: Observable<ApiAlbum[]>;
