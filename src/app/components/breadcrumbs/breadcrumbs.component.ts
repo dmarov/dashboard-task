@@ -12,6 +12,12 @@ export class BreadcrumbsComponent implements OnInit {
     blockClass = true;
     links: Link[] = [];
 
+    translations = {
+        'posts': 'Posts',
+        'albums': 'Albums',
+        'photos': 'Photos',
+    };
+
     ngOnInit(): void {
         const path = window.location.pathname;
         const parts = path.split('/').map(p => p.replace('/', ''));
@@ -20,7 +26,9 @@ export class BreadcrumbsComponent implements OnInit {
         for (const part of parts) {
             if (part) {
                 cumulative += '/' + part;
-                this.links.push(new Link(cumulative, part));
+                this.links.push(
+                    new Link(cumulative, this.translations[part] ?? part)
+                );
             }
         }
     }
