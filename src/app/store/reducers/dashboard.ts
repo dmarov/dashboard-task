@@ -11,11 +11,10 @@ export class State {
     latestPostsLimit: number;
 
     isAlbumsLoading: boolean;
-    lastestAlbums: ApiAlbum[];
     totalAlbums: number;
 
     isPhotosLoading: boolean;
-    lastestPhotos: ApiPhoto[];
+    recentPhotos: ApiPhoto[];
     totalPhotos: number;
     recentPhotosLimit: number;
 }
@@ -27,11 +26,10 @@ export const initialState: State = {
     latestPostsLimit: 20,
 
     isAlbumsLoading: false,
-    lastestAlbums: [],
     totalAlbums: 0,
 
     isPhotosLoading: false,
-    lastestPhotos: [],
+    recentPhotos: [],
     totalPhotos: 0,
     recentPhotosLimit: 30,
 };

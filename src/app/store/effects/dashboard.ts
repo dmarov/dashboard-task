@@ -2,13 +2,16 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { DashboardActions } from "@/store/actions";
 import { AlbumsService, PhotosService, PostsService } from "@/services";
-import { map, mergeMap, catchError } from "rxjs/operators";
+import { map, mergeMap, catchError, withLatestFrom } from "rxjs/operators";
 import { of } from "rxjs";
+import { select, Store } from "@ngrx/store";
+import {DashboardSelectors} from "../selectors";
 
 @Injectable()
 export class DashboardEffects {
 
     constructor(
+        private readonly store$: Store,
         private readonly actions$: Actions,
         private readonly albumsService: AlbumsService,
         private readonly photosService: PhotosService,
@@ -34,11 +37,14 @@ export class DashboardEffects {
     loadPosts$ = createEffect(
         () => this.actions$.pipe(
             ofType(DashboardActions.loadPosts),
+            withLatestFrom(this.store$.pipe(
+                select(DashboardSelectors.selectLatestPostsLimit)
+            )),
             mergeMap(
-                () => this.postsService.getPosts().pipe(
+                (_action, limit) => this.postsService.getPosts().pipe(
                     map(posts => DashboardActions.loadPostsSuccess({
                         totalPosts: posts.length,
-                        latestPosts: posts.slice(0, 30)
+                        latestPosts: posts.slice(0, limit)
                     })),
                     catchError(error => of(
                         DashboardActions.loadPostsError({ error })
@@ -51,11 +57,14 @@ export class DashboardEffects {
     loadPhotos$ = createEffect(
         () => this.actions$.pipe(
             ofType(DashboardActions.loadPhotos),
+            withLatestFrom(this.store$.pipe(
+                select(DashboardSelectors.selectRecentPhotosLimit)
+            )),
             mergeMap(
-                () => this.photosService.getPhotos().pipe(
+                (_action, limit) => this.photosService.getPhotos().pipe(
                     map(photos => DashboardActions.loadPhotosSuccess({
                         totalPhotos: photos.length,
-                        recentPhotos: photos.slice(0, 30)
+                        recentPhotos: photos.slice(0, limit)
                     })),
                     catchError(error => of(
                         DashboardActions.loadPhotosError({ error })
