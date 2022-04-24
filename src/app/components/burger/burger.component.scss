@@ -1,12 +1,14 @@
 :host {
-    width: 40px;
-    height: 40px;
-    flex-grow: 1;
-    display: flex;
-    justify-content: stretch;
-    align-items: stretch;
-
     .burger {
+        &__content {
+            width: 40px;
+            height: 40px;
+            flex-grow: 1;
+            display: flex;
+            justify-content: stretch;
+            align-items: stretch;
+        }
+
         &__center {
             cursor: pointer;
             position: relative;

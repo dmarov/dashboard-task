@@ -55,4 +55,12 @@
     &__search-wrapper {
         padding: 10px 0;
     }
+
+    &__mobile-header {
+        background: var(--bs-gray-200);
+
+        @include respond-to('small') {
+            display: none;
+        }
+    }
 }
