@@ -12,9 +12,12 @@
         }
 
         &__tile {
+            // contailner quert hack;
             flex-basis: calc(10000 * (1000px - 100%));
             flex-grow: 1;
             padding: var(--gap);
+            // required for text-overflow ellipsis
+            min-width: 0;
         }
     }
 }
