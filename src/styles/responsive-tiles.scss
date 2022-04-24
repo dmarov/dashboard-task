@@ -1,0 +1,16 @@
+.responsive-tiles {
+    --gap: 10px;
+
+    &__entries {
+        display: flex;
+        flex-wrap: wrap;
+        margin: calc(-1 * var(--gap));
+    }
+
+    &__entry {
+        flex-basis: calc(10000 * (1000px - 100%));
+        flex-grow: 1;
+        padding: var(--gap);
+        min-width: 0;
+    }
+}

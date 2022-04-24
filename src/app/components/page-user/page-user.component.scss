@@ -1,23 +1,3 @@
 @import '../../../styles/user-banner';
 @import '../../../styles/scrollable-list';
-
-:host {
-    --gap: 10px;
-
-    .page-user {
-        &__tiles {
-            display: flex;
-            flex-wrap: wrap;
-            margin: calc(-1 * var(--gap));
-        }
-
-        &__tile {
-            // contailner quert hack;
-            flex-basis: calc(10000 * (1000px - 100%));
-            flex-grow: 1;
-            padding: var(--gap);
-            // required for text-overflow ellipsis
-            min-width: 0;
-        }
-    }
-}
+@import '../../../styles/responsive-tiles';
