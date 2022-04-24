@@ -1,13 +1,17 @@
 .scrollable-list {
     background: var(--bs-gray-100);
-    --gap: 5px 15px;
+    border: 1px solid var(--bs-gray-300);
+    --gap: 10px 15px;
 
     &__title {
         padding: var(--gap);
         background: var(--bs-gray-300);
+        margin-bottom: 0;
     }
 
     &__entries {
+        overflow-y: scroll;
+        max-height: 400px;
         display: flex;
         flex-direction: column;
         list-style-type: none;
@@ -17,7 +21,6 @@
 
     &__entry {
         margin: var(--gap);
-        min-height: 35px;
     }
 
     &__line {
