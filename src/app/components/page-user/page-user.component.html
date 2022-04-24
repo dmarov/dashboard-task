@@ -13,40 +13,44 @@
     <div class="responsive-tiles">
         <div class="responsive-tiles__entries">
             <div class="responsive-tiles__entry">
-                <div class="scrollable-list">
-                    <h4 class="scrollable-list__title">
+                <div class="scrollable-container">
+                    <h4 class="scrollable-container__title">
                         Albums
                     </h4>
-                    <ul class="scrollable-list__entries"
-                        *ngIf="albums$ | async as albums">
-                        <li class="scrollable-list__entry"
-                            *ngFor="let album of albums">
-                            <a class="scrollable-list__line"
-                                [routerLink]="['/albums/' + album.id]">
-                                {{ album.title }}
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="scrollable-container__content column-list">
+                        <ul class="column-list__entries"
+                            *ngIf="albums$ | async as albums">
+                            <li class="column-list__entry"
+                                *ngFor="let album of albums">
+                                <a class="column-list__line"
+                                    [routerLink]="['/albums/' + album.id]">
+                                    {{ album.title }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="responsive-tiles__entry">
-                <div class="scrollable-list">
-                    <h4 class="scrollable-list__title">
+                <div class="scrollable-container">
+                    <h4 class="scrollable-container__title">
                         Posts
                     </h4>
-                    <ul class="scrollable-list__entries"
-                        *ngIf="posts$ | async as posts">
-                        <li class="scrollable-list__entry"
-                            *ngFor="let post of posts">
-                            <a class="scrollable-list__line"
-                                [routerLink]="['/posts/' + post.id]">
-                                {{ post.title }}
-                            </a>
-                            <div class="scrollable-list__line">
-                                {{ post.body }}
-                            </div>
-                        </li>
-                    </ul>
+                    <div class="scrollable-container__content column-list">
+                        <ul class="column-list__entries"
+                            *ngIf="posts$ | async as posts">
+                            <li class="column-list__entry"
+                                *ngFor="let post of posts">
+                                <a class="column-list__line"
+                                    [routerLink]="['/posts/' + post.id]">
+                                    {{ post.title }}
+                                </a>
+                                <div class="column-list__line">
+                                    {{ post.body }}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
