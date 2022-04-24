@@ -1,3 +1,5 @@
+@import './special/mixins';
+
 .app-layout {
     display: flex;
     flex-direction: column;
@@ -11,13 +13,17 @@
     }
 
     &__side-menu-wrapper {
+        display: none;
         flex: 250px 0 0;
-        display: flex;
         flex-direction: column;
 
         & > * {
             display: block;
             flex-grow: 1;
+        }
+
+        @include respond-to('small') {
+            display: flex;
         }
     }
 
