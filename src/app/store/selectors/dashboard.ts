@@ -49,8 +49,7 @@ export const selectIsLoading = createSelector(
     selectPostsLoading,
     selectAlbumsLoading,
     selectPhotosLoading,
-        (postsLoading, albumsLoading, photosLoading) =>
-            postsLoading ||
+        (postsLoading, albumsLoading, photosLoading) => postsLoading ||
             albumsLoading ||
             photosLoading
 );

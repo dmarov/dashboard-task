@@ -12,16 +12,17 @@
     <div class="responsive-tiles">
         <div class="responsive-tiles__entries">
             <div class="responsive-tiles__entry">
-                <div class="scrollable-container scrollable-container--autoscroll">
+                <div class="scrollable-container">
                     <h4 class="scrollable-container__title">
                         Statistics
                     </h4>
                     <div class="scrollable-container__content">
-                        <div class="statistics">
-                            <div class="statistics__loader-wrapper"
-                                *ngIf="isLoading$ | async">
-                                <app-loader class="statistics__loader"></app-loader>
+                        <div *ngIf="isLoading$ | async">
+                            <div class="scrollable-container__loader-wrapper">
+                                <app-loader></app-loader>
                             </div>
+                        </div>
+                        <div class="statistics">
                             <ng-container *ngIf="!(isLoading$ | async)">
                                 <ul class="statistics__entries">
                                     <li class="statistics__entry">
@@ -59,20 +60,28 @@
                     <h4 class="scrollable-container__title">
                         Latest Posts
                     </h4>
-                    <div class="scrollable-container__content column-list">
-                        <ul class="column-list__entries"
-                            *ngIf="latestPosts$ | async as posts">
-                            <li class="column-list__entry"
-                                *ngFor="let post of posts">
-                                <a class="column-list__line"
-                                    [routerLink]="['/posts/' + post.id]">
-                                    {{ post.title }}
-                                </a>
-                                <div class="column-list__line">
-                                    {{ post.body }}
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="scrollable-container__content">
+                        <div *ngIf="isLoading$ | async">
+                            <div class="scrollable-container__loader-wrapper">
+                                <app-loader></app-loader>
+                            </div>
+                        </div>
+                        <div *ngIf="!(isLoading$ | async)"
+                            class="column-list">
+                            <ul class="column-list__entries"
+                                *ngIf="latestPosts$ | async as posts">
+                                <li class="column-list__entry"
+                                    *ngFor="let post of posts">
+                                    <a class="column-list__line"
+                                        [routerLink]="['/posts/' + post.id]">
+                                        {{ post.title }}
+                                    </a>
+                                    <div class="column-list__line">
+                                        {{ post.body }}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,7 +91,13 @@
                         Recent Photos
                     </h4>
                     <div class="scrollable-container__content">
-                        <div class="page-dashboard__photos-wrapper photos-list photos-list--smaller">
+                        <div *ngIf="isLoading$ | async">
+                            <div class="scrollable-container__loader-wrapper">
+                                <app-loader></app-loader>
+                            </div>
+                        </div>
+                        <div *ngIf="!(isLoading$ | async)"
+                            class="page-dashboard__photos-wrapper photos-list photos-list--smaller">
                             <ul class="photos-list__items">
                                 <li *ngFor="let photo of (recentPhotos$ | async)" class="photos-list__entry">
                                     <app-photo-entry

@@ -3,12 +3,6 @@
     border: 1px solid var(--bs-gray-300);
     --gap: 10px 15px;
 
-    &--autoscroll {
-        .scrollable-container__content {
-            overflow-y: auto;
-        }
-    }
-
     &__title {
         padding: var(--gap);
         background: var(--bs-gray-300);
@@ -16,7 +10,13 @@
     }
 
     &__content {
-        overflow-y: scroll;
+        overflow-y: auto;
         max-height: 400px;
+    }
+
+    &__loader-wrapper {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
     }
 }
