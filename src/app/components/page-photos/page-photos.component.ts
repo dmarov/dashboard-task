@@ -1,5 +1,5 @@
 import { ApiPhoto, PhotosSearchFieldType } from '@/models';
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
@@ -12,10 +12,12 @@ import { QueryParser } from '@/utils';
     selector: 'app-page-photos',
     templateUrl: './page-photos.component.html',
     styleUrls: ['./page-photos.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class PagePhotosComponent {
 
     @HostBinding('class.page')
+    @HostBinding('class.page-photos')
     pageClass = true;
 
     photos$: Observable<ApiPhoto[]>;
