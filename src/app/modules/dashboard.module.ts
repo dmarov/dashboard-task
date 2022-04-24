@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { DashboardEffects } from '@/store/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { LoaderModule } from '@/modules/loader.module';
 
 const routes: Routes = [
     { path: '', component: PageDashboardComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
         LayoutPageModule,
         StoreModule.forFeature(DashboardReducers.featureKey, DashboardReducers.reducer),
         EffectsModule.forFeature([ DashboardEffects ]),
+        LoaderModule,
     ],
     providers: [
         PostsService,

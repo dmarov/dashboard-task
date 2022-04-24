@@ -19,6 +19,11 @@ export class PageDashboardComponent implements OnInit {
     totalAlbums$: Observable<number>;
     totalPhotos$: Observable<number>;
 
+    isPostsLoading$: Observable<boolean>;
+    isAlbumsLoading$: Observable<boolean>;
+    isPhotosLoading$: Observable<boolean>;
+    isLoading$: Observable<boolean>;
+
     constructor(
         private readonly store$: Store,
     ) { }
@@ -36,6 +41,22 @@ export class PageDashboardComponent implements OnInit {
 
         this.totalPhotos$ = this.store$.pipe(
             select(DashboardSelectors.selectPhotosTotal)
+        );
+
+        this.isPostsLoading$ = this.store$.pipe(
+            select(DashboardSelectors.selectPostsLoading)
+        );
+
+        this.isAlbumsLoading$ = this.store$.pipe(
+            select(DashboardSelectors.selectAlbumsLoading)
+        );
+
+        this.isPhotosLoading$ = this.store$.pipe(
+            select(DashboardSelectors.selectPhotosLoading)
+        );
+
+        this.isLoading$ = this.store$.pipe(
+            select(DashboardSelectors.selectIsLoading)
         );
     }
 }

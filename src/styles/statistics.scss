@@ -1,5 +1,6 @@
 .statistics {
     --row-size: 3;
+    position: relative;
 
     &__entries {
         padding-left: 0;
@@ -28,5 +29,13 @@
     &__description {
         margin-left: 15px;
         color: var(--bs-gray-600);
+    }
+
+    &__loader-wrapper {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

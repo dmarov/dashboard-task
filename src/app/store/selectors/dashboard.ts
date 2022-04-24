@@ -44,3 +44,13 @@ export const selectLatestPosts = createSelector(
 export const selectLatestPostsLimit = createSelector(
     selectState, (state: State) => state.latestPostsLimit
 );
+
+export const selectIsLoading = createSelector(
+    selectPostsLoading,
+    selectAlbumsLoading,
+    selectPhotosLoading,
+        (postsLoading, albumsLoading, photosLoading) =>
+            postsLoading ||
+            albumsLoading ||
+            photosLoading
+);

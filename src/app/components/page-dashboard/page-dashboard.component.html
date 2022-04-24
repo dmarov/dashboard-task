@@ -18,34 +18,39 @@
                     </h4>
                     <div class="scrollable-container__content">
                         <div class="statistics">
-                            <ul class="statistics__entries">
-                                <li class="statistics__entry">
-                                    <div class="statistics__number">
-                                        {{ totalPosts$ | async }}
-                                    </div>
-                                    <div class="statistics__description">
-                                        Posts
-                                    </div>
-                                </li>
-                                <li class="statistics__entry">
-                                    <div class="statistics__number">
-                                        {{ totalAlbums$ | async }}
-                                    </div>
-                                    <div class="statistics__description">
-                                        Albums
-                                    </div>
-                                </li>
-                                <li class="statistics__entry">
-                                    <div class="statistics__number">
-                                        {{ totalPhotos$ | async }}
-                                    </div>
-                                    <div class="statistics__description">
-                                        Photos
-                                    </div>
-                                </li>
-                            </ul>
+                            <div class="statistics__loader-wrapper"
+                                *ngIf="isLoading$ | async">
+                                <app-loader class="statistics__loader"></app-loader>
+                            </div>
+                            <ng-container *ngIf="!(isLoading$ | async)">
+                                <ul class="statistics__entries">
+                                    <li class="statistics__entry">
+                                        <div class="statistics__number">
+                                            {{ totalPosts$ | async }}
+                                        </div>
+                                        <div class="statistics__description">
+                                            Posts
+                                        </div>
+                                    </li>
+                                    <li class="statistics__entry">
+                                        <div class="statistics__number">
+                                            {{ totalAlbums$ | async }}
+                                        </div>
+                                        <div class="statistics__description">
+                                            Albums
+                                        </div>
+                                    </li>
+                                    <li class="statistics__entry">
+                                        <div class="statistics__number">
+                                            {{ totalPhotos$ | async }}
+                                        </div>
+                                        <div class="statistics__description">
+                                            Photos
+                                        </div>
+                                    </li>
+                                </ul>
+                            </ng-container>
                         </div>
-
                     </div>
                 </div>
             </div>
