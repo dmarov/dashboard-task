@@ -16,3 +16,4 @@ export * from './page-album/page-album.component';
 export * from './photo-entry/photo-entry.component';
 export * from './page-photo/page-photo.component';
 export * from './page-user/page-user.component';
+export * from './burger/burger.component';

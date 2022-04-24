@@ -1,0 +1,10 @@
+<div class="burger__content"
+    [ngClass]="{'burger--opened': isMenuOpen$ | async}"
+    (click)="toggleMenuOpen()">
+    <div class="burger__center">
+        <div class="burger__line"></div>
+        <div class="burger__line"></div>
+        <div class="burger__line"></div>
+    </div>
+</div>
+
