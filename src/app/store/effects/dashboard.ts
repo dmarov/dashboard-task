@@ -2,10 +2,10 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { DashboardActions } from "@/store/actions";
 import { AlbumsService, PhotosService, PostsService } from "@/services";
-import { map, mergeMap, catchError, withLatestFrom } from "rxjs/operators";
+import { map, mergeMap, catchError, withLatestFrom, tap } from "rxjs/operators";
 import { of } from "rxjs";
 import { select, Store } from "@ngrx/store";
-import {DashboardSelectors} from "../selectors";
+import { DashboardSelectors } from "@/store/selectors";
 
 @Injectable()
 export class DashboardEffects {
@@ -17,6 +17,18 @@ export class DashboardEffects {
         private readonly photosService: PhotosService,
         private readonly postsService: PostsService,
     ) { }
+
+    initState$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(DashboardActions.initState),
+            tap(() => {
+                this.store$.dispatch(DashboardActions.loadAlbums());
+                this.store$.dispatch(DashboardActions.loadPosts());
+                this.store$.dispatch(DashboardActions.loadPhotos());
+            })
+        ),
+        { dispatch: false }
+    );
 
     loadAlbums$ = createEffect(
         () => this.actions$.pipe(

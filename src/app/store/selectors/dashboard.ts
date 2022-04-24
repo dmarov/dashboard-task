@@ -38,7 +38,7 @@ export const selectPostsTotal = createSelector(
 );
 
 export const selectLatestPosts = createSelector(
-    selectState, (state: State) => state.lastestPosts
+    selectState, (state: State) => state.latestPosts
 );
 
 export const selectLatestPostsLimit = createSelector(

@@ -1,6 +1,10 @@
 import { createAction, props } from '@ngrx/store';
 import { ApiPost, ApiPhoto } from '@/models';
 
+export const initState = createAction(
+    '[Dashboard] initState',
+);
+
 export const loadAlbums = createAction(
     '[Dashboard] loadAlbums',
 );

@@ -6,7 +6,7 @@ export const featureKey = 'dashboard';
 
 export class State {
     isPostsLoading: boolean;
-    lastestPosts: ApiPost[];
+    latestPosts: ApiPost[];
     totalPosts: number;
     latestPostsLimit: number;
 
@@ -21,7 +21,7 @@ export class State {
 
 export const initialState: State = {
     isPostsLoading: false,
-    lastestPosts: [],
+    latestPosts: [],
     totalPosts: 0,
     latestPostsLimit: 20,
 
