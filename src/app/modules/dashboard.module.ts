@@ -11,6 +11,7 @@ import * as DashboardReducers from '@/store/reducers/dashboard';
 import { EffectsModule } from '@ngrx/effects';
 import { DashboardEffects } from '@/store/effects';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
     { path: '', component: PageDashboardComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
         PageDashboardComponent,
     ],
     imports: [
+        CommonModule,
         HttpClientModule,
         RouterModule.forChild(routes),
         LayoutPageModule,

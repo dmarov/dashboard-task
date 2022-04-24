@@ -21,7 +21,7 @@
                             <ul class="statistics__entries">
                                 <li class="statistics__entry">
                                     <div class="statistics__number">
-                                        123
+                                        {{ totalPosts$ | async }}
                                     </div>
                                     <div class="statistics__description">
                                         Posts
@@ -29,7 +29,7 @@
                                 </li>
                                 <li class="statistics__entry">
                                     <div class="statistics__number">
-                                        123
+                                        {{ totalAlbums$ | async }}
                                     </div>
                                     <div class="statistics__description">
                                         Albums
@@ -37,7 +37,7 @@
                                 </li>
                                 <li class="statistics__entry">
                                     <div class="statistics__number">
-                                        123
+                                        {{ totalPhotos$ | async }}
                                     </div>
                                     <div class="statistics__description">
                                         Photos
