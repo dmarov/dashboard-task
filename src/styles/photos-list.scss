@@ -2,6 +2,10 @@
     --row-items: 6;
     --offset: 5px;
 
+    &--smaller {
+        --row-items: 3;
+    }
+
     &__items {
         padding-left: 0;
         margin: 0;
@@ -12,7 +16,6 @@
     }
 
     &__entry {
-        min-height: 150px;
         min-width: 0;
         flex-grow: 0;
         flex-shrink: 1;

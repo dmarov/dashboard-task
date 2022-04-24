@@ -3,3 +3,13 @@
 @import '../../../styles/scrollable-container';
 @import '../../../styles/statistics';
 @import '../../../styles/column-list';
+@import '../../../styles/photos-list';
+
+
+:host {
+    .page-dashboard {
+        &__photos-wrapper {
+            margin: 5px;
+        }
+    }
+}

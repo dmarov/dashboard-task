@@ -82,6 +82,16 @@
                         Recent Photos
                     </h4>
                     <div class="scrollable-container__content">
+                        <div class="page-dashboard__photos-wrapper photos-list photos-list--smaller">
+                            <ul class="photos-list__items">
+                                <li *ngFor="let photo of (recentPhotos$ | async)" class="photos-list__entry">
+                                    <app-photo-entry
+                                        class="photos-list__photo"
+                                        [photo]="photo">
+                                    </app-photo-entry>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
