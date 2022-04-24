@@ -10,23 +10,41 @@
         </div>
     </ng-container>
 
-    <div class="page-user__posts">
-
-        <ul *ngIf="posts$ | async as posts">
-            <li *ngFor="let post of posts">
-                {{ post.title }}
-            </li>
-        </ul>
-
-    </div>
-
-    <div class="page-user__albums">
-
-        <ul *ngIf="albums$ | async as albums">
-            <li *ngFor="let album of albums">
-                {{ album.title }}
-            </li>
-        </ul>
-
+    <div class="page-user__tiles">
+        <div class="page-user__tile">
+            <div class="scrollable-list">
+                <h4 class="scrollable-list__title">
+                    Albums
+                </h4>
+                <ul class="scrollable-list__entries"
+                    *ngIf="albums$ | async as albums">
+                    <li class="scrollable-list__entry"
+                        *ngFor="let album of albums">
+                        <a [routerLink]="['/albums/' + album.id]">
+                            {{ album.title }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="page-user__tile">
+            <div class="scrollable-list">
+                <h4 class="scrollable-list__title">
+                    Posts
+                </h4>
+                <ul class="scrollable-list__entries"
+                    *ngIf="posts$ | async as posts">
+                    <li class="scrollable-list__entry"
+                        *ngFor="let post of posts">
+                        <a [routerLink]="['/posts/' + post.id]">
+                            {{ post.title }}
+                        </a>
+                        <div>
+                            {{ post.body }}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </app-layout-page-bold-header>

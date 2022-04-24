@@ -1,1 +1,22 @@
 @import '../../../styles/user-banner';
+@import '../../../styles/scrollable-list';
+
+:host {
+    --gap: 10px;
+
+    .page-user {
+        &__tiles {
+            display: flex;
+            flex-wrap: wrap;
+            margin: calc(-1 * var(--gap));
+        }
+
+        &__tile {
+            // flex-basis: calc(100000 * (100% - 1200px));
+            flex-basis: 50%;
+            flex-shrink: 1;
+            padding: var(--gap);
+            display: flex;
+        }
+    }
+}

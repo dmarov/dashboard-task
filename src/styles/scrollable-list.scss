@@ -1,0 +1,22 @@
+.scrollable-list {
+    background: var(--bs-gray-100);
+    --gap: 5px 10px;
+
+    &__title {
+        padding: var(--gap);
+        background: var(--bs-gray-300);
+    }
+
+    &__entries {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+    }
+
+    &__entry {
+        padding: var(--gap);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
