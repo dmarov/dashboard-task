@@ -1,5 +1,6 @@
+import { ApiPost } from '@/models';
 import { DashboardActions } from '@/store/actions';
-import {DashboardSelectors} from '@/store/selectors';
+import { DashboardSelectors } from '@/store/selectors';
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -23,6 +24,8 @@ export class PageDashboardComponent implements OnInit {
     isAlbumsLoading$: Observable<boolean>;
     isPhotosLoading$: Observable<boolean>;
     isLoading$: Observable<boolean>;
+
+    latestPosts$: Observable<ApiPost[]>;
 
     constructor(
         private readonly store$: Store,
@@ -57,6 +60,10 @@ export class PageDashboardComponent implements OnInit {
 
         this.isLoading$ = this.store$.pipe(
             select(DashboardSelectors.selectIsLoading)
+        );
+
+        this.latestPosts$ = this.store$.pipe(
+            select(DashboardSelectors.selectLatestPosts)
         );
     }
 }

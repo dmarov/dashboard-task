@@ -59,7 +59,20 @@
                     <h4 class="scrollable-container__title">
                         Latest Posts
                     </h4>
-                    <div class="scrollable-container__content">
+                    <div class="scrollable-container__content column-list">
+                        <ul class="column-list__entries"
+                            *ngIf="latestPosts$ | async as posts">
+                            <li class="column-list__entry"
+                                *ngFor="let post of posts">
+                                <a class="column-list__line"
+                                    [routerLink]="['/posts/' + post.id]">
+                                    {{ post.title }}
+                                </a>
+                                <div class="column-list__line">
+                                    {{ post.body }}
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
