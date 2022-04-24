@@ -1,9 +1,17 @@
 <div class="breadcrumbs__queue">
-    <a class="breadcrumbs__link" [routerLink]="['/dashboard']">Dashboard</a> /
-
-    <a *ngFor="let path of paths"
-        class="breadcrumbs__link"
-        [routerLink]="[path]">
-        Page
-    </a> /
+    <div class="breadcrumbs__entry">
+        <a class="breadcrumbs__link"
+            [routerLink]="['/dashboard']">
+            Dashboard
+        </a>
+        <div class="breadcrumbs__separator">/</div>
+    </div>
+    <div class="breadcrumbs__entry"
+        *ngFor="let link of links">
+        <a class="breadcrumbs__link"
+            [routerLink]="[link.href]">
+            {{ link.title }}
+        </a>
+        <div class="breadcrumbs__separator">/</div>
+    </div>
 </div>

@@ -1,3 +1,4 @@
+import {Link} from '@/models';
 import { Component, HostBinding, OnInit } from '@angular/core';
 
 @Component({
@@ -9,8 +10,7 @@ export class BreadcrumbsComponent implements OnInit {
 
     @HostBinding('class.breadcrumbs')
     blockClass = true;
-
-    paths: string[] = [];
+    links: Link[] = [];
 
     ngOnInit(): void {
         const path = window.location.pathname;
@@ -20,7 +20,7 @@ export class BreadcrumbsComponent implements OnInit {
         for (const part of parts) {
             if (part) {
                 cumulative += '/' + part;
-                this.paths.push(cumulative);
+                this.links.push(new Link(cumulative, part));
             }
         }
     }

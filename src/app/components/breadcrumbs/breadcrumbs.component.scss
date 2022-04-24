@@ -9,14 +9,19 @@
             flex-wrap: wrap;
         }
 
-        &__link {
-            &:not(:last-child) {
-                margin-right: 10px;
-            }
+        &__entry {
+            display: flex;
+            margin-right: 5px;
 
-            &:not(:first-child) {
-                margin-left: 10px;
+            &:last-child {
+                .breadcrumbs__separator {
+                    display: none;
+                }
             }
+        }
+
+        &__link {
+            margin-right: 5px;
         }
     }
 }
