@@ -1,12 +1,23 @@
+@import '../../../styles/special/mixins';
+
 :host {
     background: var(--bs-gray-200);
-    padding: 15px;
+    padding: 15px 5px;
+
+    @include respond-to('small') {
+        padding: 15px;
+    }
 
     .side-menu {
         &__title {
+            display: none;
             padding-left: 10px;
             font-size: 30px;
             margin: 40px 0 20px 0;
+
+            @include respond-to('small') {
+                display: block;
+            }
         }
 
         &__links {
