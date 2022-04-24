@@ -53,7 +53,7 @@ export class DashboardEffects {
                 select(DashboardSelectors.selectLatestPostsLimit)
             )),
             mergeMap(
-                (_action, limit) => this.postsService.getPosts().pipe(
+                ([_action, limit]) => this.postsService.getPosts().pipe(
                     map(posts => DashboardActions.loadPostsSuccess({
                         totalPosts: posts.length,
                         latestPosts: posts.slice(0, limit)
@@ -73,7 +73,7 @@ export class DashboardEffects {
                 select(DashboardSelectors.selectRecentPhotosLimit)
             )),
             mergeMap(
-                (_action, limit) => this.photosService.getPhotos().pipe(
+                ([_action, limit]) => this.photosService.getPhotos().pipe(
                     map(photos => DashboardActions.loadPhotosSuccess({
                         totalPhotos: photos.length,
                         recentPhotos: photos.slice(0, limit)
