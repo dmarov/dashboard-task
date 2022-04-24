@@ -15,8 +15,9 @@
             // flex-basis: calc(100000 * (100% - 1200px));
             flex-basis: 50%;
             flex-shrink: 1;
+            flex-grow: 1;
             padding: var(--gap);
-            display: flex;
+            max-width: 100%;
         }
     }
 }
