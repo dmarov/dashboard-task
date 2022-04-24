@@ -1,0 +1,32 @@
+.statistics {
+    --row-size: 3;
+
+    &__entries {
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__entry {
+        flex-basis: calc(100% / var(--row-size));
+        flex-grow: 0;
+        flex-shrink: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding: 30px 10px;
+    }
+
+    &__number {
+        color: var(--bs-success);
+        font-size: 30px;
+        line-height: 30px;
+    }
+
+    &__description {
+        margin-left: 15px;
+        color: var(--bs-gray-600);
+    }
+}
