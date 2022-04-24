@@ -2,7 +2,8 @@
     <app-burger></app-burger>
 </header>
 <main class="app-layout__main">
-    <div class="app-layout__side-menu-wrapper">
+    <div class="app-layout__side-menu-wrapper"
+        [ngClass]="{'app-layout__side-menu-wrapper--opened': isMenuOpen$ | async}">
         <app-side-menu></app-side-menu>
     </div>
     <div class="app-layout__page-wrapper">

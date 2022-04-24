@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/router';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { UiActions } from '@/store/actions';
+import { UiSelectors } from '@/store/selectors';
 
 @Component({
     selector: 'app-root',
@@ -10,7 +14,10 @@ export class AppComponent {
 
     moduleLoading = false;
 
+    isMenuOpen$: Observable<boolean>;
+
     constructor(
+        private readonly store$: Store,
         private readonly router: Router,
     ) { }
 
@@ -22,5 +29,13 @@ export class AppComponent {
                 this.moduleLoading = false;
             }
         });
+
+        this.isMenuOpen$ = this.store$.pipe(
+            select(UiSelectors.selectDetailedMenuVisible)
+        );
+    }
+
+    toggleMenuOpen() {
+        this.store$.dispatch(UiActions.toggleMenuVisible());
     }
 }
