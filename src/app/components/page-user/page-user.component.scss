@@ -12,12 +12,9 @@
         }
 
         &__tile {
-            // flex-basis: calc(100000 * (100% - 1200px));
-            flex-basis: 50%;
-            flex-shrink: 1;
+            flex-basis: calc(10000 * (1000px - 100%));
             flex-grow: 1;
             padding: var(--gap);
-            max-width: 100%;
         }
     }
 }
