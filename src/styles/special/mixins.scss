@@ -19,17 +19,12 @@ $breakpoints: (
 
     // If the key doesn't exist in the map
     @else {
-        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " +
-            "Available breakpoints are: #{map-keys($breakpoints)}.";
+        @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. ";
     }
 }
 
 @mixin retina() {
-    @media only screen and (min-device-pixel-ratio: 2),
-        only screen and (min--moz-device-pixel-ratio: 2),
-        only screen and (-o-min-device-pixel-ratio: 2/1),
-        only screen and (min-device-pixel-ratio: 2),
-        only screen and (min-resolution: 192dpi),
+    @media only screen and (min-resolution: 192dpi),
         only screen and (min-resolution: 2dppx) {
         @content;
     }
