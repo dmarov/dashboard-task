@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import * as DashboardReducers from '@/store/reducers/dashboard';
 import { DashboardEffects } from '@/store/effects';
-import { AlbumsService, PhotosService, UsersService } from '@/services';
+import { AlbumsService, PhotosService, PostsService } from '@/services';
 
 import { PageDashboardComponent } from './page-dashboard.component';
 
@@ -28,7 +28,7 @@ describe('PageDashboardComponent', () => {
       providers: [
         AlbumsService,
         PhotosService,
-        UsersService,
+        PostsService,
       ],
     })
     .compileComponents();

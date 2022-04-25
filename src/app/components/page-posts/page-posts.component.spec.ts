@@ -3,6 +3,7 @@ import { StoreBaseModule } from '@/modules/store-base.module';
 import { PagePostsComponent } from './page-posts.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
+import { HttpClientModule } from '@angular/common/http';
 import * as PostsReducers from '@/store/reducers/posts';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from '@/store/effects';
@@ -20,6 +21,7 @@ describe('PagePostsComponent', () => {
         StoreBaseModule,
         StoreModule.forFeature(PostsReducers.featureKey, PostsReducers.reducer),
         EffectsModule.forFeature([ PostsEffects ]),
+        HttpClientModule,
       ],
       providers: [
         PostsService,
