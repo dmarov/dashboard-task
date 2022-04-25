@@ -1,9 +1,10 @@
 <h1 class="side-menu__title">My App</h1>
 <ul class="side-menu__links">
-    <li *ngFor="let link of links"
+    <li *ngFor="let link of links; let i = index"
         class="side-menu__entry"
         routerLinkActive="side-menu__entry--active">
         <a (click)="close()"
+            [attr.data-ui-test]="'nav-link-' + i"
             class="side-menu__link"
             [routerLink]="[link.href]">
             {{ link.title }}
