@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { PagePostsComponent } from './page-posts.component';
+import { PagePostComponent } from './page-post.component';
 
-describe('PagePostsComponent', () => {
-  let component: PagePostsComponent;
-  let fixture: ComponentFixture<PagePostsComponent>;
+describe('PagePostComponent', () => {
+  let component: PagePostComponent;
+  let fixture: ComponentFixture<PagePostComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PagePostsComponent ]
+      declarations: [ PagePostComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PagePostsComponent);
+    fixture = TestBed.createComponent(PagePostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

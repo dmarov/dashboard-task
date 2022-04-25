@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
 
     moduleLoading = false;
 
+    title = 'My App';
+
     isMenuOpen$: Observable<boolean>;
 
     constructor(
