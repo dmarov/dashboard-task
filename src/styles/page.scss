@@ -1,15 +1,16 @@
-@import '../styles/special/mixins';
+@import "../styles/special/mixins";
 
 .page {
     display: flex;
     flex-direction: column;
+
     --side-space: 10px;
 
-    @include respond-to('small') {
+    @include respond-to("small") {
         --side-space: 30px;
     }
 
-    @include respond-to('medium') {
+    @include respond-to("medium") {
         --side-space: 80px;
     }
 

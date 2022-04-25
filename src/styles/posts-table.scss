@@ -5,7 +5,8 @@
         overflow-x: auto;
         min-width: 100%;
 
-        &, &__cell {
+        &,
+        &__cell {
             border: 1px solid var(--bs-gray-200);
             border-collapse: collapse;
         }

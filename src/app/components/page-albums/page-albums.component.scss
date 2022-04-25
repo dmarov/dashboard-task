@@ -1,6 +1,6 @@
-@import '../../../styles/search-filters';
-@import '../../../styles/albums-list';
-@import '../../../styles/special/mixins';
+@import "../../../styles/search-filters";
+@import "../../../styles/albums-list";
+@import "../../../styles/special/mixins";
 
 .page-albums {
     &__data {
@@ -30,15 +30,15 @@
     .albums-list {
         --row-items: 1;
 
-        @include respond-to('small') {
+        @include respond-to("small") {
             --row-items: 2;
         }
 
-        @include respond-to('medium') {
+        @include respond-to("medium") {
             --row-items: 3;
         }
 
-        @include respond-to('large') {
+        @include respond-to("large") {
             --row-items: 4;
         }
     }

@@ -1,20 +1,20 @@
-@import '../../../styles/search-filters';
-@import '../../../styles/photos-list';
-@import '../../../styles/special/mixins';
+@import "../../../styles/search-filters";
+@import "../../../styles/photos-list";
+@import "../../../styles/special/mixins";
 
 .page-album {
     .photos-list {
         --row-items: 3;
 
-        @include respond-to('small') {
+        @include respond-to("small") {
             --row-items: 4;
         }
 
-        @include respond-to('medium') {
+        @include respond-to("medium") {
             --row-items: 5;
         }
 
-        @include respond-to('large') {
+        @include respond-to("large") {
             --row-items: 6;
         }
     }

@@ -1,10 +1,10 @@
-@import '../../../styles/special/mixins';
+@import "../../../styles/special/mixins";
 
 :host {
     background: var(--bs-gray-200);
     padding: 15px 5px;
 
-    @include respond-to('small') {
+    @include respond-to("small") {
         padding: 15px;
     }
 
@@ -13,9 +13,9 @@
             display: none;
             padding-left: 10px;
             font-size: 30px;
-            margin: 40px 0 20px 0;
+            margin: 40px 0 20px;
 
-            @include respond-to('small') {
+            @include respond-to("small") {
                 display: block;
             }
         }
@@ -44,7 +44,9 @@
             padding: 10px;
             display: block;
 
-            &, &:link, &:visited {
+            &,
+            &:link,
+            &:visited {
                 text-decoration: none;
                 color: inherit;
             }

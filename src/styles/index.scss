@@ -1,9 +1,8 @@
-@import 'normalize.css';
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons';
-
-@import 'app-layout';
-@import 'page';
+@import "normalize.css";
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons";
+@import "app-layout";
+@import "page";
 
 html {
     height: 100%;
@@ -19,4 +18,3 @@ html {
     height: 100%;
     overflow-x: hidden;
 }
-

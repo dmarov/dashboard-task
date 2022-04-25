@@ -1,4 +1,4 @@
-@import './special/mixins';
+@import "./special/mixins";
 
 .app-layout {
     display: flex;
@@ -35,7 +35,7 @@
             flex-grow: 1;
         }
 
-        @include respond-to('small') {
+        @include respond-to("small") {
             transform: translateX(0);
             position: static;
             height: auto;
@@ -79,7 +79,7 @@
         z-index: 1;
         background: var(--bs-gray-200);
 
-        @include respond-to('small') {
+        @include respond-to("small") {
             display: none;
         }
     }
