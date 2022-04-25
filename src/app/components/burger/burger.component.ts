@@ -1,6 +1,6 @@
 import { UiActions } from '@/store/actions';
 import { UiSelectors } from '@/store/selectors';
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
     templateUrl: './burger.component.html',
     styleUrls: ['./burger.component.scss'],
 })
-export class BurgerComponent {
+export class BurgerComponent implements OnInit {
 
     @HostBinding('class.burger')
     blockClass = true;

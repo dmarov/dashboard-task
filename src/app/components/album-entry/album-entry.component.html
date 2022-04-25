@@ -7,7 +7,7 @@
     <div class="album-entry__main">
         <div class="album-entry__images album-entry-images">
             <ul class="album-entry-images__items">
-                <ng-container *ngIf="!(photos$ | async)">
+                <ng-container *ngIf="(photos$ | async) === null">
                     <li *ngFor="let _ of [1, 2, 3, 4]"
                         class="album-entry-images__entry">
                         <div class="album-entry-images__image-wrapper">

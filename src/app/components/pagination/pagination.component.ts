@@ -20,7 +20,7 @@ export class PaginationComponent {
     radius: number;
 
     @Output()
-    onGo = new EventEmitter<number>();
+    go = new EventEmitter<number>();
 
     get hasLeftDots() {
         return this.displayedRange[0] >= 1;
@@ -55,15 +55,15 @@ export class PaginationComponent {
         });
     }
 
-    go(page: number) {
-        this.onGo.emit(page);
+    onClick(page: number) {
+        this.go.emit(page);
     }
 
-    goPrev() {
-        this.go(Math.max(this.activePage - 1, 0));
+    onClickPrev() {
+        this.onClick(Math.max(this.activePage - 1, 0));
     }
 
-    goNext() {
-        this.go(Math.min(this.totalPages - 1, this.activePage + 1));
+    onClickNext() {
+        this.onClick(Math.min(this.totalPages - 1, this.activePage + 1));
     }
 }

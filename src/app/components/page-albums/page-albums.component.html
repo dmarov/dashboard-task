@@ -24,7 +24,7 @@
         </div>
 
         <div class="page-albums__content">
-            <div *ngIf="!(isLoading$ | async)"
+            <div *ngIf="(isLoading$ | async) === false"
                 class="page-albums__data">
                 <div class="page-albums__items albums-list">
                     <ul class="albums-list__items">
@@ -41,7 +41,7 @@
                         [totalPages]="totalPages$ | async"
                         [activePage]="activePage$ | async"
                         [radius]="3"
-                        (onGo)="go($event)">
+                        (go)="go($event)">
                     </app-pagination>
                 </div>
             </div>

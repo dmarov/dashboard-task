@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouteConfigLoadEnd, RouteConfigLoadStart, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -9,7 +9,7 @@ import { UiSelectors } from '@/store/selectors';
     selector: 'app-root',
     templateUrl: './app.component.html',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
     moduleLoading = false;
 
