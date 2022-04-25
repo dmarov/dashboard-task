@@ -1,6 +1,6 @@
 import { Component, HostBinding, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, Subscription } from 'rxjs';
-import { ApiAlbum, ApiPhoto } from "@/models";
+import { ApiAlbum, ApiPhoto } from '@/models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlbumsService } from '@/services';
 import { map, withLatestFrom } from 'rxjs/operators';
@@ -22,7 +22,7 @@ export class PageAlbumComponent implements OnInit, OnDestroy {
     album$: Observable<ApiAlbum>;
     photos$: Observable<ApiPhoto[]>;
     filteredPhotos$: Observable<ApiPhoto[]>;
-    searchTerm$ = new BehaviorSubject<string>("");
+    searchTerm$ = new BehaviorSubject<string>('');
 
     subscription = new Subscription();
 

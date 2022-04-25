@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { DashboardActions } from "@/store/actions";
-import { AlbumsService, PhotosService, PostsService } from "@/services";
-import { map, mergeMap, catchError, withLatestFrom, tap } from "rxjs/operators";
-import { of } from "rxjs";
-import { select, Store } from "@ngrx/store";
-import { DashboardSelectors } from "@/store/selectors";
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { DashboardActions } from '@/store/actions';
+import { AlbumsService, PhotosService, PostsService } from '@/services';
+import { map, mergeMap, catchError, withLatestFrom, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { select, Store } from '@ngrx/store';
+import { DashboardSelectors } from '@/store/selectors';
 
 @Injectable()
 export class DashboardEffects {

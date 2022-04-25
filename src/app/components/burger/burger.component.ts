@@ -20,7 +20,7 @@ export class BurgerComponent {
         private readonly store$: Store,
     ) { }
 
-    ngOnInit () {
+    ngOnInit() {
         this.isMenuOpen$ = this.store$.pipe(
             select(UiSelectors.selectDetailedMenuVisible)
         );

@@ -1,5 +1,5 @@
-import { ApiPost } from "@/models";
-import { ApiPostCollectionSorter } from ".";
+import { ApiPost } from '@/models';
+import { ApiPostCollectionSorter } from '.';
 
 export class ApiPostUserCollectionSorter implements ApiPostCollectionSorter {
 

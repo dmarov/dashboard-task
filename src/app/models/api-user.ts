@@ -1,4 +1,4 @@
-import { ApiAddress, ApiCompany } from ".";
+import { ApiAddress, ApiCompany } from '.';
 
 export class ApiUser {
     id: number;

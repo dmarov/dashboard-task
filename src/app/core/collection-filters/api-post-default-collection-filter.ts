@@ -1,4 +1,4 @@
-import { ApiPostCollectionFilter } from ".";
+import { ApiPostCollectionFilter } from '.';
 
 export class ApiPostDefaultCollectionFilter implements ApiPostCollectionFilter {
 

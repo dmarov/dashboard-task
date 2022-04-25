@@ -1,4 +1,4 @@
-import { ApiGeo } from ".";
+import { ApiGeo } from '.';
 
 export class ApiAddress {
     street: string;

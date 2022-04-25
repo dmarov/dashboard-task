@@ -1,4 +1,4 @@
-import { ApiAlbumCollectionFilter } from ".";
+import { ApiAlbumCollectionFilter } from '.';
 
 export class ApiAlbumDefaultCollectionFilter implements ApiAlbumCollectionFilter {
 

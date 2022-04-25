@@ -1,5 +1,5 @@
-import { ApiAlbum } from "@/models";
-import { ApiAlbumCollectionFilter } from ".";
+import { ApiAlbum } from '@/models';
+import { ApiAlbumCollectionFilter } from '.';
 
 export class ApiAlbumUserCollectionFilter implements ApiAlbumCollectionFilter {
 

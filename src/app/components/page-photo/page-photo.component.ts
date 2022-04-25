@@ -1,6 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { ApiPhoto } from "@/models";
+import { ApiPhoto } from '@/models';
 import { ActivatedRoute } from '@angular/router';
 import { PhotosService } from '@/services';
 

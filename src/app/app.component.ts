@@ -21,7 +21,7 @@ export class AppComponent {
         private readonly router: Router,
     ) { }
 
-    ngOnInit () {
+    ngOnInit() {
         this.router.events.subscribe(event => {
             if (event instanceof RouteConfigLoadStart) {
                 this.moduleLoading = true;

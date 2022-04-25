@@ -1,5 +1,5 @@
-import { ApiPost } from "@/models";
-import { ApiPostCollectionFilter } from ".";
+import { ApiPost } from '@/models';
+import { ApiPostCollectionFilter } from '.';
 
 export class ApiPostUserCollectionFilter implements ApiPostCollectionFilter {
 
@@ -10,6 +10,6 @@ export class ApiPostUserCollectionFilter implements ApiPostCollectionFilter {
     }
 
     matches(entry: ApiPost): boolean {
-        return entry.userId === this.id
+        return entry.userId === this.id;
     }
 }

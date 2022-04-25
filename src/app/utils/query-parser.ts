@@ -1,5 +1,5 @@
-import {SortType} from "@/models";
-import { ParamMap } from "@angular/router";
+import {SortType} from '@/models';
+import { ParamMap } from '@angular/router';
 
 export class QueryParser {
     static parsePage(params: ParamMap): number {

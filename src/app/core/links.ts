@@ -1,4 +1,4 @@
-import { Link } from "@/models";
+import { Link } from '@/models';
 
 export const links: Link[] = [
     new Link('/dashboard', 'Dashboard'),

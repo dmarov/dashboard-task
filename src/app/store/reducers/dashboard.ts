@@ -1,6 +1,6 @@
-import { createReducer, on } from "@ngrx/store";
-import { DashboardActions } from "../actions";
-import { ApiAlbum, ApiPhoto, ApiPost } from "@/models"
+import { createReducer, on } from '@ngrx/store';
+import { DashboardActions } from '../actions';
+import { ApiAlbum, ApiPhoto, ApiPost } from '@/models';
 
 export const featureKey = 'dashboard';
 

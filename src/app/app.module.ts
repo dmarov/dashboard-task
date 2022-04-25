@@ -6,7 +6,7 @@ import { AppComponent } from '@/app.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import * as UiReducers from '@/store/reducers/ui';
-import { RouterEffects } from "@/store/effects";
+import { RouterEffects } from '@/store/effects';
 
 import {
     BurgerComponent,

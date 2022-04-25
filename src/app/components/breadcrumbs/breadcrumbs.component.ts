@@ -13,9 +13,9 @@ export class BreadcrumbsComponent implements OnInit {
     links: Link[] = [];
 
     translations = {
-        'posts': 'Posts',
-        'albums': 'Albums',
-        'photos': 'Photos',
+        posts: 'Posts',
+        albums: 'Albums',
+        photos: 'Photos',
     };
 
     ngOnInit(): void {

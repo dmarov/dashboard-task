@@ -1,6 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ApiPost } from "@/models";
+import { ApiPost } from '@/models';
 import { ActivatedRoute } from '@angular/router';
 import { PostsService } from '@/services';
 

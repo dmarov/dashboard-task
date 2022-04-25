@@ -31,7 +31,7 @@ export class PaginationComponent {
     }
 
     get range() {
-        let range = this.displayedRange;
+        const range = this.displayedRange;
 
         if (this.hasLeftDots) {
             range.splice(0, 2);

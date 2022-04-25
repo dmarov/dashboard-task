@@ -12,8 +12,8 @@ import { PostsService } from '@/services';
 import { StoreModule } from '@ngrx/store';
 import * as PostsReducers from '@/store/reducers/posts';
 import { EffectsModule } from '@ngrx/effects';
-import { PostsEffects } from "@/store/effects";
-import { LoaderModule } from "@/modules/loader.module";
+import { PostsEffects } from '@/store/effects';
+import { LoaderModule } from '@/modules/loader.module';
 import { PaginationModule } from '@/modules/pagination.module';
 import { CommonComponentsModule } from '@/modules/common-components.module';
 

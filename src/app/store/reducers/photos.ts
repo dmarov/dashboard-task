@@ -1,6 +1,6 @@
-import { createReducer, on } from "@ngrx/store";
-import { PhotosActions } from "../actions";
-import { PhotosSearchFieldType, ApiPhoto } from "@/models"
+import { createReducer, on } from '@ngrx/store';
+import { PhotosActions } from '../actions';
+import { PhotosSearchFieldType, ApiPhoto } from '@/models';
 
 export const featureKey = 'photos';
 
@@ -18,7 +18,7 @@ export const initialState: State = {
     itemsPerPage: 12,
     activePage: 0,
     photos: [],
-    searchTerm: "",
+    searchTerm: '',
     searchField: PhotosSearchFieldType.Album,
 };
 

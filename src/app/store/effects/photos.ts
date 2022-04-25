@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { PhotosActions } from "@/store/actions";
-import { PhotosService } from "@/services";
-import { map, mergeMap, catchError } from "rxjs/operators";
-import { of } from "rxjs";
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { PhotosActions } from '@/store/actions';
+import { PhotosService } from '@/services';
+import { map, mergeMap, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable()
 export class PhotosEffects {

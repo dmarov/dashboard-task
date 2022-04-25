@@ -1,6 +1,6 @@
-import { createReducer, on } from "@ngrx/store";
-import { PostsActions } from "../actions";
-import { ApiPost, PostsSearchFieldType, PostsSortFieldType, SortType } from "@/models"
+import { createReducer, on } from '@ngrx/store';
+import { PostsActions } from '../actions';
+import { ApiPost, PostsSearchFieldType, PostsSortFieldType, SortType } from '@/models';
 
 export const featureKey = 'posts';
 
@@ -20,7 +20,7 @@ export const initialState: State = {
     itemsPerPage: 5,
     activePage: 0,
     posts: [],
-    searchTerm: "",
+    searchTerm: '',
     searchField: PostsSearchFieldType.User,
     sortType: SortType.Asc,
     sortField: PostsSortFieldType.Id,

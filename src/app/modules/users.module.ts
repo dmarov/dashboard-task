@@ -8,7 +8,7 @@ import {
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutPageModule } from '@/modules/layout-page.module';
 import { UsersService } from '@/services';
-import { LoaderModule } from "@/modules/loader.module";
+import { LoaderModule } from '@/modules/loader.module';
 
 const routes: Routes = [
     { path: ':id', component: PageUserComponent },
