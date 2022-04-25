@@ -23,6 +23,7 @@
                             <li class="column-list__entry"
                                 *ngFor="let album of albums">
                                 <a class="column-list__line"
+                                    [attr.data-ui-test]="'user-album-link-' + album.id"
                                     [routerLink]="['/albums/' + album.id]">
                                     {{ album.title }}
                                 </a>
@@ -42,6 +43,7 @@
                             <li class="column-list__entry"
                                 *ngFor="let post of posts">
                                 <a class="column-list__line"
+                                    [attr.data-ui-test]="'user-post-link-' + post.id"
                                     [routerLink]="['/posts/' + post.id]">
                                     {{ post.title }}
                                 </a>
