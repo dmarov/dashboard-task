@@ -6,10 +6,12 @@
             <div class="search-filters">
                 <div class="search-filters__list">
                     <input class="search-filters__entry search-filters__input"
+                        data-ui-test="search-term"
                         placeholder="Search"
                         [ngModel]="searchTerm$ | async"
                         (ngModelChange)="setSearchTerm($event)">
                     <select class="search-filters__entry search-filters__input"
+                        data-ui-test="search-type"
                         [ngModel]="searchField$ | async"
                         (ngModelChange)="setSearchField($event)">
                         <option [value]="searchFieldTypes.User">

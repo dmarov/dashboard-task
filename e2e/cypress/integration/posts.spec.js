@@ -1,4 +1,4 @@
-describe('Posst tests', () => {
+describe('Posts tests', () => {
     it('Checks if posts work', () => {
         cy.visit('/posts');
 

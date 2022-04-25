@@ -23,3 +23,19 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+//
+
+Cypress.Commands.add('checkPagination', () => {
+    cy.get('[data-ui-test="pagination-page-0 pagination-active"]').should('be.visible');
+
+    cy.get('[data-ui-test="pagination-page-1"]').click();
+    cy.get('[data-ui-test="pagination-page-1 pagination-active"]').should('be.visible');
+
+    cy.get('[data-ui-test="pagination-prev"]').click();
+    cy.get('[data-ui-test="pagination-page-0 pagination-active"]').should('be.visible');
+
+    cy.get('[data-ui-test="pagination-next"]').click();
+    cy.get('[data-ui-test="pagination-page-1 pagination-active"]').should('be.visible');
+
+    cy.url().should('contain', 'page=2');
+});

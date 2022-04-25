@@ -1,6 +1,9 @@
-<div class="album-entry__content">
+<div [attr.data-ui-test]="'album-entry-' + album.id"
+    class="album-entry__content">
     <div class="album-entry__header">
-        <a [routerLink]="['/albums/' + album.id]">
+        <a class="album-entry__link"
+            [routerLink]="['/albums/' + album.id]"
+            [attr.data-ui-test]="'album-entry-link-' + album.id">
             {{ album.title }}
         </a>
     </div>
@@ -29,7 +32,8 @@
     </div>
     <div class="album-entry__footer">
         By
-        <a [routerLink]="['/users/' + album.userId]">
+        <a [attr.data-ui-test]="'album-entry-user-link-' + album.id"
+            [routerLink]="['/users/' + album.userId]">
             User {{ album.userId }}
         </a>
     </div>
