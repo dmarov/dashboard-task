@@ -11,8 +11,10 @@ describe('AlbumEntryComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AlbumEntryComponent ],
-      providers: [
+      imports: [
         HttpClientModule,
+      ],
+      providers: [
         AlbumsService,
       ]
     })
@@ -22,6 +24,11 @@ describe('AlbumEntryComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AlbumEntryComponent);
     component = fixture.componentInstance;
+    component.album = {
+      id: 1,
+      userId: 1,
+      title: 'Mock album',
+    };
     fixture.detectChanges();
   });
 
