@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { StoreBaseModule } from '@/modules/store-base.module';
 
 import { PageDashboardComponent } from './page-dashboard.component';
 
@@ -8,7 +9,10 @@ describe('PageDashboardComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageDashboardComponent ]
+      declarations: [ PageDashboardComponent ],
+      imports: [
+        StoreBaseModule,
+      ],
     })
     .compileComponents();
   }));

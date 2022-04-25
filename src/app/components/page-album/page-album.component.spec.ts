@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { PageAlbumComponent } from './page-album.component';
 
 describe('PageAlbumComponent', () => {
@@ -8,7 +8,10 @@ describe('PageAlbumComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PageAlbumComponent ]
+      declarations: [ PageAlbumComponent ],
+      imports: [
+        RouterTestingModule,
+      ],
     })
     .compileComponents();
   }));

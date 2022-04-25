@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { StoreBaseModule } from '@/modules/store-base.module';
 
 import { SideMenuComponent } from './side-menu.component';
 
@@ -8,7 +9,10 @@ describe('SideMenuComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SideMenuComponent ]
+      declarations: [ SideMenuComponent ],
+      imports: [
+        StoreBaseModule,
+      ],
     })
     .compileComponents();
   }));
