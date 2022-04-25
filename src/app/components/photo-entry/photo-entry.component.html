@@ -1,4 +1,5 @@
-<div class="photo-entry__content">
+<div class="photo-entry__content"
+    [attr.data-ui-test]="'photo-entry-' + photo.id">
     <div class="photo-entry__image-wrapper">
         <img [src]="photo.url"
             class="photo-entry__image">

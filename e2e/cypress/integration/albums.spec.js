@@ -34,4 +34,14 @@ describe('Albums tests', () => {
         cy.get('[data-ui-test="album-entry-user-link-95"]').click();
         cy.url().should('contain', 'users');
     })
+
+    it('Checks if album page works', () => {
+        cy.visit('/albums/1');
+
+        cy.get('[data-ui-test="photo-entry-1"]').should('be.visible');
+
+        cy.get('[data-ui-test="search-term"]').type('iu');
+        cy.get('[data-ui-test="photo-entry-3"]').should('be.visible');
+        cy.get('[data-ui-test="photo-entry-1"]').should('not.exist');
+    })
 })
