@@ -26,7 +26,8 @@
                             <ng-container *ngIf="(isLoading$ | async) === false">
                                 <ul class="statistics__entries">
                                     <li class="statistics__entry">
-                                        <div class="statistics__number">
+                                        <div data-ui-test="total-posts"
+                                            class="statistics__number">
                                             {{ totalPosts$ | async }}
                                         </div>
                                         <div class="statistics__description">
@@ -34,7 +35,8 @@
                                         </div>
                                     </li>
                                     <li class="statistics__entry">
-                                        <div class="statistics__number">
+                                        <div data-ui-test="total-albums"
+                                            class="statistics__number">
                                             {{ totalAlbums$ | async }}
                                         </div>
                                         <div class="statistics__description">
@@ -42,7 +44,8 @@
                                         </div>
                                     </li>
                                     <li class="statistics__entry">
-                                        <div class="statistics__number">
+                                        <div data-ui-test="total-photos"
+                                            class="statistics__number">
                                             {{ totalPhotos$ | async }}
                                         </div>
                                         <div class="statistics__description">
@@ -70,9 +73,11 @@
                             class="column-list">
                             <ul class="column-list__entries"
                                 *ngIf="latestPosts$ | async as posts">
-                                <li class="column-list__entry"
+                                <li data-ui-test="dashboard-post"
+                                    class="column-list__entry"
                                     *ngFor="let post of posts">
                                     <a class="column-list__line"
+                                        data-ui-test="post-link"
                                         [routerLink]="['/posts/' + post.id]">
                                         {{ post.title }}
                                     </a>
@@ -99,7 +104,9 @@
                         <div *ngIf="(isLoading$ | async) === false"
                             class="page-dashboard__photos-wrapper photos-list photos-list--smaller">
                             <ul class="photos-list__items">
-                                <li *ngFor="let photo of (recentPhotos$ | async)" class="photos-list__entry">
+                                <li data-ui-test="dashboard-photo"
+                                    *ngFor="let photo of (recentPhotos$ | async)"
+                                    class="photos-list__entry">
                                     <app-photo-entry
                                         class="photos-list__photo"
                                         [photo]="photo">

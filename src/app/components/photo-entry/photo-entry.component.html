@@ -5,6 +5,7 @@
     </div>
     <div class="photo-entry__title">
         <a class="photo-entry__link"
+            data-ui-test="photo-link"
             [routerLink]="['/photos/' + photo.id]">
             {{ photo.title }}
         </a>
