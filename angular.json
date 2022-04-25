@@ -36,7 +36,6 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "localize": true,
             "i18nMissingTranslation": "error"
           },
           "configurations": {
