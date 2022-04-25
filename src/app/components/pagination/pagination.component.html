@@ -1,11 +1,14 @@
 <ul class="pagination__list">
-    <li class="pagination__item pagination__item--nav" (click)="onClickPrev()">
+    <li class="pagination__item pagination__item--nav"
+        data-ui-test="pagination-prev"
+        (click)="onClickPrev()">
         &#60;
     </li>
 
     <ng-container *ngIf="hasLeftDots">
         <li class="pagination__item"
             [ngClass]="{'pagination__item--active': activePage === 0}"
+            [attr.data-ui-test]="'pagination-page-0' + ((activePage === 0) ? ' pagination-active' : '')"
             (click)="onClick(0)">
             1
         </li>
@@ -17,6 +20,7 @@
 
     <li class="pagination__item"
         [ngClass]="{'pagination__item--active': activePage === index}"
+            [attr.data-ui-test]="'pagination-page-' + index + ((activePage === index) ? ' pagination-active' : '')"
         *ngFor="let index of range" (click)="onClick(index)">
         {{ index + 1 }}
     </li>
@@ -28,12 +32,15 @@
 
         <li class="pagination__item"
             [ngClass]="{'pagination__item--active': activePage === totalPages - 1}"
+            [attr.data-ui-test]="'pagination-page-' + (totalPages - 1) + (activePage === (totalPages - 1)) ? ' pagination-active' : ''"
             (click)="onClick(totalPages - 1)">
             {{ totalPages }}
         </li>
     </ng-container>
 
-    <li class="pagination__item pagination__item--nav" (click)="onClickNext()">
+    <li class="pagination__item pagination__item--nav"
+        data-ui-test="pagination-next"
+        (click)="onClickNext()">
         &#62;
     </li>
 </ul>

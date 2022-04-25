@@ -6,10 +6,12 @@
             <div class="search-filters">
                 <div class="search-filters__list">
                     <input class="search-filters__entry search-filters__input"
+                        data-ui-test="search-term"
                         placeholder="Search"
                         [ngModel]="searchTerm$ | async"
                         (ngModelChange)="setSearchTerm($event)">
                     <select class="search-filters__entry search-filters__input"
+                        data-ui-test="search-type"
                         [ngModel]="searchField$ | async"
                         (ngModelChange)="setSearchField($event)">
                         <option [value]="searchFieldTypes.User">
@@ -72,17 +74,20 @@
                             </tr>
                         </thead>
                         <tbody class="posts-table__body">
-                            <tr *ngFor="let post of posts$ | async">
+                            <tr *ngFor="let post of posts$ | async"
+                                [attr.data-ui-test]="'post-' + post.id">
                                 <td class="posts-table__cell posts-table__cell--id">
                                     {{ post.id }}
                                 </td>
                                 <td class="posts-table__cell posts-table__cell--user">
-                                    <a [routerLink]="['/users/' + post.userId]">
+                                    <a [attr.data-ui-test]="'post-user-link-' + post.id"
+                                        [routerLink]="['/users/' + post.userId]">
                                         User {{ post.userId }}
                                     </a>
                                 </td>
                                 <td class="posts-table__cell posts-table__cell--title">
-                                    <a [routerLink]="['/posts/' + post.id]">
+                                    <a [attr.data-ui-test]="'post-entry-link-' + post.id"
+                                        [routerLink]="['/posts/' + post.id]">
                                         {{ post.title }}
                                     </a>
                                 </td>
