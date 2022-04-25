@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { StoreBaseModule } from '@/modules/store-base.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { PageDashboardComponent } from './page-dashboard.component';
 
@@ -12,6 +13,7 @@ describe('PageDashboardComponent', () => {
       declarations: [ PageDashboardComponent ],
       imports: [
         StoreBaseModule,
+        RouterTestingModule,
       ],
     })
     .compileComponents();

@@ -31,6 +31,13 @@ describe('PhotoEntryComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PhotoEntryComponent);
     component = fixture.componentInstance;
+    component.photo = {
+      albumId: 1,
+      id: 1,
+      title: 'Mock photo',
+      url: 'https://via.placeholder.com/600/92c952',
+      thumbnailUrl: 'https://via.placeholder.com/150/92c952',
+    };
     fixture.detectChanges();
   });
 

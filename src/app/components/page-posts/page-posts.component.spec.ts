@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
+import { StoreBaseModule } from '@/modules/store-base.module';
 import { PagePostsComponent } from './page-posts.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PagePostsComponent', () => {
   let component: PagePostsComponent;
@@ -8,7 +9,11 @@ describe('PagePostsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PagePostsComponent ]
+      declarations: [ PagePostsComponent ],
+      imports: [
+        RouterTestingModule,
+        StoreBaseModule,
+      ],
     })
     .compileComponents();
   }));

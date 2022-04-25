@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from "@angular/router/testing";
+import { HttpClientModule } from '@angular/common/http';
 import { StoreBaseModule } from '@/modules/store-base.module';
 import { PhotosService } from '@/services';
 
@@ -15,6 +16,7 @@ describe('PagePhotoComponent', () => {
       imports: [
         RouterTestingModule,
         StoreBaseModule,
+        HttpClientModule,
       ],
       providers: [
         PhotosService,

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AlbumsService } from '@/services';
 import { PageAlbumComponent } from './page-album.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('PageAlbumComponent', () => {
   let component: PageAlbumComponent;
@@ -11,6 +13,10 @@ describe('PageAlbumComponent', () => {
       declarations: [ PageAlbumComponent ],
       imports: [
         RouterTestingModule,
+        HttpClientModule,
+      ],
+      providers: [
+        AlbumsService,
       ],
     })
     .compileComponents();

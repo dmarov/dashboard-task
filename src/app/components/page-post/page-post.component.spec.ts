@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { PagePostComponent } from './page-post.component';
 
@@ -8,7 +9,10 @@ describe('PagePostComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PagePostComponent ]
+      declarations: [ PagePostComponent ],
+      imports: [
+        RouterTestingModule,
+      ],
     })
     .compileComponents();
   }));
