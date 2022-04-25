@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 import { AlbumsService } from '@/services';
 
 import { AlbumEntryComponent } from './album-entry.component';
@@ -11,6 +12,7 @@ describe('AlbumEntryComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ AlbumEntryComponent ],
       providers: [
+        HttpClientModule,
         AlbumsService,
       ]
     })

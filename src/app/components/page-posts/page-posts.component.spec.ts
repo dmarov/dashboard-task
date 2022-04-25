@@ -2,6 +2,11 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { StoreBaseModule } from '@/modules/store-base.module';
 import { PagePostsComponent } from './page-posts.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
+import * as PostsReducers from '@/store/reducers/posts';
+import { EffectsModule } from '@ngrx/effects';
+import { PostsEffects } from '@/store/effects';
+import { PostsService } from '@/services';
 
 describe('PagePostsComponent', () => {
   let component: PagePostsComponent;
@@ -13,6 +18,11 @@ describe('PagePostsComponent', () => {
       imports: [
         RouterTestingModule,
         StoreBaseModule,
+        StoreModule.forFeature(PostsReducers.featureKey, PostsReducers.reducer),
+        EffectsModule.forFeature([ PostsEffects ]),
+      ],
+      providers: [
+        PostsService,
       ],
     })
     .compileComponents();

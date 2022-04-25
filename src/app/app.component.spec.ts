@@ -2,6 +2,7 @@ import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
+import { StoreBaseModule } from '@/modules/store-base.module';
 import * as UiReducers from '@/store/reducers/ui';
 
 describe('AppComponent', () => {
@@ -9,6 +10,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
+        StoreBaseModule,
         StoreModule.forFeature(UiReducers.featureKey, UiReducers.reducer),
       ],
       declarations: [
