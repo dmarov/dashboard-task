@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import * as PhotosReducers from '@/store/reducers/albums';
+import * as PhotosReducers from '@/store/reducers/photos';
 import { PhotosEffects } from '@/store/effects';
 import { PhotosService } from '@/services';
 
