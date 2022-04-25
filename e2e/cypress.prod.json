@@ -1,7 +1,6 @@
 {
     "baseUrl": "https://dashboard-app-7f05a.web.app",
     "integrationFolder": "cypress/integration",
-    "supportFile": "cypress/support/index.ts",
     "env": {
     }
 }

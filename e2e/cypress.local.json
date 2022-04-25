@@ -1,7 +1,6 @@
 {
     "baseUrl": "https://localhost:4200",
     "integrationFolder": "cypress/integration",
-    "supportFile": "cypress/support/index.ts",
     "env": {
     }
 }
