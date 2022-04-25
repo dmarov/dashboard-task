@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { RouterTestingModule } from "@angular/router/testing";
+import { StoreBaseModule } from '@/modules/store-base.module';
 
 import { PagePhotoComponent } from './page-photo.component';
 
@@ -8,7 +10,11 @@ describe('PagePhotoComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PagePhotoComponent ]
+      declarations: [ PagePhotoComponent ],
+      imports: [
+        RouterTestingModule,
+        StoreBaseModule,
+      ],
     })
     .compileComponents();
   }));
