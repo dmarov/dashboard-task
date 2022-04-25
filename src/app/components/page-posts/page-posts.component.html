@@ -27,7 +27,7 @@
         </div>
 
         <div class="page-posts__content">
-            <div *ngIf="!(isLoading$ | async)"
+            <div *ngIf="(isLoading$ | async) === false"
                 class="page-posts__data">
                 <div class="page-posts__table-wrapper">
                     <table class="posts-table">

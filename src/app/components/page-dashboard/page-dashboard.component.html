@@ -23,7 +23,7 @@
                             </div>
                         </div>
                         <div class="statistics">
-                            <ng-container *ngIf="!(isLoading$ | async)">
+                            <ng-container *ngIf="(isLoading$ | async) === false">
                                 <ul class="statistics__entries">
                                     <li class="statistics__entry">
                                         <div class="statistics__number">
@@ -66,7 +66,7 @@
                                 <app-loader></app-loader>
                             </div>
                         </div>
-                        <div *ngIf="!(isLoading$ | async)"
+                        <div *ngIf="(isLoading$ | async) === false"
                             class="column-list">
                             <ul class="column-list__entries"
                                 *ngIf="latestPosts$ | async as posts">
@@ -96,7 +96,7 @@
                                 <app-loader></app-loader>
                             </div>
                         </div>
-                        <div *ngIf="!(isLoading$ | async)"
+                        <div *ngIf="(isLoading$ | async) === false"
                             class="page-dashboard__photos-wrapper photos-list photos-list--smaller">
                             <ul class="photos-list__items">
                                 <li *ngFor="let photo of (recentPhotos$ | async)" class="photos-list__entry">

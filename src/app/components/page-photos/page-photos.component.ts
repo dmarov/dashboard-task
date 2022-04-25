@@ -1,5 +1,5 @@
 import { ApiPhoto, PhotosSearchFieldType } from '@/models';
-import { Component, HostBinding, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ import { QueryParser } from '@/utils';
     styleUrls: ['./page-photos.component.scss'],
     encapsulation: ViewEncapsulation.None,
 })
-export class PagePhotosComponent {
+export class PagePhotosComponent implements OnInit, OnDestroy {
 
     @HostBinding('class.page')
     @HostBinding('class.page-photos')

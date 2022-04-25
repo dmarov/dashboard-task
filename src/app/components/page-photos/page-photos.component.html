@@ -23,7 +23,7 @@
         </div>
 
         <div class="page-photos__content">
-            <div *ngIf="!(isLoading$ | async)"
+            <div *ngIf="(isLoading$ | async) === false"
                 class="page-photos__data">
                 <div class="page-photos__items photos-list">
                     <ul class="photos-list__items">
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="page-photos__loader-overlay"
-                *ngIf="(isLoading$ | async)">
+                *ngIf="isLoading$ | async">
                 <app-loader></app-loader>
             </div>
         </div>
