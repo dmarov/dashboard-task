@@ -7,28 +7,28 @@ import { StoreModule } from '@ngrx/store';
 import { UiReducers } from '@/store/reducers';
 
 describe('SideMenuComponent', () => {
-  let component: SideMenuComponent;
-  let fixture: ComponentFixture<SideMenuComponent>;
+    let component: SideMenuComponent;
+    let fixture: ComponentFixture<SideMenuComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SideMenuComponent ],
-      imports: [
-        RouterTestingModule,
-        StoreBaseModule,
-        StoreModule.forFeature(UiReducers.featureKey, UiReducers.reducer),
-      ],
-    })
-    .compileComponents();
-  }));
+    beforeEach(waitForAsync(() => {
+        TestBed.configureTestingModule({
+            declarations: [ SideMenuComponent ],
+            imports: [
+                RouterTestingModule,
+                StoreBaseModule,
+                StoreModule.forFeature(UiReducers.featureKey, UiReducers.reducer),
+            ],
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SideMenuComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(SideMenuComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

@@ -6,30 +6,30 @@ import { UsersService } from '@/services';
 import { PageUserComponent } from './page-user.component';
 
 describe('PageUserComponent', () => {
-  let component: PageUserComponent;
-  let fixture: ComponentFixture<PageUserComponent>;
+    let component: PageUserComponent;
+    let fixture: ComponentFixture<PageUserComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PageUserComponent ],
-      imports: [
-        HttpClientModule,
-        RouterTestingModule,
-      ],
-      providers: [
-        UsersService,
-      ],
-    })
-    .compileComponents();
-  }));
+    beforeEach(waitForAsync(() => {
+        TestBed.configureTestingModule({
+            declarations: [ PageUserComponent ],
+            imports: [
+                HttpClientModule,
+                RouterTestingModule,
+            ],
+            providers: [
+                UsersService,
+            ],
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PageUserComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PageUserComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

@@ -5,30 +5,30 @@ import { PageAlbumComponent } from './page-album.component';
 import { HttpClientModule } from '@angular/common/http';
 
 describe('PageAlbumComponent', () => {
-  let component: PageAlbumComponent;
-  let fixture: ComponentFixture<PageAlbumComponent>;
+    let component: PageAlbumComponent;
+    let fixture: ComponentFixture<PageAlbumComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PageAlbumComponent ],
-      imports: [
-        RouterTestingModule,
-        HttpClientModule,
-      ],
-      providers: [
-        AlbumsService,
-      ],
-    })
-    .compileComponents();
-  }));
+    beforeEach(waitForAsync(() => {
+        TestBed.configureTestingModule({
+            declarations: [ PageAlbumComponent ],
+            imports: [
+                RouterTestingModule,
+                HttpClientModule,
+            ],
+            providers: [
+                AlbumsService,
+            ],
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PageAlbumComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PageAlbumComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

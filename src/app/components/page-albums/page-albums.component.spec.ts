@@ -11,33 +11,33 @@ import { AlbumsService } from '@/services';
 import { PageAlbumsComponent } from './page-albums.component';
 
 describe('PageAlbumsComponent', () => {
-  let component: PageAlbumsComponent;
-  let fixture: ComponentFixture<PageAlbumsComponent>;
+    let component: PageAlbumsComponent;
+    let fixture: ComponentFixture<PageAlbumsComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PageAlbumsComponent ],
-      imports: [
-        RouterTestingModule,
-        HttpClientModule,
-        StoreBaseModule,
-        StoreModule.forFeature(AlbumsReducers.featureKey, AlbumsReducers.reducer),
-        EffectsModule.forFeature([ AlbumsEffects ]),
-      ],
-      providers: [
-        AlbumsService,
-      ],
-    })
-    .compileComponents();
-  }));
+    beforeEach(waitForAsync(() => {
+        TestBed.configureTestingModule({
+            declarations: [ PageAlbumsComponent ],
+            imports: [
+                RouterTestingModule,
+                HttpClientModule,
+                StoreBaseModule,
+                StoreModule.forFeature(AlbumsReducers.featureKey, AlbumsReducers.reducer),
+                EffectsModule.forFeature([ AlbumsEffects ]),
+            ],
+            providers: [
+                AlbumsService,
+            ],
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PageAlbumsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PageAlbumsComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

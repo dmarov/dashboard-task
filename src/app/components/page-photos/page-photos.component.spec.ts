@@ -11,33 +11,33 @@ import { PhotosService } from '@/services';
 import { PagePhotosComponent } from './page-photos.component';
 
 describe('PagePhotosComponent', () => {
-  let component: PagePhotosComponent;
-  let fixture: ComponentFixture<PagePhotosComponent>;
+    let component: PagePhotosComponent;
+    let fixture: ComponentFixture<PagePhotosComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PagePhotosComponent ],
-      imports: [
-        StoreBaseModule,
-        HttpClientModule,
-        RouterTestingModule,
-        StoreModule.forFeature(PhotosReducers.featureKey, PhotosReducers.reducer),
-        EffectsModule.forFeature([ PhotosEffects ]),
-      ],
-      providers: [
-        PhotosService,
-      ]
-    })
-    .compileComponents();
-  }));
+    beforeEach(waitForAsync(() => {
+        TestBed.configureTestingModule({
+            declarations: [ PagePhotosComponent ],
+            imports: [
+                StoreBaseModule,
+                HttpClientModule,
+                RouterTestingModule,
+                StoreModule.forFeature(PhotosReducers.featureKey, PhotosReducers.reducer),
+                EffectsModule.forFeature([ PhotosEffects ]),
+            ],
+            providers: [
+                PhotosService,
+            ]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PagePhotosComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PagePhotosComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

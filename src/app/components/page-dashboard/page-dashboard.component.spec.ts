@@ -4,7 +4,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
 
 import * as DashboardReducers from '@/store/reducers/dashboard';
 import { DashboardEffects } from '@/store/effects';
@@ -13,35 +12,35 @@ import { AlbumsService, PhotosService, PostsService } from '@/services';
 import { PageDashboardComponent } from './page-dashboard.component';
 
 describe('PageDashboardComponent', () => {
-  let component: PageDashboardComponent;
-  let fixture: ComponentFixture<PageDashboardComponent>;
+    let component: PageDashboardComponent;
+    let fixture: ComponentFixture<PageDashboardComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PageDashboardComponent ],
-      imports: [
-        HttpClientModule,
-        StoreBaseModule,
-        RouterTestingModule,
-        StoreModule.forFeature(DashboardReducers.featureKey, DashboardReducers.reducer),
-        EffectsModule.forFeature([ DashboardEffects ]),
-      ],
-      providers: [
-        AlbumsService,
-        PhotosService,
-        PostsService,
-      ],
-    })
-    .compileComponents();
-  }));
+    beforeEach(waitForAsync(() => {
+        TestBed.configureTestingModule({
+            declarations: [ PageDashboardComponent ],
+            imports: [
+                HttpClientModule,
+                StoreBaseModule,
+                RouterTestingModule,
+                StoreModule.forFeature(DashboardReducers.featureKey, DashboardReducers.reducer),
+                EffectsModule.forFeature([ DashboardEffects ]),
+            ],
+            providers: [
+                AlbumsService,
+                PhotosService,
+                PostsService,
+            ],
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PageDashboardComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PageDashboardComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

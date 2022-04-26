@@ -7,31 +7,31 @@ import { PhotosService } from '@/services';
 import { PagePhotoComponent } from './page-photo.component';
 
 describe('PagePhotoComponent', () => {
-  let component: PagePhotoComponent;
-  let fixture: ComponentFixture<PagePhotoComponent>;
+    let component: PagePhotoComponent;
+    let fixture: ComponentFixture<PagePhotoComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PagePhotoComponent ],
-      imports: [
-        RouterTestingModule,
-        StoreBaseModule,
-        HttpClientModule,
-      ],
-      providers: [
-        PhotosService,
-      ],
-    })
-    .compileComponents();
-  }));
+    beforeEach(waitForAsync(() => {
+        TestBed.configureTestingModule({
+            declarations: [ PagePhotoComponent ],
+            imports: [
+                RouterTestingModule,
+                StoreBaseModule,
+                HttpClientModule,
+            ],
+            providers: [
+                PhotosService,
+            ],
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PagePhotoComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PagePhotoComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

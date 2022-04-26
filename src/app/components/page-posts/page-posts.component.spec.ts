@@ -10,33 +10,33 @@ import { PostsEffects } from '@/store/effects';
 import { PostsService } from '@/services';
 
 describe('PagePostsComponent', () => {
-  let component: PagePostsComponent;
-  let fixture: ComponentFixture<PagePostsComponent>;
+    let component: PagePostsComponent;
+    let fixture: ComponentFixture<PagePostsComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PagePostsComponent ],
-      imports: [
-        RouterTestingModule,
-        StoreBaseModule,
-        StoreModule.forFeature(PostsReducers.featureKey, PostsReducers.reducer),
-        EffectsModule.forFeature([ PostsEffects ]),
-        HttpClientModule,
-      ],
-      providers: [
-        PostsService,
-      ],
-    })
-    .compileComponents();
-  }));
+    beforeEach(waitForAsync(() => {
+        TestBed.configureTestingModule({
+            declarations: [ PagePostsComponent ],
+            imports: [
+                RouterTestingModule,
+                StoreBaseModule,
+                StoreModule.forFeature(PostsReducers.featureKey, PostsReducers.reducer),
+                EffectsModule.forFeature([ PostsEffects ]),
+                HttpClientModule,
+            ],
+            providers: [
+                PostsService,
+            ],
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PagePostsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PagePostsComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
