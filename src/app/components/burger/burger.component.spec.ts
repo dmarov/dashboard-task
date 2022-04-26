@@ -1,8 +1,10 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { StoreBaseModule } from '@/modules/store-base.module';
-import { RouterTestingModule } from '@angular/router/testing';
 
 import { BurgerComponent } from './burger.component';
+import { StoreModule } from '@ngrx/store';
+import { UiReducers } from '@/store/reducers';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('BurgerComponent', () => {
   let component: BurgerComponent;
@@ -12,8 +14,10 @@ describe('BurgerComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ BurgerComponent ],
       imports: [
-        StoreBaseModule,
         RouterTestingModule,
+        StoreBaseModule,
+        StoreBaseModule,
+        StoreModule.forFeature(UiReducers.featureKey, UiReducers.reducer),
       ],
     })
     .compileComponents();
