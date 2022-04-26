@@ -5,7 +5,7 @@ import { AppRoutingModule } from '@/app-routing.module';
 import { AppComponent } from '@/app.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import * as UiReducers from '@/store/reducers/ui';
+import { UiReducers } from '@/store/reducers';
 import { RouterEffects } from '@/store/effects';
 
 import {

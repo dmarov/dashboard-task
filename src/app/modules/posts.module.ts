@@ -10,7 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LayoutPageModule } from '@/modules/layout-page.module';
 import { PostsService } from '@/services';
 import { StoreModule } from '@ngrx/store';
-import * as PostsReducers from '@/store/reducers/posts';
+import { PostsReducers } from '@/store/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { PostsEffects } from '@/store/effects';
 import { LoaderModule } from '@/modules/loader.module';

@@ -13,7 +13,7 @@ import {
     PageAlbumComponent,
 } from '@/components';
 import { AlbumsService } from '@/services';
-import * as AlbumsReducers from '@/store/reducers/albums';
+import { AlbumsReducers } from '@/store/reducers';
 import { LayoutPageModule } from '@/modules/layout-page.module';
 import { LoaderModule } from '@/modules/loader.module';
 import { PaginationModule } from '@/modules/pagination.module';

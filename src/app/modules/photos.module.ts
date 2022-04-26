@@ -11,7 +11,7 @@ import {
     PagePhotosComponent,
 } from '@/components';
 import { LayoutPageModule } from '@/modules/layout-page.module';
-import * as PhotosReducers from '@/store/reducers/photos';
+import { PhotosReducers } from '@/store/reducers';
 import { PhotosService } from '@/services';
 import { PhotosEffects } from '@/store/effects';
 import { PhotoComponentsModule } from '@/modules/photo-components.module';

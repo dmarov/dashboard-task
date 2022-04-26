@@ -1,11 +1,5 @@
-import * as UiSelectors from './ui';
-import * as PostsSelectors from './posts';
-import * as AlbumsSelectors from './albums';
-import * as PhotosSelectors from './photos';
-import * as DashboardSelectors from './dashboard';
-
-export { UiSelectors };
-export { PostsSelectors };
-export { AlbumsSelectors };
-export { PhotosSelectors };
-export { DashboardSelectors };
+export * as UiSelectors from './ui';
+export * as PostsSelectors from './posts';
+export * as AlbumsSelectors from './albums';
+export * as PhotosSelectors from './photos';
+export * as DashboardSelectors from './dashboard';
