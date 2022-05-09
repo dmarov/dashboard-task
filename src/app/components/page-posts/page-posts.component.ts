@@ -3,10 +3,9 @@ import { Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { ApiPost, PostsSearchFieldType, PostsSortFieldType, SortType } from '@/models';
-import { PostsSelectors } from '@/store/selectors';
+import { PostsSelectors, RouterSelectors } from '@/store/selectors';
 import { ActivatedRoute, Router } from '@angular/router';
-import { QueryParser } from '@/utils';
-import { first, withLatestFrom } from 'rxjs/operators';
+import { distinctUntilChanged, first } from 'rxjs/operators';
 
 @Component({
     selector: 'app-page-posts',
@@ -77,18 +76,70 @@ export class PagePostsComponent implements OnInit, OnDestroy {
             select(PostsSelectors.selectSortType)
         );
 
+        this.hookRouteParams();
+    }
+
+    private hookRouteParams() {
         this.subscription.add(
-            this.activatedRoute
-                .queryParamMap.pipe(
-                    withLatestFrom(
-                        this.activePage$,
-                        this.searchTerm$,
-                        this.searchField$,
-                        this.sortType$,
-                        this.sortField$,
-                    )
-                )
-                .subscribe(this.updateState)
+            this.store$.pipe(
+                select(RouterSelectors.selectSearchTerm),
+            ).subscribe(term => {
+                this.store$.dispatch(
+                    PostsActions.setSearchTerm({ term })
+                );
+
+                this.store$.dispatch(
+                    PostsActions.setActivePage({ page: 0 })
+                );
+            })
+        );
+
+        this.subscription.add(
+            this.store$.pipe(
+                select(RouterSelectors.selectSearchField),
+                distinctUntilChanged(),
+            ).subscribe(field => {
+                this.store$.dispatch(
+                    PostsActions.setSearchField({ field })
+                );
+
+                this.store$.dispatch(
+                    PostsActions.setActivePage({ page: 0 })
+                );
+            })
+        );
+
+        this.subscription.add(
+            this.store$.pipe(
+                select(RouterSelectors.selectPage),
+                distinctUntilChanged(),
+            ).subscribe(page => {
+                this.store$.dispatch(
+                    PostsActions.setActivePage({ page })
+                );
+            })
+        );
+
+        this.subscription.add(
+            this.store$.pipe(
+                select(RouterSelectors.selectSortType),
+                distinctUntilChanged(),
+            ).subscribe(sortType => {
+                this.store$.dispatch(
+                    PostsActions.setSortType({ sortType })
+                );
+            })
+        );
+
+        this.subscription.add(
+            this.store$.pipe(
+                select(RouterSelectors.selectSortField),
+                distinctUntilChanged(),
+            ).subscribe(field => {
+                this.store$.dispatch(
+                    PostsActions.setSortField({ field })
+                );
+            })
         );
     }
 
@@ -130,78 +181,6 @@ export class PagePostsComponent implements OnInit, OnDestroy {
             queryParams: { sortField },
             queryParamsHandling: 'merge',
         });
-    }
-
-    updateState = ([params, prevPage, prevTerm, prevField, prevSortType, prevSortField]) => {
-        const page = QueryParser.parsePage(params);
-        const term = QueryParser.parseSearch(params);
-        const field = QueryParser.parseSearchField(params);
-        const sortType = QueryParser.parseSortType(params);
-        const sortField = QueryParser.parseSortField(params);
-
-        this.updatePage(page, prevPage);
-        this.updateTerm(term, prevTerm);
-        this.updateField(field, prevField);
-        this.updateSortType(sortType, prevSortType);
-        this.updateSortField(sortField, prevSortField);
-    }
-
-    updatePage(page: number, prevPage: number) {
-        const pageMismatch = page !== prevPage;
-
-        if (pageMismatch) {
-            this.store$.dispatch(
-                PostsActions.setActivePage({ page })
-            );
-        }
-    }
-
-    updateTerm(term: string, prevTerm: string) {
-        const termMismatch = term !== prevTerm;
-
-        if (termMismatch) {
-            this.store$.dispatch(
-                PostsActions.setSearchTerm({ term })
-            );
-
-            this.store$.dispatch(
-                PostsActions.setActivePage({ page: 0 })
-            );
-        }
-    }
-
-    updateField(field: PostsSearchFieldType, prevField: PostsSearchFieldType) {
-        const fieldMismatch = field !== prevField;
-
-        if (fieldMismatch) {
-            this.store$.dispatch(
-                PostsActions.setSearchField({ field })
-            );
-
-            this.store$.dispatch(
-                PostsActions.setActivePage({ page: 0 })
-            );
-        }
-    }
-
-    updateSortType(sortType: SortType, prevSortType: SortType) {
-        const fieldMismatch = sortType !== prevSortType;
-
-        if (fieldMismatch) {
-            this.store$.dispatch(
-                PostsActions.setSortType({ sortType })
-            );
-        }
-    }
-
-    updateSortField(field: PostsSortFieldType, prevField: PostsSortFieldType) {
-        const fieldMismatch = field !== prevField;
-
-        if (fieldMismatch) {
-            this.store$.dispatch(
-                PostsActions.setSortField({ field })
-            );
-        }
     }
 
     async clickField(field: PostsSortFieldType) {
