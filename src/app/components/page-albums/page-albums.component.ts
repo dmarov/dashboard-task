@@ -1,12 +1,11 @@
 import { AlbumsSearchFieldType, ApiAlbum } from '@/models';
 import { AlbumsActions } from '@/store/actions';
-import { AlbumsSelectors } from '@/store/selectors';
-import { QueryParser } from '@/utils';
+import { AlbumsSelectors, RouterSelectors } from '@/store/selectors';
 import { Component, HostBinding, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { withLatestFrom } from 'rxjs/operators';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
     selector: 'app-page-albums',
@@ -67,15 +66,44 @@ export class PageAlbumsComponent implements OnInit, OnDestroy {
         );
 
         this.subscription.add(
-            this.activatedRoute
-                .queryParamMap.pipe(
-                    withLatestFrom(
-                        this.activePage$,
-                        this.searchTerm$,
-                        this.searchField$,
-                    )
-                )
-                .subscribe(this.updateState)
+            this.store$.pipe(
+                select(RouterSelectors.selectPage),
+                distinctUntilChanged(),
+            ).subscribe(page => {
+                this.store$.dispatch(
+                    AlbumsActions.setActivePage({ page })
+                );
+            }),
+        );
+
+        this.subscription.add(
+            this.store$.pipe(
+                select(RouterSelectors.selectSearchTerm),
+                distinctUntilChanged(),
+            ).subscribe(term => {
+                this.store$.dispatch(
+                    AlbumsActions.setSearchTerm({ term })
+                );
+
+                this.store$.dispatch(
+                    AlbumsActions.setActivePage({ page: 0 })
+                );
+            }),
+        );
+
+        this.subscription.add(
+            this.store$.pipe(
+                select(RouterSelectors.selectSearchField),
+                distinctUntilChanged(),
+            ).subscribe(field => {
+                this.store$.dispatch(
+                    AlbumsActions.setSearchField({ field })
+                );
+
+                this.store$.dispatch(
+                    AlbumsActions.setActivePage({ page: 0 })
+                );
+            }),
         );
     }
 
@@ -101,54 +129,6 @@ export class PageAlbumsComponent implements OnInit, OnDestroy {
             queryParams: { searchField: field },
             queryParamsHandling: 'merge',
         });
-    }
-
-    updateState = ([params, prevPage, prevTerm, prevField]) => {
-        const page = QueryParser.parsePage(params);
-        const term = QueryParser.parseSearch(params);
-        const field = QueryParser.parseSearchField(params);
-
-        this.updatePage(page, prevPage);
-        this.updateTerm(term, prevTerm);
-        this.updateField(field, prevField);
-    }
-
-    updatePage(page: number, prevPage: number) {
-        const pageMismatch = page !== prevPage;
-
-        if (pageMismatch) {
-            this.store$.dispatch(
-                AlbumsActions.setActivePage({ page })
-            );
-        }
-    }
-
-    updateTerm(term: string, prevTerm: string) {
-        const termMismatch = term !== prevTerm;
-
-        if (termMismatch) {
-            this.store$.dispatch(
-                AlbumsActions.setSearchTerm({ term })
-            );
-
-            this.store$.dispatch(
-                AlbumsActions.setActivePage({ page: 0 })
-            );
-        }
-    }
-
-    updateField(field: AlbumsSearchFieldType, prevField: AlbumsSearchFieldType) {
-        const fieldMismatch = field !== prevField;
-
-        if (fieldMismatch) {
-            this.store$.dispatch(
-                AlbumsActions.setSearchField({ field })
-            );
-
-            this.store$.dispatch(
-                AlbumsActions.setActivePage({ page: 0 })
-            );
-        }
     }
 
     ngOnDestroy() {
